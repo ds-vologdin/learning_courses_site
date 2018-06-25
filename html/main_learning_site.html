@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <link type="text/css" href="main.css" rel="stylesheet" />
   <title>Онлайн-образование</title>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
   <header class="header">
@@ -26,10 +26,10 @@
             <a class="header_menu__dropdown_link header_menu__dropdown_link__no_wrap" href="#">Преподаватели</a>
             <a class="header_menu__dropdown_link header_menu__dropdown_link__no_wrap" href="#">Отзывы</a>
           </div>
-          <a href="#" class="header_menu__item">Работа в компаниях</a>
-          <a href="#" class="header_menu__item">Компаниям</a>
-          <a href="#" class="header_menu__item">Блог</a>
         </div>
+        <a href="#" class="header_menu__item">Работа в компаниях</a>
+        <a href="#" class="header_menu__item">Компаниям</a>
+        <a href="#" class="header_menu__item">Блог</a>
       </div>
       <div class="header_menu_right">
         <a href="tel:+79990009900" class="header_menu__phone">+7 999 000-99-00</a>
@@ -56,28 +56,37 @@
               <div class="header_menu__icon">
                 <div class="header_menu__icon_img ic_notification"></div>
               </div>
-            </div>
-            <div class="header_menu__dropdown header_menu__dropdown_right notifications_dropdown">
-              <a class="header_menu__dropdown_link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
-                <div class="notifications_dropdown__item_text">
-                  <div class="notifications_dropdown__item_text_wrapper">26 июня в 20:00 состоится открытый урок по крусу "Full stack python"</div>
-                </div>
-              </a>
-              <a class="header_menu__dropdown_link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
-                <div class="notifications_dropdown__item_text">
-                  <div class="notifications_dropdown__item_text_wrapper">29 июня в 20:00 состоится открытый урок по крусу "Разработчик C++"</div>
-                </div>
-              </a>
-              <a class="header_menu__dropdown_link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
-                <div class="notifications_dropdown__item_text">
-                  <div class="notifications_dropdown__item_text_wrapper">2 июля в 20:00 состоится открытый урок по крусу "Бекэнд разработчик PHP"</div>
-                </div>
-              </a>
+              <div class="header_menu__dropdown header_menu__dropdown_right notifications_dropdown">
+                <a class="header_menu__dropdown_link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
+                  <div class="notifications_dropdown__item_text">
+                    <div class="notifications_dropdown__item_text_wrapper">26 июня в 20:00 состоится открытый урок по крусу "Full stack python"</div>
+                  </div>
+                </a>
+                <a class="header_menu__dropdown_link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
+                  <div class="notifications_dropdown__item_text">
+                    <div class="notifications_dropdown__item_text_wrapper">29 июня в 20:00 состоится открытый урок по крусу "Разработчик C++"</div>
+                  </div>
+                </a>
+                <a class="header_menu__dropdown_link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
+                  <div class="notifications_dropdown__item_text">
+                    <div class="notifications_dropdown__item_text_wrapper">2 июля в 20:00 состоится открытый урок по крусу "Бекэнд разработчик PHP"</div>
+                  </div>
+                </a>
+              </div>
             </div>
         </div>
       </div>
     </div>
   </header>
   <h1>Учебный сайт</h1>
+<script>
+$('div.header_menu__item.header_menu__item_dropdown').hover(
+  function() {
+    $(this).find('.header_menu__dropdown').stop(true, true).delay(200).fadeIn();
+},
+  function() {
+    $(this).find('.header_menu__dropdown').stop(true, true).delay(200).fadeOut();
+})
+</script>
 </body>
 </html>

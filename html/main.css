@@ -107,7 +107,7 @@
 }
 
 .header_menu__dropdown {
-//  display: none;
+  display: none;
   position: absolute;
   z-index: 100;
   left: 0;
