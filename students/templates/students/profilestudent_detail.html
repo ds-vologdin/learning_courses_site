@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  {% load static %}
+  <!-- <link type="text/css" href="{% static "students/lk.css" %}" rel="stylesheet" /> -->
+  <link type="text/css" href="/static/students/lk.css" rel="stylesheet" />
+  <title>Онлайн-образование</title>
+</head>
+<body>
+  <div>
+    <h1>Личный кабинет</h1>
+    <h2>{{ object.user.username }}</h2>
+    <div>
+      Город: {{ object.user.profile.location }}
+    </div>
+    <div>
+      Фото: {{ object.user.profile.avatar }}
+    </div>
+    <div class="avatar" style="background: url(/media/avatar/avatar_2.jpg) center no-repeat;"></div>
+  </div>
+</body>
