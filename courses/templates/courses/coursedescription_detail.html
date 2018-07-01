@@ -1,0 +1,21 @@
+<div class="course-description">
+  <h1>{{ object.name }}</h1>
+  <h2>Описание курса</h2>
+  <div class="course-description__description">
+    {{ object.description|linebreaks }}
+  </div>
+  <h2>Минимальные требования</h2>
+  <div class="course-description__demands">
+    {{ object.demands|linebreaks }}
+  </div>
+  <h2>Расписание</h2>
+  <div class="course-description__courses">
+    <ul>
+    {% for course in object.course_set.all %}
+      <li>
+        {{ course.name }}
+      </li>
+    {% endfor %}
+  </ul>
+  </div>
+</div>

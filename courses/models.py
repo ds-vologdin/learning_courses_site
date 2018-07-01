@@ -7,7 +7,7 @@ from datetime import timedelta
 
 class CourseDescription(models.Model):
     # example: webpython
-    code_name = CharField(max_length=50)
+    code_name = CharField(max_length=50, unique=True)
     # example: Web-разработчик на Python
     name = CharField(max_length=200)
     description = TextField()
@@ -23,7 +23,7 @@ class Course(models.Model):
         'CourseDescription', on_delete=models.CASCADE
     )
     # example: WebPython-2018-07
-    name = CharField(max_length=50)
+    name = CharField(max_length=50, unique=True)
     date_begin = DateField(blank=True, null=True)
     duration_month = IntegerField(default=5)
     cost_full = IntegerField(default=50000)
