@@ -21,10 +21,12 @@ class Profile(models.Model):
     )
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
-    avatar = models.ImageField(upload_to=get_filename_avatar_student)
+    avatar = models.ImageField(
+        upload_to=get_filename_avatar_student, blank=True, null=True
+    )
 
     def __str__(self):
-        return '<ProfileStudent object: {}>'.format(self.user)
+        return '<Profile object: {}>'.format(self.user)
 
 
 class ProfileStudent(models.Model):

@@ -3,7 +3,7 @@
   {% for student in object_list %}
     <ul>
       <li>
-        <a href="{% url 'students:detail' student.id %}">{{ student.user.username }} - {{ student.user.profile.location }}</a>
+        <a href="{% url 'students:detail' student.id %}">{{ student.id }} {{ student.user.username }} - {{ student.user.profile.location }}</a>
       </li>
     </ul>
   {% endfor %}

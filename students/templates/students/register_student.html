@@ -1,0 +1,46 @@
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="input">
+      <div class="header_input">
+        <h2>Основные параметры</h2>
+      </div>
+      {% for field in user_form %}
+        <div class="fieldWrapper">
+          {{ field.errors }}
+          {{ field.label_tag }} {{ field }}
+          {% if field.help_text %}
+            <p class="help">{{ field.help_text|safe }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="input">
+      <div class="header_input">
+        <h2>Дополнительные параметры</h2>
+      </div>
+      {% for field in user_profile_form %}
+        <div class="fieldWrapper">
+          {{ field.errors }}
+          {{ field.label_tag }} {{ field }}
+          {% if field.help_text %}
+            <p class="help">{{ field.help_text|safe }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="input">
+      <div class="header_input">
+        <h2>О студенте</h2>
+      </div>
+      {% for field in user_profile_student_form %}
+        <div class="fieldWrapper">
+          {{ field.errors }}
+          {{ field.label_tag }} {{ field }}
+          {% if field.help_text %}
+            <p class="help">{{ field.help_text|safe }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    <input type="submit">
+</form>

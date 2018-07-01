@@ -20,7 +20,7 @@ class InlineProfile(admin.StackedInline):
 
 class UserAdmin(DjangoUserAdmin):
     inlines = [InlineProfile, InlineProfileStudent, InlineProfileTeacher]
-    list_display = ('username', 'email', 'first_name', 'last_name',
+    list_display = ('id', 'username', 'email', 'first_name', 'last_name',
                     'profilestudent', 'profileteacher')
 
 

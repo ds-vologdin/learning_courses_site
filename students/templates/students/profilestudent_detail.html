@@ -17,6 +17,10 @@
     <div>
       Фото: {{ object.user.profile.avatar }}
     </div>
-    <div class="avatar" style="background: url(/media/{{ object.user.profile.avatar }}) center no-repeat;"></div>
+    {% if object.user.profile.avatar %}
+      <div class="avatar" style="background: url(/media/{{ object.user.profile.avatar }}) center no-repeat;"></div>
+    {% else %}
+      <div class="avatar"></div>
+    {% endif %}
   </div>
 </body>
