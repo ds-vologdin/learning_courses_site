@@ -1,0 +1,10 @@
+<div>
+  <h1>Личный кабинет учителя</h1>
+  {% for teacher in object_list %}
+    <ul>
+      <li>
+        <a href="{% url 'teachers:detail' teacher.id %}">{{ teacher.user.username }} - {{ teacher.user.profile.location }}</a>
+      </li>
+    </ul>
+  {% endfor %}
+</div>

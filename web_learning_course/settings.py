@@ -14,6 +14,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    'teachers.apps.TeachersConfig',
     'students.apps.StudentsConfig',
     'django.contrib.admin',
     'django.contrib.auth',

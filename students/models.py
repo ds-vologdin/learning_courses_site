@@ -14,7 +14,8 @@ class Profile(models.Model):
         ('female', 'Женский'),
         ('none', 'Не указано'),
     )
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,
+                                parent_link=False)
     gender = models.CharField(
         max_length=6, choices=GENDER_CHOICES, default='none'
     )
@@ -27,7 +28,8 @@ class Profile(models.Model):
 
 
 class ProfileStudent(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,
+                                parent_link=False)
     experience = models.TextField(blank=True)
     # Здесь же будет привязка к курсам
 
