@@ -92,3 +92,9 @@ class Base(Configuration):
 
 class Dev(DatabaseDevMixins, SecretKeyMixins, Base):
     DEBUG = True
+
+
+# В wsgi.py и manage.py подгружаем ConfigClass
+# Это давляет чуть больше гибкости. Если мы захотим подгрузить другой класс
+# конфигрурации, делать это придётся в одном месте.
+ConfigClass = Dev

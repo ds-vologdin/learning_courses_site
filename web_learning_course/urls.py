@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.staticfiles.urls import static
 
-from . import settings
+from .settings import ConfigClass
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,7 +11,7 @@ urlpatterns = [
     path('courses/', include('courses.urls')),
 ]
 
-if settings.DEBUG:
+if ConfigClass.DEBUG:
     urlpatterns += static(
-        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+        ConfigClass.MEDIA_URL, document_root=ConfigClass.MEDIA_ROOT
     )
