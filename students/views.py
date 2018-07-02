@@ -1,6 +1,7 @@
 from django.views import generic, View
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 
 import logging
@@ -33,8 +34,9 @@ class RegisterStudent(View):
 
     def post(self, request):
         user_form = UserForm(request.POST, prefix='user')
-        user_profile_form = UserProfileForm(request.POST, request.FILES,
-                                            prefix='user_profile')
+        user_profile_form = UserProfileForm(
+            request.POST, request.FILES, prefix='user_profile'
+        )
         user_profile_student_form = UserProfileStudentForm(
             request.POST, prefix='user_profile_student'
         )
@@ -58,4 +60,4 @@ class RegisterStudent(View):
         user_profile.save()
         user_profile_student.save()
 
-        return HttpResponseRedirect('/lk/index')
+        return HttpResponseRedirect(reverse('students:index'))
