@@ -1,46 +1,68 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css %}
+<link href="{% static 'students/css/lk.css' %}" rel="stylesheet">
+{% endblock css %}
+
+{% block main %}
 <form method="POST" action="" enctype="multipart/form-data">
     {% csrf_token %}
-    <div class="input">
+    <div class="input-form">
       <div class="header_input">
         <h2>Основные параметры</h2>
       </div>
       {% for field in user_form %}
         <div class="fieldWrapper">
           {{ field.errors }}
-          {{ field.label_tag }} {{ field }}
+          <div class="input-group mb-3">
+            <div class="input-group-prepend input-group-text register-input">
+              {{ field.label_tag }}
+            </div>
+            {{ field }}
+          </div>
           {% if field.help_text %}
             <p class="help">{{ field.help_text|safe }}</p>
           {% endif %}
         </div>
       {% endfor %}
-    </div>
-    <div class="input">
       <div class="header_input">
         <h2>Дополнительные параметры</h2>
       </div>
       {% for field in user_profile_form %}
         <div class="fieldWrapper">
           {{ field.errors }}
-          {{ field.label_tag }} {{ field }}
+          <div class="input-group mb-3">
+            <div class="input-group-prepend input-group-text register-input">
+              {{ field.label_tag }}
+            </div>
+            {{ field }}
+          </div>
           {% if field.help_text %}
             <p class="help">{{ field.help_text|safe }}</p>
           {% endif %}
         </div>
       {% endfor %}
-    </div>
-    <div class="input">
+
       <div class="header_input">
         <h2>О студенте</h2>
       </div>
       {% for field in user_profile_student_form %}
         <div class="fieldWrapper">
           {{ field.errors }}
-          {{ field.label_tag }} {{ field }}
+          <div class="input-group mb-3">
+            <div class="input-group-prepend input-group-text register-input">
+              {{ field.label_tag }}
+            </div>
+            {{ field }}
+          </div>
           {% if field.help_text %}
             <p class="help">{{ field.help_text|safe }}</p>
           {% endif %}
         </div>
       {% endfor %}
+      <input class="btn btn-primary" type="submit">
     </div>
-    <input type="submit">
 </form>
+{% endblock main %}

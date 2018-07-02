@@ -1,22 +1,21 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8">
-  {% load static %}
-  <!-- <link type="text/css" href="{% static "students/lk.css" %}" rel="stylesheet" /> -->
-  <link type="text/css" href="/static/students/lk.css" rel="stylesheet" />
-  <title>Онлайн-образование</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css %}
+<link href="{% static 'students/css/lk.css' %}" rel="stylesheet">
+{% endblock css %}
+
+{% block main %}
+<div>
+  <h1>Личный кабинет</h1>
+  <h2>{{ object.user.username }}</h2>
   <div>
-    <h1>Личный кабинет</h1>
-    <h2>{{ object.user.username }}</h2>
-    <div>
-      Город: {{ object.user.profile.location }}
-    </div>
-    <div>
-      Фото: {{ object.user.profile.avatar }}
-    </div>
-    <div class="avatar" style="background: url(/media/{{ object.user.profile.avatar }}) center no-repeat;"></div>
+    Город: {{ object.user.profile.location }}
   </div>
-</body>
+  <div>
+    Фото: {{ object.user.profile.avatar }}
+  </div>
+  <div class="avatar" style="background: url(/media/{{ object.user.profile.avatar }}) center no-repeat;"></div>
+</div>
+{% endblock main %}
