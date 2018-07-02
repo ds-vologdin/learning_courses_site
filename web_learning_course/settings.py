@@ -24,6 +24,7 @@ class Base(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+        'django_extensions',
     ]
 
     MIDDLEWARE = [
@@ -92,7 +93,9 @@ class Base(Configuration):
 
 class Dev(DatabaseDevMixins, SecretKeyMixins, Base):
     DEBUG = True
-
+    INSTALLED_APPS = Base.INSTALLED_APPS + ['debug_toolbar']
+    MIDDLEWARE = Base.MIDDLEWARE + ['debug_toolbar.middleware.DebugToolbarMiddleware']
+    INTERNAL_IPS = ['127.0.0.1']
 
 # В wsgi.py и manage.py подгружаем ConfigClass
 # Это давляет чуть больше гибкости. Если мы захотим подгрузить другой класс

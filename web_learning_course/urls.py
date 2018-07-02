@@ -12,6 +12,8 @@ urlpatterns = [
 ]
 
 if ConfigClass.DEBUG:
+    import debug_toolbar
+    urlpatterns += [path('__debug__/', include(debug_toolbar.urls))]
     urlpatterns += static(
         ConfigClass.MEDIA_URL, document_root=ConfigClass.MEDIA_ROOT
     )
