@@ -1,0 +1,522 @@
+[
+    {
+        "fields": {
+            "demands": "\u0427\u0442\u043e\u0431\u044b \u043d\u0430\u0447\u0430\u0442\u044c \u0437\u0430\u043d\u0438\u043c\u0430\u0442\u044c\u0441\u044f \u043d\u0430 \u043a\u0443\u0440\u0441\u0435, \u043d\u0443\u0436\u043d\u043e \u0437\u043d\u0430\u0442\u044c:\r\n- \u043e\u0441\u043d\u043e\u0432\u044b \u0441\u0438\u043d\u0442\u0430\u043a\u0441\u0438\u0441\u0430 Python 3;\r\n- \u043e\u0441\u043d\u043e\u0432\u043d\u044b\u0435 \u043c\u043e\u0434\u0443\u043b\u0438 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043d\u043e\u0439 \u0431\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0438;\r\n- \u043e\u0441\u043d\u043e\u0432\u044b \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u044f \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0435\u043c\u043e\u0433\u043e \u043a\u043e\u0434\u0430;\r\n- \u043e\u0441\u043d\u043e\u0432\u044b SQL;\r\n- \u043f\u043e\u043d\u044f\u0442\u0438\u0435 \u0430\u0441\u0438\u043c\u043f\u0442\u043e\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0441\u043b\u043e\u0436\u043d\u043e\u0441\u0442\u0438;\r\n- \u043a\u0430\u043a \u0440\u0430\u0431\u043e\u0442\u0430\u0442\u044c \u0432 \u043a\u043e\u043d\u0441\u043e\u043b\u0438;\r\n- \u043a\u0430\u043a \u0440\u0430\u0431\u043e\u0442\u0430\u0442\u044c \u0441 git;\r\n- \u043a\u0430\u043a \u0438 \u0437\u0430\u0447\u0435\u043c \u043f\u0438\u0441\u0430\u0442\u044c \u0430\u0432\u0442\u043e\u0442\u0435\u0441\u0442\u044b;\r\n- \u043e\u0441\u043d\u043e\u0432\u044b html \u0438 css;\r\n- \u043e\u0441\u043d\u043e\u0432\u044b JavaScript.\r\n\r\n\u0412\u043e\u0442 \u0441\u0441\u044b\u043b\u043a\u0438, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043f\u043e\u043c\u043e\u0433\u0443\u0442 \u043e\u0432\u043b\u0430\u0434\u0435\u0442\u044c \u0438\u043b\u0438 \u0432\u0441\u043f\u043e\u043c\u043d\u0438\u0442\u044c \u043d\u0435\u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0438\u0437 \u044d\u0442\u0438\u0445 \u043f\u0443\u043d\u043a\u0442\u043e\u0432:\r\nhttp://sql-ex.ru/\r\nhttp://pythontutor.ru/\r\nhttps://github.com/gregmalcolm/python_koans\r\nhttp://try.github.io/\r\nhttps://www.ozon.ru/context/detail/id/4523340/\r\nhttps://www.ozon.ru/context/detail/id/5730448/\r\nhttps://github.com/mrdavidlaing/javascript-koans\r\nhttps://developer.mozilla.org/ru/docs/Learn/Getting_started_with_the_web/JavaScript_basics",
+            "code_name": "webpython",
+            "description": "\u0426\u0435\u043b\u044c \u043a\u0443\u0440\u0441\u0430 \u201cWEB-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430 \u043d\u0430 Python\u201d \u2013 \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u0438\u0442\u044c \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442\u0430, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0441\u043c\u043e\u0436\u0435\u0442 \u043d\u0435 \u0442\u043e\u043b\u044c\u043a\u043e \u0440\u0435\u0448\u0430\u0442\u044c \u0440\u044f\u0434\u043e\u0432\u044b\u0435 \u0437\u0430\u0434\u0430\u0447\u0438 \u0431\u0435\u043a\u0435\u043d\u0434-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0438, \u043d\u043e \u0438 \u0441\u0434\u0435\u043b\u0430\u0442\u044c \u0441 \u043d\u0443\u043b\u044f \u0441\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u0443\u044e \u0444\u0440\u043e\u043d\u0442\u0435\u043d\u0434 \u0447\u0430\u0441\u0442\u044c.\r\n\r\n\u0427\u0442\u043e\u0431\u044b \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u043e\u043f\u044b\u0442 \u0431\u0435\u043a\u0435\u043d\u0434-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0438, \u043c\u044b \u0431\u0443\u0434\u0435\u043c \u043d\u0435 \u0442\u043e\u043b\u044c\u043a\u043e \u0440\u0435\u0448\u0430\u0442\u044c \u0442\u0438\u043f\u043e\u0432\u044b\u0435 \u0437\u0430\u0434\u0430\u0447\u0438, \u043d\u043e \u0438 \u0440\u0430\u0437\u0431\u0438\u0440\u0430\u0442\u044c\u0441\u044f \u0432 \u0442\u043e\u043c, \u043a\u0430\u043a \u0443\u0441\u0442\u0440\u043e\u0435\u043d\u044b \u043e\u0441\u043d\u043e\u0432\u043d\u044b\u0435 \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430, \u043a\u043e\u0442\u043e\u0440\u044b\u043c\u0438 \u043c\u044b \u043f\u043e\u043b\u044c\u0437\u0443\u0435\u043c\u0441\u044f \u043a\u0430\u0436\u0434\u044b\u0439 \u0434\u0435\u043d\u044c. \u041d\u0430\u043f\u0440\u0438\u043c\u0435\u0440, \u0432 \u0440\u0430\u043c\u043a\u0430\u0445 \u043a\u0443\u0440\u0441\u0430 \u0441\u0442\u0443\u0434\u0435\u043d\u0442\u044b \u0440\u0435\u0430\u043b\u0438\u0437\u0443\u044e\u0442 \u0441\u0432\u043e\u0439 \u043d\u0435\u0431\u043e\u043b\u044c\u0448\u043e\u0439 uwsgi-\u0441\u043e\u0432\u043c\u0435\u0441\u0442\u0438\u043c\u044b\u0439 \u0432\u0435\u0431-\u0444\u0440\u0435\u0439\u043c\u0432\u043e\u0440\u043a \u0438 \u0441\u0432\u043e\u044e ORM. \u041f\u043e\u0441\u043b\u0435 \u0442\u0430\u043a\u0438\u0445 \u0443\u043f\u0440\u0430\u0436\u043d\u0435\u043d\u0438\u0439 \u0443 \u0441\u0442\u0443\u0434\u0435\u043d\u0442\u043e\u0432 \u0431\u0443\u0434\u0435\u0442 \u043a\u0443\u0434\u0430 \u043c\u0435\u043d\u044c\u0448\u0435 \u0432\u043e\u043f\u0440\u043e\u0441\u043e\u0432 \u043e \u0442\u043e\u043c, \u0437\u0430\u0447\u0435\u043c \u043d\u0443\u0436\u0435\u043d werkzeug \u0438 \u043a\u0430\u043a SQLAlchemy \u0433\u0435\u043d\u0435\u0440\u0438\u0440\u0443\u0435\u0442 \u0437\u0430\u043f\u0440\u043e\u0441\u044b.\r\n\u041a\u0440\u043e\u043c\u0435 \u044d\u0442\u043e\u0433\u043e \u043c\u044b \u043f\u043e\u0440\u0430\u0431\u043e\u0442\u0430\u0435\u043c \u0441 Flask \u0438 Django, \u043f\u043e\u0441\u043c\u043e\u0442\u0440\u0438\u043c \u043d\u0430 \u0440\u0430\u0437\u043b\u0438\u0447\u0438\u044f Django ORM \u0438 SQLALchemy, \u043f\u043e\u0433\u043e\u0432\u043e\u0440\u0438\u043c \u043e \u0442\u043e\u043c, \u043a\u0430\u043a \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u043e \u0434\u0435\u043b\u0430\u0442\u044c API \u0438 \u0441\u0434\u0435\u043b\u0430\u0435\u043c \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043f\u0440\u0438\u043c\u0435\u0440\u043e\u0432 \u0441\u0430\u043c\u0438, \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e Django REST Framework \u0438 GraphQL, \u043d\u0430\u0443\u0447\u0438\u043c\u0441\u044f \u0434\u0435\u043f\u043b\u043e\u0438\u0442\u044c \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e Fabric \u0438 \u0437\u0430\u0432\u043e\u0440\u0430\u0447\u0438\u0432\u0430\u0442\u044c \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0432 Docker-\u043a\u043e\u043d\u0442\u0435\u0439\u043d\u0435\u0440\u044b, \u043d\u0430\u0443\u0447\u0438\u043c\u0441\u044f \u043f\u0438\u0441\u0430\u0442\u044c \u0442\u0435\u0441\u0442\u044b \u0438 \u0438\u0437\u0443\u0447\u0438\u043c \u043c\u043e\u0434\u0443\u043b\u0438, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0441\u0438\u043b\u044c\u043d\u043e \u043e\u0431\u043b\u0435\u0433\u0447\u0430\u044e\u0442 \u044d\u0442\u043e\u0442 \u043f\u0440\u043e\u0446\u0435\u0441\u0441, \u043f\u043e\u0433\u043e\u0432\u043e\u0440\u0438\u043c \u043e TDD, \u043d\u0430\u0443\u0447\u0438\u043c\u0441\u044f \u0434\u043e\u0431\u0430\u0432\u043b\u044f\u0442\u044c \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u044e \u0447\u0435\u0440\u0435\u0437 \u0441\u043e\u0446. \u0441\u0435\u0442\u0438, \u043f\u043e\u0440\u0430\u0431\u043e\u0442\u0430\u0435\u043c \u0441 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u0430\u043c\u0438 \u043e\u0447\u0435\u0440\u0435\u0434\u0435\u0439 (\u0438 \u043d\u0430\u043f\u0438\u0448\u0435\u043c \u0441\u0432\u043e\u0439!), \u043d\u0430\u043f\u0438\u0448\u0435\u043c \u0431\u043e\u0442\u0430 \u0434\u043b\u044f Telegram \u0438 \u0438\u0437\u0443\u0447\u0438\u043c \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u044b\u0439 \u0438\u043d\u0444\u0440\u0430\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u043d\u044b\u0439 \u043c\u0438\u043d\u0438\u043c\u0443\u043c \u0434\u043b\u044f \u0432\u0437\u0440\u043e\u0441\u043b\u043e\u0433\u043e \u043f\u0440\u043e\u0435\u043a\u0442\u0430 (InfluxDB, Grafana, Jenkins, Sentry).\r\n\r\n\u0427\u0442\u043e\u0431\u044b \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u043e\u043f\u044b\u0442 \u0444\u0440\u043e\u043d\u0442\u0435\u043d\u0434-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0438, \u043c\u044b \u0440\u0430\u0441\u0441\u043c\u043e\u0442\u0440\u0438\u043c \u043a\u043b\u044e\u0447\u0435\u0432\u044b\u0435 \u043e\u0441\u043e\u0431\u0435\u043d\u043d\u043e\u0441\u0442\u0438 \u044f\u0437\u044b\u043a\u0430 JavaScript, \u0435\u0433\u043e \u043e\u043a\u0440\u0443\u0436\u0435\u043d\u0438\u0435 - \u0431\u0440\u0430\u0443\u0437\u0435\u0440\u044b \u0438 \u0441\u0435\u0440\u0432\u0435\u0440\u043d\u0443\u044e \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u0443 NodeJS. \u041c\u044b \u0440\u0430\u0437\u0431\u0435\u0440\u0435\u043c \u0432\u043d\u0443\u0442\u0440\u0435\u043d\u043d\u0435\u0435 \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u043e \u0438 \u043f\u043e\u043d\u044f\u0442\u0438\u044f \u043f\u043e\u043f\u0443\u043b\u044f\u0440\u043d\u043e\u0433\u043e \u0444\u0440\u0435\u0439\u043c\u0432\u043e\u0440\u043a\u0430 ReactJS, \u0430 \u0442\u0430\u043a\u0436\u0435 \u043d\u0435\u043c\u043d\u043e\u0433\u043e \u043f\u043e\u0437\u043d\u0430\u043a\u043e\u043c\u0438\u043c\u0441\u044f \u0441 \u0431\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u043e\u0439 \u0434\u043b\u044f \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u044f web-\u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0439 VueJS.\r\n\r\n\u0412 \u0440\u0430\u043c\u043a\u0430\u0445 \u043a\u0443\u0440\u0441\u0430 \u043c\u044b \u0440\u0435\u0430\u043b\u0438\u0437\u0443\u0435\u043c \u0431\u043e\u043b\u044c\u0448\u043e\u0439 \u043f\u0440\u043e\u0435\u043a\u0442, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0431\u0443\u0434\u0435\u0442 \u043e\u0431\u044a\u0435\u0434\u0438\u043d\u044f\u0442\u044c \u0432 \u0441\u0435\u0431\u0435 \u0432\u0441\u0435 \u0437\u043d\u0430\u043d\u0438\u044f, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0432\u044b \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u0435 \u043d\u0430 \u043a\u0443\u0440\u0441\u0435.\r\n\r\n\u041a\u0443\u0440\u0441 \u043f\u0440\u0435\u0434\u043d\u0430\u0437\u043d\u0430\u0447\u0435\u043d \u0434\u043b\u044f \u0442\u0435\u0445, \u0443 \u043a\u043e\u0433\u043e \u0443\u0436\u0435 \u0435\u0441\u0442\u044c \u043e\u043f\u044b\u0442 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0438 \u0438\u043b\u0438 \u0431\u043e\u043b\u044c\u0448\u043e\u0439 \u043e\u043f\u044b\u0442 \u0443\u0447\u0430\u0441\u0442\u0438\u044f \u0432 \u043f\u0440\u043e\u0435\u043a\u0442\u0430\u0445 \u0441 \u043e\u0442\u043a\u0440\u044b\u0442\u044b\u043c \u0438\u0441\u0445\u043e\u0434\u043d\u044b\u043c \u043a\u043e\u0434\u043e\u043c: \u043c\u044b \u0436\u0434\u0451\u043c \u043e\u0442 \u0441\u0442\u0443\u0434\u0435\u043d\u0442\u043e\u0432 \u0437\u043d\u0430\u043a\u043e\u043c\u0441\u0442\u0432\u0430 \u0441 Python, \u043f\u043e\u043d\u0438\u043c\u0430\u043d\u0438\u044f \u043e\u0441\u043d\u043e\u0432 \u0432\u0435\u0431-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0438 \u0438 \u0437\u043d\u0430\u043d\u0438\u044f \u0441\u0430\u043c\u044b\u0445 \u0430\u0437\u043e\u0432 JavaScript \u0438 html/css.\r\n\r\n\u041e\u0431\u0443\u0447\u0435\u043d\u0438\u0435 \u043f\u0440\u043e\u0434\u043b\u0438\u0442\u0441\u044f \u043f\u044f\u0442\u044c \u043c\u0435\u0441\u044f\u0446\u0435\u0432, \u043a\u0430\u0436\u0434\u0443\u044e \u043d\u0435\u0434\u0435\u043b\u044e \u0431\u0443\u0434\u0435\u0442 \u0434\u043e\u043c\u0430\u0448\u043d\u0435\u0435 \u0437\u0430\u0434\u0430\u043d\u0438\u0435 \u0438 \u0434\u0432\u0430 \u0432\u0435\u0431\u0438\u043d\u0430\u0440\u0430 \u043f\u043e \u043f\u043e\u043b\u0442\u043e\u0440\u0430 \u0447\u0430\u0441\u0430 \u0441 \u0440\u0430\u0437\u0431\u043e\u0440\u043e\u043c \u043d\u043e\u0432\u044b\u0445 \u0442\u0435\u043c \u0438 \u0437\u0430\u0434\u0430\u0447.",
+            "active": true,
+            "name": "Web-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a \u043d\u0430 Python"
+        },
+        "model": "courses.coursedescription",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "demands": "\u0422\u0440\u0435\u0431\u043e\u0432\u0430\u043d\u0438\u044f \u043a \u043f\u043e\u0441\u0442\u0443\u043f\u0430\u044e\u0449\u0438\u043c:\r\n\u2013 \u0437\u043d\u0430\u043d\u0438\u044f \u043e\u0441\u043d\u043e\u0432 Linux: \u0447\u0442\u043e \u0442\u0430\u043a\u043e\u0435 \u044f\u0434\u0440\u043e, \u00ab\u043a\u043e\u043c\u0430\u043d\u0434\u043d\u0430\u044f \u0441\u0442\u0440\u043e\u043a\u0430\u00bb, \u0431\u0430\u0437\u043e\u0432\u044b\u0435 \u043a\u043e\u043c\u0430\u043d\u0434\u044b linux shell, \u0431\u0430\u0437\u043e\u0432\u044b\u0435 \u0443\u0442\u0438\u043b\u0438\u0442\u044b gnu;\r\n\u2013 \u043f\u043e\u043d\u0438\u043c\u0430\u043d\u0438\u0435 \u043e\u0441\u043d\u043e\u0432 \u0441\u0435\u0442\u0435\u0439: \u0430\u0434\u0440\u0435\u0441\u0430\u0446\u0438\u044f \u0438 \u0441\u0442\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u0440\u043e\u0443\u0442\u0438\u043d\u0433 \u0432 \u0441\u0435\u0442\u044f\u0445 \u043d\u0430 \u0431\u0430\u0437\u0435 IPv4;\r\n\u2013 \u043e\u043f\u044b\u0442 \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0438 \u0441\u0438\u0441\u0442\u0435\u043c\u044b Linux \u0438 \u043d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438 \u0441\u0432\u043e\u0435\u0433\u043e \u0440\u0430\u0431\u043e\u0447\u0435\u0433\u043e \u043c\u0435\u0441\u0442\u0430 (\u043f\u0440\u043e\u0445\u043e\u0434\u0438\u0442\u044c \u043a\u0443\u0440\u0441 \u043b\u0443\u0447\u0448\u0435 \u0432\u0441\u0435\u0433\u043e \u043d\u0430 \u0441\u0432\u043e\u0435\u0439 \u043c\u0430\u0448\u0438\u043d\u0435 \u0441 \u041e\u0421 Linux);\r\n\u2013 \u043e\u043f\u044b\u0442 \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0438 \u0441\u0438\u0441\u0442\u0435\u043c \u0432\u0438\u0440\u0442\u0443\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u0438: VirtualBox \u0438\u043b\u0438 \u0447\u0442\u043e-\u0442\u043e kvm-based.",
+            "code_name": "linux",
+            "description": "\u041d\u0430\u0438\u0431\u043e\u043b\u0435\u0435 \u043f\u043e\u043b\u043d\u044b\u0439 \u043a\u0443\u0440\u0441 \u0430\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u0441\u0438\u0441\u0442\u0435\u043c \u043d\u0430 \u0431\u0430\u0437\u0435 Linux, \u043f\u0440\u0435\u043f\u043e\u0434\u0430\u0432\u0430\u0435\u043c\u044b\u0439 \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442\u0430\u043c\u0438 \u0441 \u0431\u043e\u043b\u044c\u0448\u0438\u043c \u0441\u0442\u0430\u0436\u0435\u043c \u0440\u0430\u0431\u043e\u0442\u044b \u0432 \u043a\u0440\u0443\u043f\u043d\u0435\u0439\u0448\u0438\u0445 \u043f\u0440\u043e\u0435\u043a\u0442\u0430\u0445 \u0440\u0443\u043d\u0435\u0442\u0430. \u041a\u0443\u0440\u0441 \u0444\u043e\u0440\u043c\u0438\u0440\u0443\u0435\u0442 \u0437\u043d\u0430\u043d\u0438\u044f \u0438 \u043d\u0430\u0432\u044b\u043a\u0438 \u0434\u043b\u044f \u043f\u043e\u0441\u0442\u0440\u043e\u0435\u043d\u0438\u044f \u0438 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u043d\u0438\u044f \u0432\u044b\u0441\u043e\u043a\u043e\u043d\u0430\u0434\u0451\u0436\u043d\u044b\u0445 \u0432\u044b\u0441\u043e\u043a\u043e\u0434\u043e\u0441\u0442\u0443\u043f\u043d\u044b\u0445 \u0441\u0438\u0441\u0442\u0435\u043c \u043d\u0430 \u0431\u0430\u0437\u0435 Linux.\r\n\r\n\u0412 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u0435 \u0432\u044b\u043f\u0443\u0441\u043a\u043d\u0438\u043a\u0438 \u0441\u043c\u043e\u0433\u0443\u0442:\r\n\u2013 \u0440\u0430\u0437\u0432\u0435\u0440\u043d\u0443\u0442\u044c \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u0443 \u043d\u0430 \u0431\u0430\u0437\u0435 Linux \u043f\u043e \u0422\u0417 \u0438\u043b\u0438 \u043f\u0440\u0435\u0434\u043b\u043e\u0436\u0438\u0442\u044c \u043a\u043e\u043d\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u044e, \u043d\u0430\u0438\u0431\u043e\u043b\u0435\u0435 \u043f\u043e\u0434\u0445\u043e\u0434\u044f\u0449\u0443\u044e \u043f\u043e\u0434 \u0437\u0430\u0434\u0430\u0447\u0443;\r\n\u2013 \u0440\u0430\u0437\u0432\u0435\u0440\u043d\u0443\u0442\u044c \u0431\u043e\u043b\u044c\u0448\u0438\u043d\u0441\u0442\u0432\u043e \u0442\u0438\u043f\u043e\u0432 \u043e\u043d\u043b\u0430\u0439\u043d-\u0441\u0438\u0441\u0442\u0435\u043c \u0438 \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0438\u0442\u044c \u0438\u0445 \u0431\u0435\u0441\u043f\u0435\u0440\u0435\u0431\u043e\u0439\u043d\u043e\u0435 \u0444\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435;\r\n\u2013 \u0443\u0447\u0430\u0441\u0442\u0432\u043e\u0432\u0430\u0442\u044c \u0432 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0435 \u041f\u041e \u0438 \u043f\u0440\u0435\u0434\u043b\u0430\u0433\u0430\u0442\u044c \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u044b \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a\u0430\u043c;\r\n\u2013 \u0441\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0442\u044c \u0438\u0441\u0447\u0435\u0440\u043f\u044b\u0432\u0430\u044e\u0449\u0438\u0439 \u043e\u0442\u0447\u0451\u0442 \u043f\u043e \u0441\u0431\u043e\u044f\u043c \u0434\u043b\u044f \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a\u043e\u0432, \u0430 \u0432 \u043d\u0435\u043a\u043e\u0442\u043e\u0440\u044b\u0445 \u0441\u043b\u0443\u0447\u0430\u044f\u0445 \u0438 \u043f\u0440\u0435\u0434\u043b\u0430\u0433\u0430\u0442\u044c \u0438\u0441\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f.\r\n\r\n\u041a\u0443\u0440\u0441 \u0431\u0443\u0434\u0435\u0442 \u043f\u043e\u043b\u0435\u0437\u0435\u043d \u0441\u0438\u0441\u0442\u0435\u043c\u043d\u044b\u043c \u0430\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u043e\u0440\u0430\u043c \u0438 \u043f\u0440\u0430\u043a\u0442\u0438\u043a\u0443\u044e\u0449\u0438\u043c \u0430\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u043e\u0440\u0430\u043c SMB, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0445\u043e\u0442\u0435\u043b\u0438 \u0431\u044b \u043f\u0440\u043e\u0431\u0438\u0442\u044c \u0445\u0440\u0443\u0441\u0442\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u043e\u0442\u043e\u043b\u043e\u043a \u0441\u0432\u043e\u0435\u0433\u043e \u0441\u0435\u043a\u0442\u043e\u0440\u0430 \u0440\u044b\u043d\u043a\u0430 \u0438 \u0432\u0441\u0442\u0443\u043f\u0438\u0442\u044c \u0432 \u0438\u0433\u0440\u0443 \u043e\u043d\u043b\u0430\u0439\u043d-\u0433\u0438\u0433\u0430\u043d\u0442\u043e\u0432.\r\n\r\n\u0412 \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u0435 \u043e\u0431\u0443\u0447\u0435\u043d\u0438\u044f \u043c\u044b \u043e\u0442\u0432\u0435\u0442\u0438\u043c \u043d\u0430 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0435 \u0432\u043e\u043f\u0440\u043e\u0441\u044b:\r\n\u2013 \u0447\u0442\u043e \u0441\u043b\u0443\u0447\u0438\u043b\u043e\u0441\u044c \u0441 \u0441\u0438\u0441\u0442\u0435\u043c\u043e\u0439 \u0438 \u043a\u0430\u043a \u044d\u0442\u043e \u043f\u043e\u043d\u044f\u0442\u044c? \r\n\u2013 \u043f\u0435\u0440\u0435\u0437\u0430\u0433\u0440\u0443\u0437\u0438\u043b \u0441\u0435\u0440\u0432\u0435\u0440 \u043f\u043e\u0441\u043b\u0435 \u0442\u0440\u0451\u0445 \u043b\u0435\u0442 \u0430\u043f\u0442\u0430\u0439\u043c\u0430 \u0438 \u043d\u0435 \u0437\u0430\u0433\u0440\u0443\u0436\u0430\u0435\u0442\u0441\u044f, \u0447\u0442\u043e \u0434\u0435\u043b\u0430\u0442\u044c? \r\n\u2013 loadAvg 50 \u044d\u0442\u043e \u043d\u043e\u0440\u043c\u0430\u043b\u044c\u043d\u043e \u0438\u043b\u0438 \u043d\u0430\u0434\u043e \u0447\u0442\u043e-\u0442\u043e \u0434\u0435\u043b\u0430\u0442\u044c? \r\n\u2013 Apache \u043f\u043e\u0432\u0438\u0441 \u0438 \u043d\u0435 \u0440\u0435\u0430\u0433\u0438\u0440\u0443\u0435\u0442 \u043d\u0438 \u043d\u0430 \u0447\u0442\u043e, \u0447\u0442\u043e \u0434\u0435\u043b\u0430\u0442\u044c? \r\n\u2013 \u043d\u0430\u0434\u043e \u0441\u0440\u043e\u0447\u043d\u043e \u043f\u043e\u0441\u0442\u0430\u0432\u0438\u0442\u044c 50 \u043c\u0430\u0448\u0438\u043d, \u0447\u0442\u043e \u0434\u0435\u043b\u0430\u0442\u044c?! \r\n\u2013 \u043a\u0430\u043a \u043d\u0430\u0441\u0442\u0440\u0430\u0438\u0432\u0430\u0442\u044c \u0445\u043e\u0441\u0442\u0438\u043d\u0433 \u0431\u0435\u0437 \u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u0438 \u0438 SMS?\r\n\r\n\u0418\u043d\u0442\u0435\u043d\u0441\u0438\u0432\u043d\u043e\u0441\u0442\u044c: 2 \u043e\u043d\u043b\u0430\u0439\u043d-\u0432\u0435\u0431\u0438\u043d\u0430\u0440\u0430 \u0432 \u043d\u0435\u0434\u0435\u043b\u044e \u043f\u043e 2 \u0447\u0430\u0441\u0430 \u043a\u0430\u0436\u0434\u044b\u0439 \u0438 \u043e\u0442 1 \u0434\u043e 4 \u0447\u0430\u0441\u043e\u0432 \u043d\u0430 \u0434\u043e\u043c\u0430\u0448\u043d\u044e\u044e \u0440\u0430\u0431\u043e\u0442\u0443.",
+            "active": true,
+            "name": "\u0410\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u043e\u0440 Linux"
+        },
+        "model": "courses.coursedescription",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "duration_month": 5,
+            "date_begin": "2018-07-25",
+            "course_description": 1,
+            "active": true,
+            "cost_month": 11500,
+            "cost_full": 50000,
+            "name": "WebPython-2018-07"
+        },
+        "model": "courses.course",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "duration_month": 5,
+            "date_begin": "2018-07-26",
+            "course_description": 2,
+            "active": true,
+            "cost_month": 12000,
+            "cost_full": 48000,
+            "name": "Linux-2018-07"
+        },
+        "model": "courses.course",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "codename": "add_logentry",
+            "content_type": 1,
+            "name": "Can add log entry"
+        },
+        "model": "auth.permission",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "codename": "change_logentry",
+            "content_type": 1,
+            "name": "Can change log entry"
+        },
+        "model": "auth.permission",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "codename": "delete_logentry",
+            "content_type": 1,
+            "name": "Can delete log entry"
+        },
+        "model": "auth.permission",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "codename": "add_user",
+            "content_type": 2,
+            "name": "Can add user"
+        },
+        "model": "auth.permission",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "codename": "change_user",
+            "content_type": 2,
+            "name": "Can change user"
+        },
+        "model": "auth.permission",
+        "pk": 5
+    },
+    {
+        "fields": {
+            "codename": "delete_user",
+            "content_type": 2,
+            "name": "Can delete user"
+        },
+        "model": "auth.permission",
+        "pk": 6
+    },
+    {
+        "fields": {
+            "codename": "add_permission",
+            "content_type": 3,
+            "name": "Can add permission"
+        },
+        "model": "auth.permission",
+        "pk": 7
+    },
+    {
+        "fields": {
+            "codename": "change_permission",
+            "content_type": 3,
+            "name": "Can change permission"
+        },
+        "model": "auth.permission",
+        "pk": 8
+    },
+    {
+        "fields": {
+            "codename": "delete_permission",
+            "content_type": 3,
+            "name": "Can delete permission"
+        },
+        "model": "auth.permission",
+        "pk": 9
+    },
+    {
+        "fields": {
+            "codename": "add_group",
+            "content_type": 4,
+            "name": "Can add group"
+        },
+        "model": "auth.permission",
+        "pk": 10
+    },
+    {
+        "fields": {
+            "codename": "change_group",
+            "content_type": 4,
+            "name": "Can change group"
+        },
+        "model": "auth.permission",
+        "pk": 11
+    },
+    {
+        "fields": {
+            "codename": "delete_group",
+            "content_type": 4,
+            "name": "Can delete group"
+        },
+        "model": "auth.permission",
+        "pk": 12
+    },
+    {
+        "fields": {
+            "codename": "add_contenttype",
+            "content_type": 5,
+            "name": "Can add content type"
+        },
+        "model": "auth.permission",
+        "pk": 13
+    },
+    {
+        "fields": {
+            "codename": "change_contenttype",
+            "content_type": 5,
+            "name": "Can change content type"
+        },
+        "model": "auth.permission",
+        "pk": 14
+    },
+    {
+        "fields": {
+            "codename": "delete_contenttype",
+            "content_type": 5,
+            "name": "Can delete content type"
+        },
+        "model": "auth.permission",
+        "pk": 15
+    },
+    {
+        "fields": {
+            "codename": "add_session",
+            "content_type": 6,
+            "name": "Can add session"
+        },
+        "model": "auth.permission",
+        "pk": 16
+    },
+    {
+        "fields": {
+            "codename": "change_session",
+            "content_type": 6,
+            "name": "Can change session"
+        },
+        "model": "auth.permission",
+        "pk": 17
+    },
+    {
+        "fields": {
+            "codename": "delete_session",
+            "content_type": 6,
+            "name": "Can delete session"
+        },
+        "model": "auth.permission",
+        "pk": 18
+    },
+    {
+        "fields": {
+            "codename": "add_profilestudent",
+            "content_type": 7,
+            "name": "Can add profile student"
+        },
+        "model": "auth.permission",
+        "pk": 19
+    },
+    {
+        "fields": {
+            "codename": "change_profilestudent",
+            "content_type": 7,
+            "name": "Can change profile student"
+        },
+        "model": "auth.permission",
+        "pk": 20
+    },
+    {
+        "fields": {
+            "codename": "delete_profilestudent",
+            "content_type": 7,
+            "name": "Can delete profile student"
+        },
+        "model": "auth.permission",
+        "pk": 21
+    },
+    {
+        "fields": {
+            "codename": "add_profile",
+            "content_type": 8,
+            "name": "Can add profile"
+        },
+        "model": "auth.permission",
+        "pk": 22
+    },
+    {
+        "fields": {
+            "codename": "change_profile",
+            "content_type": 8,
+            "name": "Can change profile"
+        },
+        "model": "auth.permission",
+        "pk": 23
+    },
+    {
+        "fields": {
+            "codename": "delete_profile",
+            "content_type": 8,
+            "name": "Can delete profile"
+        },
+        "model": "auth.permission",
+        "pk": 24
+    },
+    {
+        "fields": {
+            "codename": "add_profileteacher",
+            "content_type": 9,
+            "name": "Can add profile teacher"
+        },
+        "model": "auth.permission",
+        "pk": 25
+    },
+    {
+        "fields": {
+            "codename": "change_profileteacher",
+            "content_type": 9,
+            "name": "Can change profile teacher"
+        },
+        "model": "auth.permission",
+        "pk": 26
+    },
+    {
+        "fields": {
+            "codename": "delete_profileteacher",
+            "content_type": 9,
+            "name": "Can delete profile teacher"
+        },
+        "model": "auth.permission",
+        "pk": 27
+    },
+    {
+        "fields": {
+            "codename": "add_course",
+            "content_type": 10,
+            "name": "Can add course"
+        },
+        "model": "auth.permission",
+        "pk": 28
+    },
+    {
+        "fields": {
+            "codename": "change_course",
+            "content_type": 10,
+            "name": "Can change course"
+        },
+        "model": "auth.permission",
+        "pk": 29
+    },
+    {
+        "fields": {
+            "codename": "delete_course",
+            "content_type": 10,
+            "name": "Can delete course"
+        },
+        "model": "auth.permission",
+        "pk": 30
+    },
+    {
+        "fields": {
+            "codename": "add_lesson",
+            "content_type": 11,
+            "name": "Can add lesson"
+        },
+        "model": "auth.permission",
+        "pk": 31
+    },
+    {
+        "fields": {
+            "codename": "change_lesson",
+            "content_type": 11,
+            "name": "Can change lesson"
+        },
+        "model": "auth.permission",
+        "pk": 32
+    },
+    {
+        "fields": {
+            "codename": "delete_lesson",
+            "content_type": 11,
+            "name": "Can delete lesson"
+        },
+        "model": "auth.permission",
+        "pk": 33
+    },
+    {
+        "fields": {
+            "codename": "add_task",
+            "content_type": 12,
+            "name": "Can add task"
+        },
+        "model": "auth.permission",
+        "pk": 34
+    },
+    {
+        "fields": {
+            "codename": "change_task",
+            "content_type": 12,
+            "name": "Can change task"
+        },
+        "model": "auth.permission",
+        "pk": 35
+    },
+    {
+        "fields": {
+            "codename": "delete_task",
+            "content_type": 12,
+            "name": "Can delete task"
+        },
+        "model": "auth.permission",
+        "pk": 36
+    },
+    {
+        "fields": {
+            "codename": "add_coursedescription",
+            "content_type": 13,
+            "name": "Can add course description"
+        },
+        "model": "auth.permission",
+        "pk": 37
+    },
+    {
+        "fields": {
+            "codename": "change_coursedescription",
+            "content_type": 13,
+            "name": "Can change course description"
+        },
+        "model": "auth.permission",
+        "pk": 38
+    },
+    {
+        "fields": {
+            "codename": "delete_coursedescription",
+            "content_type": 13,
+            "name": "Can delete course description"
+        },
+        "model": "auth.permission",
+        "pk": 39
+    },
+    {
+        "fields": {
+            "last_login": "2018-06-30T12:55:58.721Z",
+            "groups": [],
+            "date_joined": "2018-06-30T12:50:11.382Z",
+            "is_active": true,
+            "first_name": "",
+            "user_permissions": [],
+            "is_staff": true,
+            "last_name": "",
+            "password": "pbkdf2_sha256$100000$elm2pCwfSBPk$LOC9EE7ZTNq4mXs8YRC6OAD6do+UTHQW19NqOt92adE=",
+            "is_superuser": true,
+            "username": "bud",
+            "email": "ds.vologdin@yandex.ru"
+        },
+        "model": "auth.user",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "last_login": null,
+            "groups": [],
+            "date_joined": "2018-06-30T13:13:51Z",
+            "is_active": true,
+            "first_name": "\u0412\u0430\u0441\u044f",
+            "user_permissions": [],
+            "is_staff": false,
+            "last_name": "\u0412\u0430\u0441\u0438\u043b\u044c\u0435\u0432",
+            "password": "pbkdf2_sha256$100000$jt1v8MaLgzWa$N/wLlx/bJnYOHHOdi8F/jaaDQ7b1WrwKQhU9oLmr1vo=",
+            "is_superuser": false,
+            "username": "test",
+            "email": "vasya@mail.ru"
+        },
+        "model": "auth.user",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "last_login": null,
+            "groups": [],
+            "date_joined": "2018-06-30T13:25:10Z",
+            "is_active": true,
+            "first_name": "\u0412\u043e\u043b\u043e\u0434\u044f",
+            "user_permissions": [],
+            "is_staff": false,
+            "last_name": "\u0421\u0435\u043c\u0451\u043d\u043e\u0432",
+            "password": "pbkdf2_sha256$100000$sF5DoOaPlizf$oZv1kAp4i5qARsupDdxYSCGXfEG8vj/RXbFoKrJd6Nc=",
+            "is_superuser": false,
+            "username": "volodya",
+            "email": "volodya@mail.ru"
+        },
+        "model": "auth.user",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "last_login": null,
+            "groups": [],
+            "date_joined": "2018-06-30T15:34:13.504Z",
+            "is_active": true,
+            "first_name": "",
+            "user_permissions": [],
+            "is_staff": false,
+            "last_name": "",
+            "password": "pbkdf2_sha256$100000$ELlFJCTa0dUQ$G3iQ98R3mAQkRZf28qTFl+eflipWFhr7uWkeAl+N3BM=",
+            "is_superuser": false,
+            "username": "teacher_1",
+            "email": ""
+        },
+        "model": "auth.user",
+        "pk": 6
+    },
+    {
+        "fields": {
+            "experience": "",
+            "user": 2
+        },
+        "model": "students.profilestudent",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "experience": "\u043d\u0435\u0442 \u043e\u043f\u044b\u0442\u0430",
+            "user": 3
+        },
+        "model": "students.profilestudent",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "gender": "male",
+            "location": "\u041c\u043e\u0441\u043a\u0432\u0430",
+            "avatar": "avatar/avatar_2.jpg",
+            "user": 2,
+            "birth_date": "1982-06-30"
+        },
+        "model": "students.profile",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "gender": "male",
+            "location": "\u0423\u0440\u0435\u043d\u0433\u043e\u0439",
+            "avatar": "avatar/avatar_3.jpg",
+            "user": 3,
+            "birth_date": "1973-06-12"
+        },
+        "model": "students.profile",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "gender": "male",
+            "location": "\u0421\u0430\u043c\u0430\u0440\u0430",
+            "avatar": "avatar/avatar_6.jpg",
+            "user": 6,
+            "birth_date": "1985-06-11"
+        },
+        "model": "students.profile",
+        "pk": 5
+    }
+]
