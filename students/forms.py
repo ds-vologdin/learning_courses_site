@@ -24,14 +24,12 @@ class UserForm(UserCreationForm):
 
 
 class UserProfileForm(CSSClassInputRegisterMixins, ModelForm):
-
     class Meta:
         model = Profile
         exclude = ['user']
 
 
 class UserProfileStudentForm(CSSClassInputRegisterMixins, ModelForm):
-
     class Meta:
         model = ProfileStudent
         exclude = ['user']
