@@ -34,10 +34,14 @@ class DatabaseDevMixins():
     }
 class SecretKeyMixins():
     SECRET_KEY = 'secret_key!!!'
-
 ```
 Не стесняйтесь править settings_private.py (создовать свои mixins) и settings.py.
 
 Хорошим тоном будет считаться создание отдельного класса конфигурации для продакшена.
 
 [Настройка uwsgi](https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/uwsgi/)
+
+# Фронтенд
+Фронтенд в настоящее время не связан с бекэндом. Располагается в каталоге html/.
+
+В светлом будущем фронт с беком объединятся.
