@@ -4,8 +4,10 @@ from .models import ProfileTeacher
 
 
 class IndexView(generic.ListView):
-    model = ProfileTeacher
+    def get_queryset(self):
+        return ProfileTeacher.objects.select_related('user__profile')
 
 
 class DetailView(generic.DetailView):
-    model = ProfileTeacher
+    def get_queryset(self):
+        return ProfileTeacher.objects.select_related('user__profile')

@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-
 import logging
 
 from .models import ProfileStudent
@@ -14,11 +13,13 @@ logger = logging.getLogger(__name__)
 
 
 class IndexView(generic.ListView):
-    model = ProfileStudent
+    def get_queryset(self):
+        return ProfileStudent.objects.select_related('user')
 
 
 class DetailView(generic.DetailView):
-    model = ProfileStudent
+    def get_queryset(self):
+        return ProfileStudent.objects.select_related('user__profile')
 
 
 class RegisterStudent(View):
