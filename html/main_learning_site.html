@@ -14,10 +14,10 @@
       <div class="header__menu-main">
         <a href="/lesson/" class="header-menu-main__item">Курсы</a>
         <a href="/events/" class="header-menu-main__item">Мероприятия</a>
-        <div class="header-menu-main__item header-menu-main__item-dropdown">
+        <div class="header-menu-main__item header-menu-main__item-dropdown dropdown-js-control">
           Обучение
           <div class="header-menu__caret"></div>
-          <div class="header-menu__dropdown">
+          <div class="header-menu__dropdown dropdown-js">
             <a class="menu-dropdown__link menu-dropdown__link__no-wrap" href="#">Как поступить</a>
             <a class="menu-dropdown__link menu-dropdown__link__no-wrap" href="#">Программы лояльности</a>
             <a class="menu-dropdown__link menu-dropdown__link__no-wrap" href="#">Перевод студентов</a>
@@ -32,48 +32,48 @@
       </div>
       <div class="header__menu-right">
         <a href="tel:+79990009900" class="menu-rigth__phone">+7 999 000-99-00</a>
-        <div class="menu-rigth__menu-icon">
-          <div class="header-menu__item header-menu__item_small header-menu__item-dropdown">
-            <div class="header-menu__icon">
-              <div class="header-menu__icon_img ic_blog_default_avatar"></div>
+        <div class="menu-rigth__menu-icons">
+          <div class="menu-icons__item menu-icons__item_small menu-icons__item-dropdown dropdown-js-control">
+            <div class="menu-icons__icon">
+              <div class="menu-icons__icon-img ic-blog-default-avatar"></div>
             </div>
-            <div class="header-menu__dropdown">
-                <a class="header-menu__dropdown_link header-menu__dropdown_link__no_wrap" href="#">
-                  <div class="header-menu__dropdown_text">
+            <div class="menu-icons__dropdown dropdown-js">
+                <a class="menu-dropdown__link menu-dropdown_link__no-wrap" href="#">
+                  <div class="dropdown-link__text">
                     <b>Дмитрий Вологдин</b>
                     <br />
                     Мой профиль
                   </div>
                 </a>
-                <a class="header-menu__dropdown_link header-menu__dropdown_link__no_wrap" href="#">Мои лекции</a>
-                <a class="header-menu__dropdown_link header-menu__dropdown_link__no_wrap" href="#">Оплата</a>
-                <a class="header-menu__dropdown_link header-menu__dropdown_link__no_wrap" href="#">Выход</a>
+                <a class="menu-dropdown__link menu-dropdown_link__no-wrap" href="#">Мои лекции</a>
+                <a class="menu-dropdown__link menu-dropdown_link__no-wrap" href="#">Оплата</a>
+                <a class="menu-dropdown__link menu-dropdown_link__no-wrap" href="#">Выход</a>
             </div>
           </div>
-          <!-- <div class="header-menu">
-            <div class="header-menu__item header-menu__item_small header-menu__item-dropdown">
-              <div class="header-menu__icon">
-                <div class="header-menu__icon_img ic_notification"></div>
+          <div class="menu-icons__item menu-icons__item_small menu-icons__item-dropdown dropdown-js-control">
+            <div class="menu-icons__icon">
+              <div class="menu-icons__icon">
+                <div class="menu-icons__icon-img ic_notification"></div>
               </div>
-              <div class="header-menu__dropdown header-menu__dropdown_right notifications_dropdown">
-                <a class="header-menu__dropdown_link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
+              <div class="menu-icons__dropdown notifications_dropdown dropdown-js">
+                <a class="menu-dropdown__link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
                   <div class="notifications_dropdown__item_text">
                     <div class="notifications_dropdown__item_text_wrapper">26 июня в 20:00 состоится открытый урок по крусу "Full stack python"</div>
                   </div>
                 </a>
-                <a class="header-menu__dropdown_link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
+                <a class="menu-dropdown__link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
                   <div class="notifications_dropdown__item_text">
                     <div class="notifications_dropdown__item_text_wrapper">29 июня в 20:00 состоится открытый урок по крусу "Разработчик C++"</div>
                   </div>
                 </a>
-                <a class="header-menu__dropdown_link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
+                <a class="menu-dropdown__link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
                   <div class="notifications_dropdown__item_text">
                     <div class="notifications_dropdown__item_text_wrapper">2 июля в 20:00 состоится открытый урок по крусу "Бекэнд разработчик PHP"</div>
                   </div>
                 </a>
               </div>
             </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </header>
@@ -366,12 +366,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 // $('div.header-menu-main__item.header-menu-main__item-dropdown').hover(
-//   function() {
-//     $(this).find('.header-menu__dropdown').stop(true, true).delay(200).fadeIn();
-// },
-//   function() {
-//     $(this).find('.header-menu__dropdown').stop(true, true).delay(200).fadeOut();
-// })
+$('.dropdown-js-control').hover(
+  function() {
+    $(this).find('.dropdown-js').stop(true, true).delay(200).fadeIn();
+},
+  function() {
+    $(this).find('.dropdown-js').stop(true, true).delay(200).fadeOut();
+})
 </script>
 </body>
 </html>
