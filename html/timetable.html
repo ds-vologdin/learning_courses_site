@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <link type="text/css" href="css/main.css" rel="stylesheet" />
+  <link type="text/css" href="css/timetable.css" rel="stylesheet" />
+  <title>Онлайн-образование</title>
+</head>
+<body>
+  <header class="header">
+    <div class="container container_header">
+      <div class="header__logo">
+        <a class="header__logo-img" href="/"></a>
+      </div>
+      <div class="header__menu-main">
+        <a href="/lesson/" class="header-menu-main__item">Курсы</a>
+        <a href="/events/" class="header-menu-main__item">Мероприятия</a>
+        <div class="header-menu-main__item header-menu-main__item-dropdown dropdown-js-control">
+          Обучение
+          <div class="header-menu__caret"></div>
+          <div class="header-menu__dropdown dropdown-js">
+            <a class="menu-dropdown__link menu-dropdown__link__no-wrap" href="#">Как поступить</a>
+            <a class="menu-dropdown__link menu-dropdown__link__no-wrap" href="#">Программы лояльности</a>
+            <a class="menu-dropdown__link menu-dropdown__link__no-wrap" href="#">Перевод студентов</a>
+            <a class="menu-dropdown__link menu-dropdown__link__no-wrap" href="#">Расписание</a>
+            <a class="menu-dropdown__link menu-dropdown__link__no-wrap" href="#">Преподаватели</a>
+            <a class="menu-dropdown__link menu-dropdown__link__no-wrap" href="#">Отзывы</a>
+          </div>
+        </div>
+        <a href="#" class="header-menu-main__item">Работа в компаниях</a>
+        <a href="#" class="header-menu-main__item">Компаниям</a>
+        <a href="#" class="header-menu-main__item">Блог</a>
+      </div>
+      <div class="header__menu-right">
+        <a href="tel:+79990009900" class="menu-rigth__phone">+7 999 000-99-00</a>
+        <div class="menu-rigth__menu-icons">
+          <div class="menu-icons__item menu-icons__item_small menu-icons__item-dropdown dropdown-js-control">
+            <div class="menu-icons__icon">
+              <div class="menu-icons__icon-img ic-blog-default-avatar"></div>
+            </div>
+            <div class="menu-icons__dropdown dropdown-js">
+                <a class="menu-dropdown__link menu-dropdown_link__no-wrap" href="#">
+                  <div class="dropdown-link__text">
+                    <b>Дмитрий Вологдин</b>
+                    <br />
+                    Мой профиль
+                  </div>
+                </a>
+                <a class="menu-dropdown__link menu-dropdown_link__no-wrap" href="#">Мои лекции</a>
+                <a class="menu-dropdown__link menu-dropdown_link__no-wrap" href="#">Оплата</a>
+                <a class="menu-dropdown__link menu-dropdown_link__no-wrap" href="#">Выход</a>
+            </div>
+          </div>
+          <div class="menu-icons__item menu-icons__item_small menu-icons__item-dropdown dropdown-js-control">
+            <div class="menu-icons__icon">
+              <div class="menu-icons__icon">
+                <div class="menu-icons__icon-img ic_notification"></div>
+              </div>
+              <div class="menu-icons__dropdown notifications_dropdown dropdown-js">
+                <a class="menu-dropdown__link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
+                  <div class="notifications_dropdown__item_text">
+                    <div class="notifications_dropdown__item_text_wrapper">26 июня в 20:00 состоится открытый урок по крусу "Full stack python"</div>
+                  </div>
+                </a>
+                <a class="menu-dropdown__link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
+                  <div class="notifications_dropdown__item_text">
+                    <div class="notifications_dropdown__item_text_wrapper">29 июня в 20:00 состоится открытый урок по крусу "Разработчик C++"</div>
+                  </div>
+                </a>
+                <a class="menu-dropdown__link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
+                  <div class="notifications_dropdown__item_text">
+                    <div class="notifications_dropdown__item_text_wrapper">2 июля в 20:00 состоится открытый урок по крусу "Бекэнд разработчик PHP"</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="title-block">
+    <div class="title-block__text">Личный кабинет</div>
+  </div>
+  <div class="nav-block">
+    <div class="nav-block__items">
+        <a href="#" class="nav-items__link nav-items__link--link-left nav-items__link--active">Мои курсы</a>
+        <a href="#" class="nav-items__link">Оплата</a>
+        <a href="#" class="nav-items__link">Настройки</a>
+        <a href="#" class="nav-items__link">Специальные предложения</a>
+    </div>
+  </div>
+  <div class="timetable-block">
+    <div class="timetable-block__timetable">
+      <div class="timetable__name-course">
+        <a class="name-course__courses">Мои курсы</a>
+        <a class="name-course__name">Web-разработчик на Python</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="main_menu.js"></script>
+</body>
+</html>

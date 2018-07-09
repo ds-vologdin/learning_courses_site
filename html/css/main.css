@@ -31,7 +31,7 @@
 .header__logo-img {
   width: 68px;
   height: 100%;
-  background: url(images/online.svg) center 100% no-repeat;
+  background: url(../images/online.svg) center 100% no-repeat;
   background-size: contain;
   display: block;
 }
@@ -91,11 +91,11 @@
 }
 
 .ic-blog-default-avatar {
-  background: url("images/reading.svg")
+  background: url("../images/reading.svg")
 }
 
 .ic_notification {
-  background: url("images/notification.svg")
+  background: url("../images/notification.svg")
 }
 
 .header-menu__item_small {
@@ -214,7 +214,7 @@
   transform: translateY(-50%);
   width: 24px;
   height: 24px;
-  background: url("images/speech-bubble.svg") 0 0 no-repeat;
+  background: url("../images/speech-bubble.svg") 0 0 no-repeat;
   background-size: contain;
 }
 
@@ -517,13 +517,13 @@
 }
 
 .ic_1 {
-  background: url('images/toyger-cat.svg')
+  background: url('../images/toyger-cat.svg')
 }
 .ic_2 {
-  background: url('images/egyptian-cat.svg')
+  background: url('../images/egyptian-cat.svg')
 }
 .ic_3 {
-  background: url('images/siamese-cat.svg')
+  background: url('../images/siamese-cat.svg')
 }
 
 .ic {
@@ -589,43 +589,43 @@
 }
 
 .ic_company_0 {
-  background: url(images/ic_company_0.svg) center 100% no-repeat
+  background: url(../images/ic_company_0.svg) center 100% no-repeat
 }
 
 .ic_company_1 {
-  background: url(images/ic_company_1.svg) center 100% no-repeat
+  background: url(../images/ic_company_1.svg) center 100% no-repeat
 }
 
 .ic_company_2 {
-  background: url(images/ic_company_2.svg) center 100% no-repeat
+  background: url(../images/ic_company_2.svg) center 100% no-repeat
 }
 
 .ic_company_3 {
-  background: url(images/ic_company_3.svg) center 100% no-repeat
+  background: url(../images/ic_company_3.svg) center 100% no-repeat
 }
 
 .ic_company_4 {
-  background: url(images/ic_company_4.svg) center 100% no-repeat
+  background: url(../images/ic_company_4.svg) center 100% no-repeat
 }
 
 .ic_company_5 {
-  background: url(images/ic_company_5.svg) center 100% no-repeat
+  background: url(../images/ic_company_5.svg) center 100% no-repeat
 }
 
 .ic_company_6 {
-  background: url(images/ic_company_6.svg) center 100% no-repeat
+  background: url(../images/ic_company_6.svg) center 100% no-repeat
 }
 
 .ic_company_7 {
-  background: url(images/ic_company_7.svg) center 100% no-repeat
+  background: url(../images/ic_company_7.svg) center 100% no-repeat
 }
 
 .ic_company_8 {
-  background: url(images/ic_company_8.svg) center 100% no-repeat
+  background: url(../images/ic_company_8.svg) center 100% no-repeat
 }
 
 .ic_company_9 {
-  background: url(images/ic_company_9.svg) center 100% no-repeat
+  background: url(../images/ic_company_9.svg) center 100% no-repeat
 }
 
 .work_arrow_prev {
@@ -647,11 +647,11 @@
 }
 
 .ic_arrow_left {
-  background: url(images/left-arrow.svg) center 100% no-repeat
+  background: url(../images/left-arrow.svg) center 100% no-repeat
 }
 
 .ic_arrow_right {
-  background: url(images/right-arrow.svg) center 100% no-repeat
+  background: url(../images/right-arrow.svg) center 100% no-repeat
 }
 
 .container_title {
@@ -700,19 +700,19 @@
 }
 
 .ic_teacher_0 {
-  background: url(images/ic_teacher_0.jpg) 50% 50% no-repeat;
+  background: url(../images/ic_teacher_0.jpg) 50% 50% no-repeat;
 }
 
 .ic_teacher_1 {
-  background: url(images/ic_teacher_1.jpg) 50% 50% no-repeat;
+  background: url(../images/ic_teacher_1.jpg) 50% 50% no-repeat;
 }
 
 .ic_teacher_2 {
-  background: url(images/ic_teacher_2.jpg) 50% 50% no-repeat;
+  background: url(../images/ic_teacher_2.jpg) 50% 50% no-repeat;
 }
 
 .ic_teacher_3 {
-  background: url(images/ic_teacher_3.jpg) 50% 50% no-repeat;
+  background: url(../images/ic_teacher_3.jpg) 50% 50% no-repeat;
 }
 
 .teacher_name {
@@ -807,11 +807,11 @@
 }
 
 .ic_logo_0 {
-  background: url(images/ic_logo_0.svg) 50% 50% no-repeat;
+  background: url(../images/ic_logo_0.svg) 50% 50% no-repeat;
 }
 
 .ic_logo_1 {
-  background: url(images/ic_logo_1.svg) 50% 50% no-repeat;
+  background: url(../images/ic_logo_1.svg) 50% 50% no-repeat;
 }
 
 .text_inline {

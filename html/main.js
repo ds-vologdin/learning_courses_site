@@ -67,13 +67,3 @@ arrow_prev[0].addEventListener('click', prev_slide_handler);
 
 var arrow_next = document.getElementsByClassName('work_arrow_next');
 arrow_next[0].addEventListener('click', next_slide_handler);
-
-
-// Отображение dropdown меню (jquery)
-$('.dropdown-js-control').hover(
-  function() {
-    $(this).find('.dropdown-js').stop(true, true).delay(200).fadeIn();
-  },
-  function() {
-    $(this).find('.dropdown-js').stop(true, true).delay(200).fadeOut();
-  })
