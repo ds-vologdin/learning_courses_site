@@ -3,7 +3,8 @@
   height: 100px;
 }
 
-.title-block__text, .nav-block__items, .timetable-block__timetable {
+.title-block__text, .nav-block__items, .timetable-block__timetable,
+.timetable-block__course-info {
   max-width: 1170px;
   margin: 0 auto;
 }
@@ -44,5 +45,128 @@
 }
 
 .timetable__name-course {
+  font-weight: bold;
+  font-size: 30px;
+  margin: 20px 0;
+}
+
+.timetable__course-info {
   display: flex;
+}
+
+.course-info__item {
+  padding: 0 25px;
+}
+.course-info__date-begin {
+  padding-left: 0;
+}
+
+.date_begin__title, .task-perform__title, .task-perform__title {
+  font-weight: bold;
+}
+
+.date_begin__text, .task-perform__text, .task-perform__text {
+  text-align: center;
+}
+
+.timetable__next-lesson {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: -25px;
+  padding-left: 25px;
+  background-color: #f8f8f8;
+}
+
+
+.next-lesson__title-lesson, .next-lesson__date-begin-title,
+.next-lesson__date-begin, .next-lesson__link-title, .next-lesson__link {
+  padding: 10px 0px;
+}
+
+.next-lesson__title-block, .next-lesson__date-begin-title, .next-lesson__link-title {
+  font-weight: bold;
+}
+
+.next-lesson__title-block {
+  padding: 20px 0 10px 0;
+}
+
+.next-lesson__link {
+  padding: 10px 0 20px 0;
+}
+
+.next-lesson__title-lesson {
+  font-weight: bold;
+  font-size: 20px;
+}
+.lessons__title-block {
+  font-weight: bold;
+  font-size: 20px;
+}
+.lessons__buttons-month {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.buttons-month__item {
+  background-color: #ecf0f1;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-size: 16px;
+  padding-top: 15px;
+}
+.buttons-month__item--active {
+  background-color: #3487db;
+  color: #fff;
+}
+
+.lessons__item {
+  display: flex;
+}
+
+.lesson__number {
+  width: 80px;
+  height: 100%;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.lesson-tittle__text, .lesson__number {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.lesson__date-begin-title {
+  font-weight: bold;
+  padding: 15px 0;
+}
+
+.lesson__date-begin {
+  padding-bottom: 5px;
+}
+
+.lesson__content {
+  display: flex;
+  margin-top: 15px;
+  border-top: 2px solid #dae2e4;
+}
+
+.content-links__item {
+  display: block;
+  width: 200px;
+  padding-top: 15px;
+  padding-right: 10px;
+  text-decoration: none;
+}
+
+.lesson__description {
+  background-color: #f8f8f8;
+  margin-top: 15px;
+  margin-left: -15px;
+  padding-left: 15px;
+}
+
+.content__media {
+  padding: 15px 0 15px 15px;
 }
