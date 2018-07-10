@@ -1,4 +1,4 @@
-function insert_iframe_youtube(lesson_element, url_media) {
+function insert_iframe_youtube(lesson_element) {
   if (lesson_element.getElementsByClassName('media__iframe').length > 0) {
     return false;
   }
@@ -30,7 +30,7 @@ function switch_lesson_description () {
   if (description[0].classList.contains('lesson__description--hidden') === true) {
     hide_lessons_descriptions();
     description[0].classList.remove('lesson__description--hidden');
-    insert_iframe_youtube(this, 'https://www.youtube.com/embed/_bkh2EDjfQ0');
+    insert_iframe_youtube(this);
   } else {
     hide_lessons_descriptions();
   }
