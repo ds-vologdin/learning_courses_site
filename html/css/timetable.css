@@ -99,6 +99,11 @@
   font-weight: bold;
   font-size: 20px;
 }
+
+.timetable-block {
+  margin-bottom: 15px;
+}
+
 .lessons__title-block {
   font-weight: bold;
   font-size: 20px;
@@ -126,10 +131,14 @@
 }
 
 .lesson__number {
-  width: 80px;
+  width: 5%;
   height: 100%;
   padding-top: 10px;
   text-align: center;
+}
+
+.lesson__title {
+  width: 95%;
 }
 
 .lesson-tittle__text, .lesson__number {
@@ -139,11 +148,11 @@
 
 .lesson__date-begin-title {
   font-weight: bold;
-  padding: 15px 0;
+  padding: 15px 0 15px 15px;
 }
 
 .lesson__date-begin {
-  padding-bottom: 5px;
+  padding-left: 15px;
 }
 
 .lesson__content {
@@ -155,18 +164,75 @@
 .content-links__item {
   display: block;
   width: 200px;
-  padding-top: 15px;
-  padding-right: 10px;
+  padding: 15px 0 0 15px;
   text-decoration: none;
+}
+
+.content-links__item:hover {
+  text-decoration: underline;
 }
 
 .lesson__description {
   background-color: #f8f8f8;
   margin-top: 15px;
-  margin-left: -15px;
-  padding-left: 15px;
 }
 
 .content__media {
-  padding: 15px 0 15px 15px;
+  padding: 15px;
+  width: 100%;
+  border-left: 2px solid #dae2e4;
+}
+
+.media__iframe {
+  width: 854px;
+  height: 480px;
+}
+
+.lessons__item {
+  margin-bottom: 15px;
+}
+
+.task__title-block, .task__status-block {
+  display: flex;
+}
+
+.task__title, .task__status-title{
+  font-weight: bold;
+  padding-right: 15px;
+}
+
+.task__chat-button {
+  margin: 0 15px;
+  padding: 0 15px;
+}
+
+.task__title-block {
+  margin: 10px 0;
+}
+
+.task__status-block {
+  margin-bottom: 15px;
+}
+
+.lesson__task {
+  margin: 15px 0;
+  padding-bottom: 10px;
+}
+
+.task__status-title, .task__status{
+  padding: 5px;
+}
+
+.task__chat-button {
+  border: 2px solid #185bdc;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+
+.task__chat-button:hover {
+  background-color: #185bdc;
+  color: #fff;
+  text-decoration: none;
 }
