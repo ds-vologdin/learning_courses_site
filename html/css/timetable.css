@@ -108,11 +108,13 @@
   font-weight: bold;
   font-size: 20px;
 }
+
 .lessons__buttons-month {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
 }
+
 .buttons-month__item {
   background-color: #ecf0f1;
   width: 100%;
@@ -120,7 +122,9 @@
   text-align: center;
   font-size: 16px;
   padding-top: 15px;
+  cursor: pointer;
 }
+
 .buttons-month__item--active {
   background-color: #3487db;
   color: #fff;
@@ -128,6 +132,10 @@
 
 .lessons__item {
   display: flex;
+}
+
+.lessons__item--hidden {
+  display: none;
 }
 
 .lesson__number {
@@ -141,9 +149,15 @@
   width: 95%;
 }
 
+
 .lesson-tittle__text, .lesson__number {
   font-weight: bold;
   font-size: 18px;
+}
+
+.lesson-tittle__text {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .lesson__date-begin-title {
@@ -175,6 +189,10 @@
 .lesson__description {
   background-color: #f8f8f8;
   margin-top: 15px;
+}
+
+.lesson__description--hidden {
+  display: none;
 }
 
 .content__media {

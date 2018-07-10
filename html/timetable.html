@@ -119,20 +119,20 @@
       <div class="timetable__lessons">
         <div class="lessons__title-block">Занятия</div>
         <div class="lessons__buttons-month">
-          <div class="buttons-month__item">1 месяц</div>
-          <div class="buttons-month__item buttons-month__item--active">2 месяц</div>
-          <div class="buttons-month__item">3 месяц</div>
-          <div class="buttons-month__item">4 месяц</div>
-          <div class="buttons-month__item">5 месяц</div>
+          <div class="buttons-month__item month-1">1 месяц</div>
+          <div class="buttons-month__item month-2 buttons-month__item--active">2 месяц</div>
+          <div class="buttons-month__item month-3">3 месяц</div>
+          <div class="buttons-month__item month-4">4 месяц</div>
+          <div class="buttons-month__item month-5">5 месяц</div>
         </div>
 
-        <div class="lessons__item">
+        <div class="lessons__item lessons__item--hidden">
           <div class="lesson__number">1</div>
           <div class="lesson__title">
-            <a href="#" class="lesson-tittle__text">
+            <div class="lesson-tittle__text">
               Технические детали курса; декомпозиция; чистые функции; цикломатическая сложность; читаемость; фичеризм; поддерживаемость; статический анализ кода.
-            </a>
-            <div class="lesson__description">
+            </div>
+            <div class="lesson__description lesson__description--hidden">
               <div class="lesson__date-begin-title">Дата и время начала занятия</div>
               <div class="lesson__date-begin">21 апреля в 20:00</div>
               <div class="lesson__content">
@@ -143,8 +143,8 @@
                   <a href="#" class="content-links__item">Линкопост 4</a>
                   <a href="#" class="content-links__item">Линкопост 5</a>
                 </div>
-                <div class="content__media">
-                  <iframe class="media__iframe" width="854" height="480" src="https://www.youtube.com/embed/_bkh2EDjfQ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <div class="content__media" data-url="https://www.youtube.com/embed/_bkh2EDjfQ0">
+                  <!-- <iframe class="media__iframe" width="854" height="480" src="https://www.youtube.com/embed/_bkh2EDjfQ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
                 </div>
               </div>
 
@@ -164,13 +164,13 @@
           </div>
         </div>
 
-        <div class="lessons__item">
+        <div class="lessons__item lessons__item--hidden">
           <div class="lesson__number">2</div>
           <div class="lesson__title">
-            <a href="#" class="lesson-tittle__text">
+            <div class="lesson-tittle__text">
               Объекты и переменные; структуры данных под капотом основных типов; list vs tuple; профилирование памяти; как работает сборщик мусора.
-            </a>
-            <div class="lesson__description">
+            </div>
+            <div class="lesson__description lesson__description--hidden">
               <div class="lesson__date-begin-title">Дата и время начала занятия</div>
               <div class="lesson__date-begin">24 апреля в 20:00</div>
               <div class="lesson__content">
@@ -181,8 +181,354 @@
                   <a href="#" class="content-links__item">Линкопост 4</a>
                   <a href="#" class="content-links__item">Линкопост 5</a>
                 </div>
-                <div class="content__media">
-                  <iframe class="media__iframe" width="854" height="480" src="https://www.youtube.com/embed/_bkh2EDjfQ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <div class="content__media" data-url="https://www.youtube.com/embed/_bkh2EDjfQ0">
+                  <!-- <iframe class="media__iframe" width="854" height="480" src="https://www.youtube.com/embed/_bkh2EDjfQ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+                </div>
+              </div>
+
+              <div class="lesson__task">
+                <div class="task__title-block">
+                  <span class="task__title">Домашнее задание:</span>
+                  <dev class="task__text">Написать прототип сайта</dev>
+                </div>
+                <div class="task__status-block">
+                  <span class="task__status-title">Статус:</span>
+                  <dev class="task__status">Выполнено</dev>
+                  <a href="#" class="task__chat-button">Чат с преподавателем</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="lessons__item lessons__item--hidden">
+          <div class="lesson__number">3</div>
+          <div class="lesson__title">
+            <div class="lesson-tittle__text">
+              Объекты и переменные; структуры данных под капотом основных типов; list vs tuple; профилирование памяти; как работает сборщик мусора.
+            </div>
+            <div class="lesson__description lesson__description--hidden">
+              <div class="lesson__date-begin-title">Дата и время начала занятия</div>
+              <div class="lesson__date-begin">24 апреля в 20:00</div>
+              <div class="lesson__content">
+                <div class="content__links">
+                  <a href="#" class="content-links__item">Линкопост 1</a>
+                  <a href="#" class="content-links__item">Линкопост 2</a>
+                  <a href="#" class="content-links__item">Линкопост 3</a>
+                  <a href="#" class="content-links__item">Линкопост 4</a>
+                  <a href="#" class="content-links__item">Линкопост 5</a>
+                </div>
+                <div class="content__media" data-url="https://www.youtube.com/embed/_bkh2EDjfQ0">
+                  <!-- <iframe class="media__iframe" width="854" height="480" src="https://www.youtube.com/embed/_bkh2EDjfQ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+                </div>
+              </div>
+
+              <div class="lesson__task">
+                <div class="task__title-block">
+                  <span class="task__title">Домашнее задание:</span>
+                  <dev class="task__text">Написать прототип сайта</dev>
+                </div>
+                <div class="task__status-block">
+                  <span class="task__status-title">Статус:</span>
+                  <dev class="task__status">Выполнено</dev>
+                  <a href="#" class="task__chat-button">Чат с преподавателем</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="lessons__item lessons__item--hidden">
+          <div class="lesson__number">4</div>
+          <div class="lesson__title">
+            <div class="lesson-tittle__text">
+              Объекты и переменные; структуры данных под капотом основных типов; list vs tuple; профилирование памяти; как работает сборщик мусора.
+            </div>
+            <div class="lesson__description lesson__description--hidden">
+              <div class="lesson__date-begin-title">Дата и время начала занятия</div>
+              <div class="lesson__date-begin">24 апреля в 20:00</div>
+              <div class="lesson__content">
+                <div class="content__links">
+                  <a href="#" class="content-links__item">Линкопост 1</a>
+                  <a href="#" class="content-links__item">Линкопост 2</a>
+                  <a href="#" class="content-links__item">Линкопост 3</a>
+                  <a href="#" class="content-links__item">Линкопост 4</a>
+                  <a href="#" class="content-links__item">Линкопост 5</a>
+                </div>
+                <div class="content__media" data-url="https://www.youtube.com/embed/_bkh2EDjfQ0">
+                  <!-- <iframe class="media__iframe" width="854" height="480" src="https://www.youtube.com/embed/_bkh2EDjfQ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+                </div>
+              </div>
+
+              <div class="lesson__task">
+                <div class="task__title-block">
+                  <span class="task__title">Домашнее задание:</span>
+                  <dev class="task__text">Написать прототип сайта</dev>
+                </div>
+                <div class="task__status-block">
+                  <span class="task__status-title">Статус:</span>
+                  <dev class="task__status">Выполнено</dev>
+                  <a href="#" class="task__chat-button">Чат с преподавателем</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="lessons__item">
+          <div class="lesson__number">5</div>
+          <div class="lesson__title">
+            <div class="lesson-tittle__text">
+              Объекты и переменные; структуры данных под капотом основных типов; list vs tuple; профилирование памяти; как работает сборщик мусора.
+            </div>
+            <div class="lesson__description lesson__description--hidden">
+              <div class="lesson__date-begin-title">Дата и время начала занятия</div>
+              <div class="lesson__date-begin">24 апреля в 20:00</div>
+              <div class="lesson__content">
+                <div class="content__links">
+                  <a href="#" class="content-links__item">Линкопост 1</a>
+                  <a href="#" class="content-links__item">Линкопост 2</a>
+                  <a href="#" class="content-links__item">Линкопост 3</a>
+                  <a href="#" class="content-links__item">Линкопост 4</a>
+                  <a href="#" class="content-links__item">Линкопост 5</a>
+                </div>
+                <div class="content__media" data-url="https://www.youtube.com/embed/_bkh2EDjfQ0">
+                  <!-- <iframe class="media__iframe" width="854" height="480" src="https://www.youtube.com/embed/_bkh2EDjfQ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+                </div>
+              </div>
+
+              <div class="lesson__task">
+                <div class="task__title-block">
+                  <span class="task__title">Домашнее задание:</span>
+                  <dev class="task__text">Написать прототип сайта</dev>
+                </div>
+                <div class="task__status-block">
+                  <span class="task__status-title">Статус:</span>
+                  <dev class="task__status">Выполнено</dev>
+                  <a href="#" class="task__chat-button">Чат с преподавателем</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="lessons__item">
+          <div class="lesson__number">6</div>
+          <div class="lesson__title">
+            <div class="lesson-tittle__text">
+              Объекты и переменные; структуры данных под капотом основных типов; list vs tuple; профилирование памяти; как работает сборщик мусора.
+            </div>
+            <div class="lesson__description lesson__description--hidden">
+              <div class="lesson__date-begin-title">Дата и время начала занятия</div>
+              <div class="lesson__date-begin">24 апреля в 20:00</div>
+              <div class="lesson__content">
+                <div class="content__links">
+                  <a href="#" class="content-links__item">Линкопост 1</a>
+                  <a href="#" class="content-links__item">Линкопост 2</a>
+                  <a href="#" class="content-links__item">Линкопост 3</a>
+                  <a href="#" class="content-links__item">Линкопост 4</a>
+                  <a href="#" class="content-links__item">Линкопост 5</a>
+                </div>
+                <div class="content__media" data-url="https://www.youtube.com/embed/_bkh2EDjfQ0">
+                  <!-- <iframe class="media__iframe" width="854" height="480" src="https://www.youtube.com/embed/_bkh2EDjfQ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+                </div>
+              </div>
+
+              <div class="lesson__task">
+                <div class="task__title-block">
+                  <span class="task__title">Домашнее задание:</span>
+                  <dev class="task__text">Написать прототип сайта</dev>
+                </div>
+                <div class="task__status-block">
+                  <span class="task__status-title">Статус:</span>
+                  <dev class="task__status">Выполнено</dev>
+                  <a href="#" class="task__chat-button">Чат с преподавателем</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="lessons__item">
+          <div class="lesson__number">7</div>
+          <div class="lesson__title">
+            <div class="lesson-tittle__text">
+              Объекты и переменные; структуры данных под капотом основных типов; list vs tuple; профилирование памяти; как работает сборщик мусора.
+            </div>
+            <div class="lesson__description lesson__description--hidden">
+              <div class="lesson__date-begin-title">Дата и время начала занятия</div>
+              <div class="lesson__date-begin">24 апреля в 20:00</div>
+              <div class="lesson__content">
+                <div class="content__links">
+                  <a href="#" class="content-links__item">Линкопост 1</a>
+                  <a href="#" class="content-links__item">Линкопост 2</a>
+                  <a href="#" class="content-links__item">Линкопост 3</a>
+                  <a href="#" class="content-links__item">Линкопост 4</a>
+                  <a href="#" class="content-links__item">Линкопост 5</a>
+                </div>
+                <div class="content__media" data-url="https://www.youtube.com/embed/_bkh2EDjfQ0">
+                  <!-- <iframe class="media__iframe" width="854" height="480" src="https://www.youtube.com/embed/_bkh2EDjfQ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+                </div>
+              </div>
+
+              <div class="lesson__task">
+                <div class="task__title-block">
+                  <span class="task__title">Домашнее задание:</span>
+                  <dev class="task__text">Написать прототип сайта</dev>
+                </div>
+                <div class="task__status-block">
+                  <span class="task__status-title">Статус:</span>
+                  <dev class="task__status">Выполнено</dev>
+                  <a href="#" class="task__chat-button">Чат с преподавателем</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="lessons__item">
+          <div class="lesson__number">8</div>
+          <div class="lesson__title">
+            <div class="lesson-tittle__text">
+              Объекты и переменные; структуры данных под капотом основных типов; list vs tuple; профилирование памяти; как работает сборщик мусора.
+            </div>
+            <div class="lesson__description lesson__description--hidden">
+              <div class="lesson__date-begin-title">Дата и время начала занятия</div>
+              <div class="lesson__date-begin">24 апреля в 20:00</div>
+              <div class="lesson__content">
+                <div class="content__links">
+                  <a href="#" class="content-links__item">Линкопост 1</a>
+                  <a href="#" class="content-links__item">Линкопост 2</a>
+                  <a href="#" class="content-links__item">Линкопост 3</a>
+                  <a href="#" class="content-links__item">Линкопост 4</a>
+                  <a href="#" class="content-links__item">Линкопост 5</a>
+                </div>
+                <div class="content__media" data-url="https://www.youtube.com/embed/_bkh2EDjfQ0">
+                  <!-- <iframe class="media__iframe" width="854" height="480" src="https://www.youtube.com/embed/_bkh2EDjfQ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+                </div>
+              </div>
+
+              <div class="lesson__task">
+                <div class="task__title-block">
+                  <span class="task__title">Домашнее задание:</span>
+                  <dev class="task__text">Написать прототип сайта</dev>
+                </div>
+                <div class="task__status-block">
+                  <span class="task__status-title">Статус:</span>
+                  <dev class="task__status">Выполнено</dev>
+                  <a href="#" class="task__chat-button">Чат с преподавателем</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="lessons__item lessons__item--hidden">
+          <div class="lesson__number">9</div>
+          <div class="lesson__title">
+            <div class="lesson-tittle__text">
+              Объекты и переменные; структуры данных под капотом основных типов; list vs tuple; профилирование памяти; как работает сборщик мусора.
+            </div>
+            <div class="lesson__description lesson__description--hidden">
+              <div class="lesson__date-begin-title">Дата и время начала занятия</div>
+              <div class="lesson__date-begin">24 апреля в 20:00</div>
+              <div class="lesson__content">
+                <div class="content__links">
+                  <a href="#" class="content-links__item">Линкопост 1</a>
+                  <a href="#" class="content-links__item">Линкопост 2</a>
+                  <a href="#" class="content-links__item">Линкопост 3</a>
+                  <a href="#" class="content-links__item">Линкопост 4</a>
+                  <a href="#" class="content-links__item">Линкопост 5</a>
+                </div>
+                <div class="content__media" data-url="https://www.youtube.com/embed/_bkh2EDjfQ0">
+                  <!-- <iframe class="media__iframe" width="854" height="480" src="https://www.youtube.com/embed/_bkh2EDjfQ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+                </div>
+              </div>
+
+              <div class="lesson__task">
+                <div class="task__title-block">
+                  <span class="task__title">Домашнее задание:</span>
+                  <dev class="task__text">Написать прототип сайта</dev>
+                </div>
+                <div class="task__status-block">
+                  <span class="task__status-title">Статус:</span>
+                  <dev class="task__status">Выполнено</dev>
+                  <a href="#" class="task__chat-button">Чат с преподавателем</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="lessons__item lessons__item--hidden">
+          <div class="lesson__number">10</div>
+          <div class="lesson__title">
+            <div class="lesson-tittle__text">
+              Объекты и переменные; структуры данных под капотом основных типов; list vs tuple; профилирование памяти; как работает сборщик мусора.
+            </div>
+            <div class="lesson__description lesson__description--hidden">
+              <div class="lesson__date-begin-title">Дата и время начала занятия</div>
+              <div class="lesson__date-begin">24 апреля в 20:00</div>
+              <div class="lesson__content">
+                <div class="content__links">
+                  <a href="#" class="content-links__item">Линкопост 1</a>
+                  <a href="#" class="content-links__item">Линкопост 2</a>
+                  <a href="#" class="content-links__item">Линкопост 3</a>
+                  <a href="#" class="content-links__item">Линкопост 4</a>
+                  <a href="#" class="content-links__item">Линкопост 5</a>
+                </div>
+                <div class="content__media" data-url="https://www.youtube.com/embed/_bkh2EDjfQ0">
+                  <!-- <iframe class="media__iframe" width="854" height="480" src="https://www.youtube.com/embed/_bkh2EDjfQ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+                </div>
+              </div>
+
+              <div class="lesson__task">
+                <div class="task__title-block">
+                  <span class="task__title">Домашнее задание:</span>
+                  <dev class="task__text">Написать прототип сайта</dev>
+                </div>
+                <div class="task__status-block">
+                  <span class="task__status-title">Статус:</span>
+                  <dev class="task__status">Выполнено</dev>
+                  <a href="#" class="task__chat-button">Чат с преподавателем</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="lessons__item lessons__item--hidden">
+          <div class="lesson__number">11</div>
+          <div class="lesson__title">
+            <div class="lesson-tittle__text">
+              Объекты и переменные; структуры данных под капотом основных типов; list vs tuple; профилирование памяти; как работает сборщик мусора.
+            </div>
+            <div class="lesson__description lesson__description--hidden">
+              <div class="lesson__date-begin-title">Дата и время начала занятия</div>
+              <div class="lesson__date-begin">24 апреля в 20:00</div>
+              <div class="lesson__content">
+                <div class="content__links">
+                  <a href="#" class="content-links__item">Линкопост 1</a>
+                  <a href="#" class="content-links__item">Линкопост 2</a>
+                  <a href="#" class="content-links__item">Линкопост 3</a>
+                  <a href="#" class="content-links__item">Линкопост 4</a>
+                  <a href="#" class="content-links__item">Линкопост 5</a>
+                </div>
+                <div class="content__media" data-url="https://www.youtube.com/embed/_bkh2EDjfQ0">
+                  <!-- <iframe class="media__iframe" width="854" height="480" src="https://www.youtube.com/embed/_bkh2EDjfQ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
                 </div>
               </div>
 
@@ -254,6 +600,7 @@
   </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="main_menu.js"></script>
+  <script src="js/main_menu.js"></script>
+  <script src="js/timetable.js"></script>
 </body>
 </html>
