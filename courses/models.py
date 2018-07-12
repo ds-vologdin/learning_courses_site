@@ -26,8 +26,8 @@ class Course(models.Model):
     name = CharField(max_length=50, unique=True)
     date_begin = DateField(blank=True, null=True)
     duration_month = IntegerField(default=5)
-    cost_full = IntegerField(default=50000)
-    cost_month = IntegerField(default=11500)
+    cost_full = IntegerField()
+    cost_month = IntegerField()
     active = BooleanField(default=True)
 
     def __str__(self):
