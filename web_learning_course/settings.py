@@ -1,14 +1,15 @@
-from configurations import Configuration
+from configurations import Configuration, values
 import os
 
-from .settings_privat import DatabaseDevMixins, SecretKeyMixins
+from .settings_privat import DatabaseDevMixins
 
 
 class Base(Configuration):
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-    # Обязательно переоределяйте SECRET_KEY с помощью SecretKeyMixins
-    SECRET_KEY = '9#5qjd$7evu5zhyucw-_=80e(yjqid^hgzrf0g@3$k)7n%hke$'
+    # Перед запуском задайте переменную окружения DJANGO_SECRET_KEY
+    # В linux надо обратить внимание на команду export
+    SECRET_KEY = values.SecretValue()
 
     DEBUG = False
 
@@ -91,7 +92,7 @@ class Base(Configuration):
     MEDIA_URL = '/media/'
 
 
-class Dev(DatabaseDevMixins, SecretKeyMixins, Base):
+class Dev(DatabaseDevMixins, Base):
     DEBUG = True
     INSTALLED_APPS = Base.INSTALLED_APPS + ['debug_toolbar']
     MIDDLEWARE = Base.MIDDLEWARE + ['debug_toolbar.middleware.DebugToolbarMiddleware']
