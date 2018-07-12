@@ -4,11 +4,11 @@ from django.shortcuts import get_object_or_404
 from .models import CourseDescription
 
 
-class IndexView(generic.ListView):
+class CourseDescriptionListView(generic.ListView):
     model = CourseDescription
 
 
-class DetailView(generic.DetailView):
+class CourseDescriptionDetailView(generic.DetailView):
     model = CourseDescription
 
     def get_object(self):

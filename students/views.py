@@ -12,12 +12,12 @@ from .forms import UserForm, UserProfileForm, UserProfileStudentForm
 logger = logging.getLogger(__name__)
 
 
-class IndexView(generic.ListView):
+class StudentListView(generic.ListView):
     def get_queryset(self):
         return ProfileStudent.objects.select_related('user')
 
 
-class DetailView(generic.DetailView):
+class StudentDetailView(generic.DetailView):
     def get_queryset(self):
         return ProfileStudent.objects.select_related('user__profile')
 
