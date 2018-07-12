@@ -79,6 +79,7 @@ class Base(Configuration):
             'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
         },
     ]
+    AUTH_USER_MODEL = "students.UserProfile"
 
     LANGUAGE_CODE = 'en-us'
     TIME_ZONE = 'UTC'

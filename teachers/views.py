@@ -1,13 +1,14 @@
 from django.views import generic
 
-from .models import ProfileTeacher
+from students.models import UserProfile
 
 
 class TeacherListView(generic.ListView):
-    def get_queryset(self):
-        return ProfileTeacher.objects.select_related('user__profile')
+    template_name = 'teachers/teachers_list.html'
+    queryset = UserProfile.objects.filter(is_teacher__exact=True)
 
 
 class TeacherDetailView(generic.DetailView):
-    def get_queryset(self):
-        return ProfileTeacher.objects.select_related('user__profile')
+    model = UserProfile
+    template_name = 'teachers/teacher_detail.html'
+    queryset = UserProfile.objects.filter(is_teacher__exact=True)

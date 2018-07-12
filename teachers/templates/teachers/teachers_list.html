@@ -6,7 +6,7 @@
   {% for teacher in object_list %}
     <ul>
       <li>
-        <a href="{% url 'teachers:detail' teacher.id %}">{{ teacher.user.username }} - {{ teacher.user.profile.location }}</a>
+        <a href="{% url 'teachers:detail' teacher.id %}">{{ teacher.username }} - {{ teacher.location }}</a>
       </li>
     </ul>
   {% endfor %}

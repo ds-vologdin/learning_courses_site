@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css %}
+<link href="{% static 'students/css/lk.css' %}" rel="stylesheet">
+{% endblock css %}
+
+{% block main %}
+<div>
+  <h1>Личный кабинет преподавателя</h1>
+  <h2>{{ object.username }}</h2>
+  <div>
+    Город: {{ object.location }}
+  </div>
+  <div>
+    Фото: {{ object.avatar }}
+  </div>
+  <div class="avatar" style="background: url(/media/{{ object.avatar }}) center no-repeat;"></div>
+</div>
+{% endblock main %}
