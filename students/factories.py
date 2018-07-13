@@ -28,11 +28,3 @@ class UserProfileFactory(factory.django.DjangoModelFactory):
     )
     is_teacher = factory.fuzzy.FuzzyChoice(IS_TEACHER)
     gender = 'none'
-
-
-def create_userprofile():
-    return UserProfileFactory.create()
-
-
-def create_batch_userprofile(size=10):
-    return UserProfileFactory.create_batch(size)
