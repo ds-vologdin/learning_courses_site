@@ -13,42 +13,7 @@
       <div class="header_input">
         <h2>Основные параметры</h2>
       </div>
-      {% for field in user_form %}
-        <div class="fieldWrapper">
-          {{ field.errors }}
-          <div class="input-group mb-3">
-            <div class="input-group-prepend input-group-text register-input">
-              {{ field.label_tag }}
-            </div>
-            {{ field }}
-          </div>
-          {% if field.help_text %}
-            <p class="help">{{ field.help_text|safe }}</p>
-          {% endif %}
-        </div>
-      {% endfor %}
-      <div class="header_input">
-        <h2>Дополнительные параметры</h2>
-      </div>
-      {% for field in user_profile_form %}
-        <div class="fieldWrapper">
-          {{ field.errors }}
-          <div class="input-group mb-3">
-            <div class="input-group-prepend input-group-text register-input">
-              {{ field.label_tag }}
-            </div>
-            {{ field }}
-          </div>
-          {% if field.help_text %}
-            <p class="help">{{ field.help_text|safe }}</p>
-          {% endif %}
-        </div>
-      {% endfor %}
-
-      <div class="header_input">
-        <h2>О студенте</h2>
-      </div>
-      {% for field in user_profile_student_form %}
+      {% for field in form %}
         <div class="fieldWrapper">
           {{ field.errors }}
           <div class="input-group mb-3">

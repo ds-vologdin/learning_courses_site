@@ -1,8 +1,9 @@
 from django.forms import ModelForm
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import ProfileStudent, Profile
+# from .models import ProfileStudent, Profile
+from .models import UserProfile
 
 
 class CSSClassInputRegisterMixins():
@@ -19,17 +20,17 @@ class UserForm(UserCreationForm):
             self.fields[field].widget.attrs.update({'class': 'input-register'})
 
     class Meta:
-        model = User
+        model = UserProfile
         fields = ['username', 'email']
 
 
-class UserProfileForm(CSSClassInputRegisterMixins, ModelForm):
-    class Meta:
-        model = Profile
-        exclude = ['user']
-
-
-class UserProfileStudentForm(CSSClassInputRegisterMixins, ModelForm):
-    class Meta:
-        model = ProfileStudent
-        exclude = ['user']
+# class UserProfileForm(CSSClassInputRegisterMixins, ModelForm):
+#     class Meta:
+#         model = Profile
+#         exclude = ['user']
+#
+#
+# class UserProfileStudentForm(CSSClassInputRegisterMixins, ModelForm):
+#     class Meta:
+#         model = ProfileStudent
+#         exclude = ['user']
