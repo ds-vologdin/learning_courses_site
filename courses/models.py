@@ -1,14 +1,13 @@
 from django.db import models
 from django.db.models import CharField, TextField, BooleanField, IntegerField
-from django.db.models import DateField, DateTimeField, DurationField
+from django.db.models import DateField, DateTimeField, DurationField, SlugField
 from django.db.models import ForeignKey
 from datetime import timedelta
 
 
+# Примеры заполнения моделей смотрите в модулях factories и management.commands
 class CourseDescription(models.Model):
-    # example: webpython
-    code_name = CharField(max_length=50, unique=True)
-    # example: Web-разработчик на Python
+    code_name = SlugField(max_length=50, unique=True)
     name = CharField(max_length=200)
     description = TextField()
     demands = TextField()
@@ -22,7 +21,6 @@ class Course(models.Model):
     course_description = ForeignKey(
         'CourseDescription', on_delete=models.CASCADE
     )
-    # example: WebPython-2018-07
     name = CharField(max_length=50, unique=True)
     date_begin = DateField(blank=True, null=True)
     duration_month = IntegerField(default=5)

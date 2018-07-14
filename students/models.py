@@ -9,6 +9,7 @@ def get_filename_avatar_student(instance, filename):
     return 'avatar/avatar_{}.{}'.format(uuid.uuid4(), postfix)
 
 
+# Примеры заполнения моделей смотрите в модулях factories и management.commands
 class UserProfile(AbstractUser):
     GENDER_CHOICES = (
         ('male', 'Мужской'),
