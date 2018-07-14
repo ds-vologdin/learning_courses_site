@@ -121,8 +121,12 @@
   left: auto;
 }
 
-.header-menu__dropdown, .menu-icons__dropdown {
+.dropdown-hide {
   display: none;
+}
+
+.header-menu__dropdown, .menu-icons__dropdown {
+  /* display: none; */
   position: absolute;
   z-index: 100;
   padding: 17px 0;

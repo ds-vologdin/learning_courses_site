@@ -18,7 +18,7 @@
         <div class="header-menu-main__item header-menu-main__item-dropdown dropdown-js-control">
           Обучение
           <div class="header-menu__caret"></div>
-          <div class="header-menu__dropdown dropdown-js">
+          <div class="header-menu__dropdown dropdown-js dropdown-hide">
             <a class="menu-dropdown__link menu-dropdown__link__no-wrap" href="#">Как поступить</a>
             <a class="menu-dropdown__link menu-dropdown__link__no-wrap" href="#">Программы лояльности</a>
             <a class="menu-dropdown__link menu-dropdown__link__no-wrap" href="#">Перевод студентов</a>
@@ -38,7 +38,7 @@
             <div class="menu-icons__icon">
               <div class="menu-icons__icon-img ic-blog-default-avatar"></div>
             </div>
-            <div class="menu-icons__dropdown dropdown-js">
+            <div class="menu-icons__dropdown dropdown-js dropdown-hide">
                 <a class="menu-dropdown__link menu-dropdown_link__no-wrap" href="#">
                   <div class="dropdown-link__text">
                     <b>Дмитрий Вологдин</b>
@@ -56,7 +56,7 @@
               <div class="menu-icons__icon">
                 <div class="menu-icons__icon-img ic_notification"></div>
               </div>
-              <div class="menu-icons__dropdown notifications_dropdown dropdown-js">
+              <div class="menu-icons__dropdown notifications_dropdown dropdown-js dropdown-hide">
                 <a class="menu-dropdown__link notifications_dropdown__item notifications_dropdown__item_simple_inverse">
                   <div class="notifications_dropdown__item_text">
                     <div class="notifications_dropdown__item_text_wrapper">26 июня в 20:00 состоится открытый урок по крусу "Full stack python"</div>
@@ -600,7 +600,6 @@
   </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/main_menu.js"></script>
-  <script src="js/timetable.js"></script>
+  <script type="text/javascript" src="webpack/output/bundle.min.js"></script>
 </body>
 </html>
