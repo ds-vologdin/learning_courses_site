@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+import uuid
 
 
 def get_filename_avatar_student(instance, filename):
     # file will be uploaded to MEDIA_ROOT/avatar/avatar_<id>.postfix
     postfix = filename.split('.')[-1]
-    return 'avatar/avatar_{}.{}'.format(instance.id, postfix)
+    return 'avatar/avatar_{}.{}'.format(uuid.uuid4(), postfix)
 
 
 class UserProfile(AbstractUser):
