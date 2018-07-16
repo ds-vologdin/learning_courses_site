@@ -1,8 +1,8 @@
 function find_first_active_slide(slider_items) {
   // Функция возвращает номер первого активного элемента в слайдере
   // Если нет активных, то возвращает null.
-  for (let i = 0; i < slider_items.length; i++) {
-    if (slider_items[i].classList.contains('slide_disable') == false) {
+  for (let slider_item of slider_items) {
+    if (slider_item.classList.contains('slide_disable') == false) {
       return i;
     }
   }
@@ -35,7 +35,7 @@ function prev_slide_handler() {
     return false
   }
 
-  if (numb_last_active_slide != slider_items.length-1) {
+  if (numb_last_active_slide !== slider_items.length-1) {
     slider_items[(numb_first_active_slide)].classList.add('slide_disable')
     slider_items[(numb_last_active_slide+1)].classList.remove('slide_disable')
   }
