@@ -17,8 +17,21 @@ module.exports = {
                 options: {
                     presets: ['babel-preset-env']
                 }
-            }
-        }]
+            },
+        },
+        {
+            test: /\.less$/,
+            use: [
+                { loader: 'style-loader' },
+                { loader: 'css-loader' },
+                { loader: 'less-loader' }
+            ]
+        },
+        {
+            test: /\.(png|jpg|gif|svg)$/,
+            loader: 'file-loader?name=./images/[name].[ext]'
+        }
+      ]
     },
     resolve: {
         extensions: ['.js']

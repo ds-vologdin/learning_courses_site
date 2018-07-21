@@ -1,3 +1,6 @@
+import './main.less';
+import './timetable.less';
+
 import {set_handler_timetable} from './timetable';
 import {set_handler_main_menu} from './main_menu';
 import {set_handler_main_page_arrow} from './main';
