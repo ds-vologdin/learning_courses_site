@@ -19,7 +19,7 @@ class CourseDescription(models.Model):
 
 class Course(models.Model):
     course_description = ForeignKey(
-        'CourseDescription', on_delete=models.CASCADE
+        'CourseDescription', related_name='courses', on_delete=models.CASCADE
     )
     name = CharField(max_length=50, unique=True)
     date_begin = DateField(blank=True, null=True)

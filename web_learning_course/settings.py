@@ -16,9 +16,6 @@ class Base(Configuration):
     ALLOWED_HOSTS = []
 
     INSTALLED_APPS = [
-        'courses.apps.CoursesConfig',
-        'teachers.apps.TeachersConfig',
-        'students.apps.StudentsConfig',
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -28,6 +25,10 @@ class Base(Configuration):
 
         'django_extensions',
         'rest_framework',
+
+        'courses.apps.CoursesConfig',
+        'teachers.apps.TeachersConfig',
+        'students.apps.StudentsConfig',
     ]
 
     MIDDLEWARE = [
@@ -94,10 +95,10 @@ class Base(Configuration):
     MEDIA_ROOT = BASE_DIR + '/media/'
     MEDIA_URL = '/media/'
 
-    REST_FRAMEWORK = {
-        'DEFAULT_PERMISSION_CLASSES': [
-            'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-        ]}
+    # REST_FRAMEWORK = {
+    #     'DEFAULT_PERMISSION_CLASSES': [
+    #         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    #     ]}
 
 
 class Dev(DatabaseDevMixins, Base):
