@@ -1,11 +1,13 @@
 from django.views.generic import ListView, DetailView
 from django.urls import reverse_lazy
 from django.views.generic.edit import FormView
+from rest_framework import viewsets
 
 import logging
 
 from .models import UserProfile
 from .forms import UserForm
+from . import serialazers
 
 logger = logging.getLogger(__name__)
 
@@ -28,3 +30,8 @@ class RegisterStudent(FormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+
+
+class UserProfileViewSet(viewsets.ModelViewSet):
+    queryset = UserProfile.objects.all()
+    serializer_class = serialazers.UserProfileSerializer

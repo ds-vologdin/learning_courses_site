@@ -25,7 +25,9 @@ class Base(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+
         'django_extensions',
+        'rest_framework',
     ]
 
     MIDDLEWARE = [
@@ -91,6 +93,11 @@ class Base(Configuration):
     STATIC_ROOT = BASE_DIR + '/static/'
     MEDIA_ROOT = BASE_DIR + '/media/'
     MEDIA_URL = '/media/'
+
+    REST_FRAMEWORK = {
+        'DEFAULT_PERMISSION_CLASSES': [
+            'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        ]}
 
 
 class Dev(DatabaseDevMixins, Base):
