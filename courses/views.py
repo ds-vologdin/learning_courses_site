@@ -26,5 +26,5 @@ class CourseViewSet(viewsets.ModelViewSet):
         active__exact=1
     ).filter(
         date_begin__gte=date.today()
-    ).all()
+    ).order_by('date_begin').all()
     serializer_class = CourseSerializer
