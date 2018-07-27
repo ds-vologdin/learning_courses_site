@@ -1,0 +1,48 @@
+@import "brand.less";
+
+.courses-block {
+  background-color: @white;
+  padding-top: 30px;
+  &__courses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: @width-1170px;
+    margin: 0 auto;
+  }
+}
+
+.courses {
+  &__item {
+    width: @width-1170px/3 - 20px;
+    text-decoration: none;
+  }
+}
+
+.course-item {
+  &__block {
+    margin-bottom: 30px;
+    height: 150px;
+    border: 1px solid @gray;
+    background: url('../../images/egyptian-cat.svg') right no-repeat;
+    background-color: @gray-1;
+    &:hover {
+      background-color: fadeout(@gray-1, 5%);
+      background: url('../../images/toyger-cat.svg') right no-repeat;
+    }
+  }
+}
+
+.course {
+  &__tittle {
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+
+  }
+  &__date {
+    font-size: 15px;
+    margin-top: 70px;
+    padding: 10px;
+  }
+}
