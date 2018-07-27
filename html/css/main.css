@@ -146,7 +146,7 @@
 }
 
 .menu-dropdown__link, .menu-dropdown__link:active, .menu-dropdown__link:link, .menu-dropdown__link:visited {
-  color: #fff;
+  color: @black;
 }
 
 .menu-dropdown__link:hover {
@@ -162,7 +162,7 @@
   cursor: pointer;
 }
 
-.menu-dropdown__link__no-wrap {
+.menu-dropdown__link--no-wrap {
   white-space: nowrap;
 }
 
