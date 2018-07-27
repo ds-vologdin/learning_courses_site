@@ -190,13 +190,13 @@
   right: 0;
 }
 
-.notifications_dropdown {
+.notifications-dropdown {
   width: 290px;
   padding: 0;
   cursor: default;
 }
 
-.notifications_dropdown__item {
+.notifications-dropdown__item {
     font-size: 13px;
     color: #fff;
     background: #3487db;
@@ -206,11 +206,11 @@
     padding: 15px 25px;
 }
 
-.notifications_dropdown__item_simple_inverse {
+.notifications-dropdown__item_simple_inverse {
   padding-left: 45px;
 }
 
-.notifications_dropdown__item_simple_inverse:before {
+.notifications-dropdown__item_simple_inverse:before {
   content: "";
   position: absolute;
   left: 10.5px;
@@ -222,13 +222,13 @@
   background-size: contain;
 }
 
-.notifications_dropdown__item_text {
+.notifications-dropdown__item_text {
   white-space: normal;
   line-height: 50px;
   position: relative;
 }
 
-.notifications_dropdown__item_text_wrapper {
+.notifications-dropdown__item_text_wrapper {
   line-height: normal;
 }
 
