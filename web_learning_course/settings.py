@@ -25,6 +25,7 @@ class Base(Configuration):
 
         'django_extensions',
         'rest_framework',
+        'corsheaders',
 
         'courses.apps.CoursesConfig',
         'teachers.apps.TeachersConfig',
@@ -39,6 +40,9 @@ class Base(Configuration):
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+        'corsheaders.middleware.CorsMiddleware',
+        'django.middleware.common.CommonMiddleware',
     ]
 
     ROOT_URLCONF = 'web_learning_course.urls'
@@ -94,6 +98,8 @@ class Base(Configuration):
     STATIC_ROOT = BASE_DIR + '/static/'
     MEDIA_ROOT = BASE_DIR + '/media/'
     MEDIA_URL = '/media/'
+
+    CORS_ORIGIN_ALLOW_ALL = True
 
     # REST_FRAMEWORK = {
     #     'DEFAULT_PERMISSION_CLASSES': [

@@ -7,3 +7,4 @@ psycopg2-binary==2.7.4
 psycopg2==2.7.4
 factory-boy==2.11.1
 djangorestframework==3.8.2
+django-cors-headers==2.4.0
