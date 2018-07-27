@@ -14,7 +14,7 @@ class CourseDescription(models.Model):
     active = BooleanField(default=True)
 
     def __str__(self):
-        return self.code_name
+        return '{}: {}'.format(self.code_name, self.name)
 
 
 class Course(models.Model):
@@ -29,7 +29,9 @@ class Course(models.Model):
     active = BooleanField(default=True)
 
     def __str__(self):
-        return '<Course: {}>'.format(self.name)
+        return '{} ({}): begin {}, month {}'.format(
+            self.id, self.name, self.date_begin, self.duration_month
+        )
 
 
 class Lesson(models.Model):

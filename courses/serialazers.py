@@ -4,8 +4,8 @@ from .models import CourseDescription, Course
 
 
 class CourseDescriptionSerializer(serializers.ModelSerializer):
-    courses = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-    # courses = serializers.StringRelatedField(many=True)
+    # courses = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    courses = serializers.StringRelatedField(many=True, read_only=True)
 
     class Meta:
         model = CourseDescription
@@ -14,9 +14,6 @@ class CourseDescriptionSerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.ModelSerializer):
-    # courses = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-    # courses = serializers.StringRelatedField(many=True)
-
     class Meta:
         model = Course
         fields = ('pk', 'course_description_id', 'name', 'date_begin',
