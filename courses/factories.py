@@ -48,9 +48,11 @@ class CourseDescriptionFactory(factory.django.DjangoModelFactory):
         model = CourseDescription
         django_get_or_create = ('code_name',)
 
-    code_name = factory.Sequence(lambda n: 'test_webpython_{}'.format(n))
+    code_name = factory.Sequence(
+        lambda n: 'factory_course_description_{}'.format(n)
+    )
     name = factory.Sequence(
-        lambda n: 'test Web-разработчик на Python: {}'.format(n)
+        lambda n: 'Factory course name: {}'.format(n)
     )
     description = COURSE_DESCRIPTION
     demands = COURSE_DEMANDS
@@ -62,7 +64,7 @@ class CourseFactory(factory.django.DjangoModelFactory):
         model = Course
         django_get_or_create = ('name',)
 
-    name = factory.Sequence(lambda n: 'test-WebPython-2018-07-{}'.format(n))
+    name = factory.Sequence(lambda n: 'factory-course-{}'.format(n))
     date_begin = factory.fuzzy.FuzzyDate(
         datetime.date(2018, 1, 1), datetime.date(2020, 1, 1)
     )
@@ -74,7 +76,9 @@ class CourseFactory(factory.django.DjangoModelFactory):
 
 
 def create_batch_courses(size=5):
-    course_description = CourseDescriptionFactory.create()
-    return CourseFactory.create_batch(
-        size=size, course_description=course_description
-    )
+    courses_description = CourseDescriptionFactory.create_batch(size=size)
+    for course_description in courses_description:
+        CourseFactory.create_batch(
+            size=3, course_description=course_description
+        )
+    return courses_description
