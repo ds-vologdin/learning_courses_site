@@ -1,6 +1,16 @@
 const HOST = 'http://127.0.0.1:8000/'
 
 
+function compare_date_begin(a,b) {
+  if (a.date_begin < b.date_begin)
+    return -1;
+  if (a.date_begin > b.date_begin)
+    return 1;
+  return 0;
+}
+
+
+
 export let fetch_courses = () => {
     fetch(HOST + 'courses/api/courses/').then(response => {
     if (!response.ok) {
@@ -29,7 +39,7 @@ export let fetch_courses = () => {
         return
       }
       courses_block = courses_block[0]
-      for (let course_description of courses_description) {
+      for (let course_description of courses_description.sort(compare_date_begin)) {
         let a_courses_item = document.createElement('a')
         a_courses_item.classList.add('courses__item');
         a_courses_item.href = '/courses/' + course_description.code_name
