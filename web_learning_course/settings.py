@@ -26,6 +26,7 @@ class Base(Configuration):
         'django_extensions',
         'rest_framework',
         'corsheaders',
+        'django_nose',
 
         'courses.apps.CoursesConfig',
         'teachers.apps.TeachersConfig',
@@ -100,6 +101,12 @@ class Base(Configuration):
     MEDIA_URL = '/media/'
 
     CORS_ORIGIN_ALLOW_ALL = True
+
+    TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+    NOSE_ARGS = [
+        '--with-coverage',
+        '--cover-package=students,theachers,courses',
+    ]
 
     # REST_FRAMEWORK = {
     #     'DEFAULT_PERMISSION_CLASSES': [
