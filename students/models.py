@@ -1,11 +1,23 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+from django.core.exceptions import ValidationError
+
 import uuid
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 def get_filename_avatar_student(instance, filename):
     # file will be uploaded to MEDIA_ROOT/avatar/avatar_<id>.postfix
-    postfix = filename.split('.')[-1]
+    filename_divided_on_dot = filename.split('.')
+    if len(filename_divided_on_dot) == 1:
+        logger.warning('Не верный формат имени файла: {}'.format(filename))
+        return
+    postfix = filename_divided_on_dot[-1]
     return 'avatar/avatar_{}.{}'.format(uuid.uuid4(), postfix)
 
 
@@ -29,3 +41,14 @@ class UserProfile(AbstractUser):
 
     def __str__(self):
         return '{}'.format(self.username)
+
+
+@receiver(pre_save, sender=UserProfile)
+def validate_user_profile_gender_choice(sender, instance, **kwargs):
+    valid_gender = [t[0] for t in sender.GENDER_CHOICES]
+    if instance.gender not in valid_gender:
+        raise ValidationError(
+            'Gender Type "{}" is not one of the permitted values: {}'.format(
+                instance.gender, ', '.join(valid_gender)
+            )
+        )
