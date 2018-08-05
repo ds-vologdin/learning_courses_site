@@ -107,10 +107,9 @@ venv.bak/
 media/
 
 settings_privat.py
+*_privat.py
 
 #NODEJS
 # Dependency directories
 node_modules/
 jspm_packages/
-
-
