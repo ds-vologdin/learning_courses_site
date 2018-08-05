@@ -1,5 +1,7 @@
 from django.test import TestCase
 from django.core.exceptions import ValidationError
+from django.test import Client
+from django.urls import reverse
 
 from .factories import UserProfileFactory
 from .models import get_filename_avatar_student, UserProfile
@@ -43,4 +45,32 @@ class UserProfileTestCase(TestCase):
         absolute_url = user.get_absolute_url()
         self.assertIn('/lk/detail/', absolute_url)
         user.is_teacher = True
+        absolute_url = user.get_absolute_url()
         self.assertIn('/teacher/detail/', absolute_url)
+
+
+class ViewClientMixins:
+    def __init__(self, *args, **kwargs):
+        self.client = Client()
+        super().__init__(*args, **kwargs)
+
+
+class StudentDetailViewTestCase(ViewClientMixins, TestCase):
+    def test_student_detail_view(self):
+        user = UserProfileFactory.create(username='test_user')
+        user.is_teacher = False
+        user.save(update_fields=['is_teacher'])
+        respose = self.client.get(user.get_absolute_url())
+        self.assertEqual(respose.status_code, 200)
+        self.assertIsInstance(respose.context[-1]['object'], UserProfile)
+        self.assertEqual(respose.context[-1]['object'].username, 'test_user')
+
+
+class StudentListViewTestCase(ViewClientMixins, TestCase):
+    def test_student_detail_view(self):
+        UserProfileFactory.create_batch(size=3, first_name='test')
+        respose = self.client.get(reverse('students:index'))
+        self.assertEqual(respose.status_code, 200)
+        users = respose.context[-1]['object_list']
+        self.assertIsInstance(users, list)
+        self.assertIsInstance(users[0], UserProfile)
