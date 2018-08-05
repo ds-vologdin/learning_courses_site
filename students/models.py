@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.core.exceptions import ValidationError
+from django.urls import reverse
 
 import uuid
 import logging
@@ -41,6 +42,12 @@ class UserProfile(AbstractUser):
 
     def __str__(self):
         return '{}'.format(self.username)
+
+    def get_absolute_url(self):
+        if self.is_teacher:
+            return reverse('teachers:detail', args=[str(self.id)])
+        else:
+            return reverse('students:detail', args=[str(self.id)])
 
 
 @receiver(pre_save, sender=UserProfile)

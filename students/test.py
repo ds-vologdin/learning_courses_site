@@ -32,4 +32,15 @@ class UserProfileTestCase(TestCase):
 
     def test_save_user_profile_not_valid_gender(self):
         with self.assertRaises(ValidationError):
-            UserProfile.objects.create(username='Vasya', gender='lalala')
+            vasya = UserProfile.objects.create(
+                username='Vasya', gender='lalala'
+            )
+            vasya.save()
+
+    def test_get_absolute_url(self):
+        user = UserProfileFactory.create()
+        user.is_teacher = False
+        absolute_url = user.get_absolute_url()
+        self.assertIn('/lk/detail/', absolute_url)
+        user.is_teacher = True
+        self.assertIn('/teacher/detail/', absolute_url)
