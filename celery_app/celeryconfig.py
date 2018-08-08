@@ -1,2 +1,2 @@
-broker_url = 'pyamqp://'
+broker_url = 'pyamqp://my-rabbit'
 result_backend = 'rpc://'

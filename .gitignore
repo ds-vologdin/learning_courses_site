@@ -113,3 +113,5 @@ settings_privat.py
 # Dependency directories
 node_modules/
 jspm_packages/
+
+*.env

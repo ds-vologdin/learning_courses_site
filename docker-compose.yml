@@ -1,0 +1,18 @@
+version: "2"
+services:
+  my-rabbit:
+    image: rabbitmq:3
+  web:
+    image: dsvologdin/learning-courses-site
+    ports:
+      - "8000:8000"
+    env_file:
+      - learning_courses.env
+    depends_on:
+      - "celery-worker"
+    command: python manage.py runserver 0.0.0.0:8000
+  celery-worker:
+    image: dsvologdin/learning-courses-site
+    depends_on:
+      - "my-rabbit"
+    command: celery -A celery_app.celery_app worker --loglevel=info
