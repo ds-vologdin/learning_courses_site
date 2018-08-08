@@ -105,7 +105,7 @@ class Base(Configuration):
     TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
     NOSE_ARGS = [
         '--with-coverage',
-        '--cover-package=students,theachers,courses',
+        '--cover-package=students,teachers,courses',
     ]
 
     # REST_FRAMEWORK = {
