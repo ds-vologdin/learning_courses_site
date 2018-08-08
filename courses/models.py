@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import CharField, TextField, BooleanField, IntegerField
 from django.db.models import DateField, DateTimeField, DurationField, SlugField
 from django.db.models import ForeignKey
+from django.urls import reverse
 from datetime import timedelta
 
 
@@ -16,6 +17,9 @@ class CourseDescription(models.Model):
     def __str__(self):
         return '{}: {}'.format(self.code_name, self.name)
 
+    def get_absolute_url(self):
+        return reverse('courses:detail', args=[self.code_name])
+
 
 class Course(models.Model):
     course_description = ForeignKey(
@@ -29,8 +33,8 @@ class Course(models.Model):
     active = BooleanField(default=True)
 
     def __str__(self):
-        return '{} ({}): begin {}, month {}'.format(
-            self.id, self.name, self.date_begin, self.duration_month
+        return '{}: begin {}, month {}'.format(
+            self.name, self.date_begin, self.duration_month
         )
 
 
