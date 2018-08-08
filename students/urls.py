@@ -13,5 +13,5 @@ urlpatterns = [
     path('index', views.StudentListView.as_view(), name='index'),
     path('detail/<int:pk>', views.StudentDetailView.as_view(), name='detail'),
     path('register', views.RegisterStudent.as_view(), name='register'),
-    path('api/', include(router.urls)),
+    path('api/', include(router.urls), name='api'),
 ]

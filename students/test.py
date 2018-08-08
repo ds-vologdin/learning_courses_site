@@ -1,10 +1,9 @@
 from django.test import TestCase
 from django.core.exceptions import ValidationError
-from django.test import Client
-from django.urls import reverse
 
 from .factories import UserProfileFactory
 from .models import get_filename_avatar_student, UserProfile
+from .management.commands.create_students import Command as CreateStudentsCommand
 
 
 class GetFilenameAvatarStudentTestCase(TestCase):
@@ -22,10 +21,7 @@ class GetFilenameAvatarStudentTestCase(TestCase):
 
 class UserProfileTestCase(TestCase):
     def test_create_user_profile(self):
-        vasya = UserProfile.objects.create(
-            username='Vasya',
-            gender='male',
-        )
+        vasya = UserProfile(username='Vasya', gender='male',)
         self.assertEqual(vasya.username, 'Vasya')
         self.assertEqual(vasya.gender, 'male')
         self.assertEqual(vasya.location, '')
@@ -49,28 +45,12 @@ class UserProfileTestCase(TestCase):
         self.assertIn('/teacher/detail/', absolute_url)
 
 
-class ViewClientMixins:
-    def __init__(self, *args, **kwargs):
-        self.client = Client()
-        super().__init__(*args, **kwargs)
-
-
-class StudentDetailViewTestCase(ViewClientMixins, TestCase):
-    def test_student_detail_view(self):
-        user = UserProfileFactory.create(username='test_user')
-        user.is_teacher = False
-        user.save(update_fields=['is_teacher'])
-        respose = self.client.get(user.get_absolute_url())
-        self.assertEqual(respose.status_code, 200)
-        self.assertIsInstance(respose.context[-1]['object'], UserProfile)
-        self.assertEqual(respose.context[-1]['object'].username, 'test_user')
-
-
-class StudentListViewTestCase(ViewClientMixins, TestCase):
-    def test_student_detail_view(self):
-        UserProfileFactory.create_batch(size=3, first_name='test')
-        respose = self.client.get(reverse('students:index'))
-        self.assertEqual(respose.status_code, 200)
-        users = respose.context[-1]['object_list']
-        self.assertIsInstance(users, list)
-        self.assertIsInstance(users[0], UserProfile)
+class CreateStudentsCommandTestCase(TestCase):
+    def test_create_students(self):
+        UserProfile.objects.filter(email__contains='@example.org').delete()
+        create_students = CreateStudentsCommand()
+        create_students.handle(size_batch=5)
+        students = UserProfile.objects.filter(
+            email__contains='@example.org'
+        ).all()
+        self.assertEqual(len(students), 5)
