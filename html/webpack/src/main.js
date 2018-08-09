@@ -1,8 +1,8 @@
-function find_first_active_slide(slider_items) {
+const find_first_active_slide = slider_items => {
   // Функция возвращает номер первого активного элемента в слайдере
   // Если нет активных, то возвращает null.
   for (let i = 0; i < slider_items.length; i++) {
-    if (slider_items[i].classList.contains('slide_disable') == false) {
+    if (slider_items[i].classList.contains('slide_disable') === false) {
       return i;
     }
   }
@@ -10,11 +10,11 @@ function find_first_active_slide(slider_items) {
 }
 
 
-function find_last_active_slide(slider_items) {
+const find_last_active_slide = slider_items => {
   // Функция возвращает номер последнего активного элемента в слайдере
   // Если нет активных, то возвращает null.
   for (let i = (slider_items.length - 1); i >= 0; i--) {
-    if (slider_items[i].classList.contains('slide_disable') == false) {
+    if (slider_items[i].classList.contains('slide_disable') === false) {
       return i;
     }
   }
@@ -22,7 +22,7 @@ function find_last_active_slide(slider_items) {
 }
 
 
-function prev_slide_handler() {
+const prev_slide_handler = () => {
   // Обработчик нажатие на стрелочку '<'
   let count_active_slide = 10;
   let slider_items = document.getElementsByClassName('swiper_slide');
@@ -42,7 +42,7 @@ function prev_slide_handler() {
 }
 
 
-function next_slide_handler() {
+const next_slide_handler = () => {
   // Обработчик нажатие на стрелочку '>'
   let count_active_slide = 10;
   let slider_items = document.getElementsByClassName('swiper_slide');
@@ -55,14 +55,14 @@ function next_slide_handler() {
     return false
   }
 
-  if (numb_last_active_slide != 0) {
+  if (numb_last_active_slide !== 0) {
     slider_items[(numb_first_active_slide-1)].classList.remove('slide_disable')
     slider_items[(numb_last_active_slide)].classList.add('slide_disable')
   }
 }
 
 
-export let set_handler_main_page_arrow = () => {
+export const set_handler_main_page_arrow = () => {
   // Навешиваем хендлеры на нажатие стрелочек
   let arrow_prev = document.getElementsByClassName('work_arrow_prev');
   if (arrow_prev.length > 0) {
