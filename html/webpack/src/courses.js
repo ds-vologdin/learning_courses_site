@@ -59,14 +59,12 @@ const _fetch_json  = url => fetch(url).then(
 });
 
 
-const _fetch_courses = _fetch_json(HOST + 'courses/api/courses/');
-const _fetch_courses_descriptions = _fetch_json(HOST + 'courses/api/coursedescription/');
-
-
 export const fetch_courses = () => Promise.all([
-  _fetch_courses, _fetch_courses_descriptions
+  _fetch_json(HOST + 'courses/api/courses/'),
+  _fetch_json(HOST + 'courses/api/coursedescription/')
 ]).then(([courses, courses_descriptions]) => {
   // Сохраняем в courses_descriptions параметры следующего, ближайшего курса
+  // TODO: это лучше реализовать на backend
   for (let description of courses_descriptions) {
     for (let course of courses) {
       if (description.pk === course.course_description_id) {
