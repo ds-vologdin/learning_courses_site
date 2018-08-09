@@ -6,7 +6,7 @@
 }
 
 .container {
-    max-width: @width-1170px;
+    max-width: @wide-container-width;
     margin: 0 auto;
     height: 100%;
 }
@@ -84,12 +84,12 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: @light-gray;
+  background-color: @gray-dark;
   &__content {
     background-color: @white;
     margin: auto;
     padding: 20px;
-    border: 1px solid @light-gray;
+    border: 1px solid @gray-dark;
     width: @width-600px + 100px;
   }
   &--show {
@@ -296,7 +296,7 @@
       color: @white;
     }
     &:hover {
-      color: @light-gray;
+      color: @gray-dark;
     }
     &--no-wrap {
       white-space: nowrap;
