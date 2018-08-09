@@ -1,5 +1,5 @@
-function switch_register_form() {
-  let register_form = this.parentNode.parentNode;
+const switch_register_form = (element) => {
+  let register_form = element.parentNode.parentNode;
   let register_input = register_form.getElementsByClassName('register-content__input-form--register');
   let login_input = register_form.getElementsByClassName('register-content__input-form--login');
   let register_button = register_form.getElementsByClassName('register-header__item--register');
@@ -15,7 +15,7 @@ function switch_register_form() {
     return false;
   }
 
-  if (this.classList.contains('register-header__item--login')) {
+  if (element.classList.contains('register-header__item--login')) {
     login_button.classList.add('register-header__item--active');
     register_button.classList.remove('register-header__item--active');
     login_input.classList.add('register-content__input-form--active');
@@ -30,32 +30,32 @@ function switch_register_form() {
 }
 
 
-function close_register_form() {
+const close_register_form = () => {
   let modal_register = document.getElementsByClassName('modal-register');
   if (modal_register.length < 0) {
     console.log('что-то пошло не так, нет формы регистрации...');
     return false;
   }
-  modal_register = modal_register[0]
-  modal_register.classList.remove('modal-register--show')
+  modal_register = modal_register[0];
+  modal_register.classList.remove('modal-register--show');
 }
 
-function show_register_form() {
+const show_register_form = () => {
   let modal_register = document.getElementsByClassName('modal-register');
   if (modal_register.length < 0) {
     console.log('что-то пошло не так, нет формы регистрации...');
     return false;
   }
-  modal_register = modal_register[0]
-  modal_register.classList.add('modal-register--show')
+  modal_register = modal_register[0];
+  modal_register.classList.add('modal-register--show');
 }
 
 
-export let set_handler_register_form = () => {
+export const set_handler_register_form = () => {
   let buttons_select = document.getElementsByClassName('register-header__item');
   if (buttons_select.length > 0) {
     for (let button of buttons_select) {
-      button.addEventListener('click', switch_register_form.bind(button));
+      button.addEventListener('click', event => switch_register_form(button));
     }
   }
   let close_button_register_form = document.getElementsByClassName('register-content__close')
