@@ -1,4 +1,4 @@
-const COUNT_LESSONS_IN_MONTH = 4
+const COUNT_LESSONS_IN_MONTH = 4;
 
 const insert_iframe_youtube = lesson_element => {
   if (lesson_element.getElementsByClassName('media__iframe').length > 0) {
@@ -7,7 +7,7 @@ const insert_iframe_youtube = lesson_element => {
 
   let iframe = document.createElement('iframe');
   iframe.setAttribute('frameborder', '0');
-  iframe.classList.add('media__iframe')
+  iframe.classList.add('media__iframe');
 
   let media = lesson_element.getElementsByClassName('content__media');
   if (media.length !== 1) {
@@ -15,13 +15,13 @@ const insert_iframe_youtube = lesson_element => {
   }
 
   iframe.setAttribute('src', media[0].dataset.url);
-  media[0].appendChild(iframe)
+  media[0].appendChild(iframe);
 }
 
 function hide_lessons_descriptions() {
   let descriptions = document.getElementsByClassName('lesson__description');
   for (let description of descriptions) {
-    description.classList.add('lesson__description--hidden')
+    description.classList.add('lesson__description--hidden');
   }
 }
 
@@ -76,7 +76,7 @@ const switch_month_lesson = element => {
     if (class_name.indexOf('month-') === 0) {
       // 'month-'.length === 6
       let month = parseInt(class_name.slice(6), 10)
-      show_month_lesson(month)
+      show_month_lesson(month);
     }
   }
 }
