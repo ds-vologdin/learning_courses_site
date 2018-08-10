@@ -27,7 +27,7 @@ const create_elemet_course = (courses_block, course_description) => {
 
   let div_course_date = document.createElement('div');
   div_course_date.classList.add('course__date');
-  div_course_date.innerHTML = 'С ' + course_description.date_begin + ' ' + course_description.duration_month + ' месяцев';
+  div_course_date.innerHTML = 'С ' + course_description.next_date_begin + ' ' + course_description.next_duration_month + ' месяцев';
   div_course.appendChild(div_course_date);
 
   courses_block.appendChild(a_courses_item);
@@ -47,32 +47,14 @@ const create_elements_courses = courses_descriptions => {
 };
 
 
-const _fetch_json  = url => fetch(url).then(
+export const fetch_courses = () => fetch(HOST + 'courses/api/coursedescription/').then(
   respone => {
     if (!respone.ok) {
       throw new Error('Network response was not ok.');
     }
     return respone.json();
   }
+).then(courses_descriptions => create_elements_courses(courses_descriptions)
 ).catch(function(error) {
   console.log('There has been a problem with your fetch operation: ' + error.message);
 });
-
-
-export const fetch_courses = () => Promise.all([
-  _fetch_json(HOST + 'courses/api/courses/'),
-  _fetch_json(HOST + 'courses/api/coursedescription/')
-]).then(([courses, courses_descriptions]) => {
-  // Сохраняем в courses_descriptions параметры следующего, ближайшего курса
-  // TODO: это лучше реализовать на backend
-  for (let description of courses_descriptions) {
-    for (let course of courses) {
-      if (description.pk === course.course_description_id) {
-        description.date_begin = course.date_begin;
-        description.duration_month = course.duration_month;
-        break;
-      }
-    }
-  }
-  create_elements_courses(courses_descriptions)
-}).catch(first_error => console.log(first_error));
