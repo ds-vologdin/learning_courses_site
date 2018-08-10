@@ -1,4 +1,4 @@
-import datetime
+from datetime import date, timedelta
 import factory
 import factory.fuzzy
 
@@ -66,7 +66,7 @@ class CourseFactory(factory.django.DjangoModelFactory):
 
     name = factory.Sequence(lambda n: 'factory-course-{}'.format(n))
     date_begin = factory.fuzzy.FuzzyDate(
-        datetime.date(2018, 1, 1), datetime.date(2020, 1, 1)
+        date.today() - timedelta(days=30), date.today() + timedelta(days=365)
     )
     duration_month = factory.fuzzy.FuzzyInteger(3, 12)
     cost_full = factory.fuzzy.FuzzyInteger(30000, 60000, 1000)
