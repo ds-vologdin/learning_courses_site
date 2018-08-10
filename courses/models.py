@@ -3,7 +3,7 @@ from django.db.models import CharField, TextField, BooleanField, IntegerField
 from django.db.models import DateField, DateTimeField, DurationField, SlugField
 from django.db.models import ForeignKey
 from django.urls import reverse
-from datetime import timedelta
+from datetime import date, timedelta
 
 
 # Примеры заполнения моделей смотрите в модулях factories и management.commands
@@ -19,6 +19,31 @@ class CourseDescription(models.Model):
 
     def get_absolute_url(self):
         return reverse('courses:detail', args=[self.code_name])
+
+    def get_next_course(self):
+        courses_active = [
+            course for course in self.courses.all().order_by('date_begin')
+            if course.date_begin >= date.today()
+        ]
+        if len(courses_active) > 0:
+            self.next_course = courses_active[0]
+            return courses_active[0]
+        self.next_course = None
+        return
+
+    def get_next_date_begin(self):
+        if not hasattr(self, 'next_course'):
+            self.get_next_course()
+        if not self.next_course:
+            return None
+        return self.next_course.date_begin
+
+    def get_next_duration_month(self):
+        if not hasattr(self, 'next_course'):
+            self.get_next_course()
+        if not self.next_course:
+            return None
+        return self.next_course.duration_month
 
 
 class Course(models.Model):
