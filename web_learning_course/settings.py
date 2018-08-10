@@ -119,7 +119,7 @@ class Dev(DatabaseDevMixins, Base):
     INSTALLED_APPS = Base.INSTALLED_APPS + ['debug_toolbar']
     MIDDLEWARE = Base.MIDDLEWARE + ['debug_toolbar.middleware.DebugToolbarMiddleware']
     INTERNAL_IPS = ['127.0.0.1']
-    ALLOWED_HOSTS = Base.ALLOWED_HOSTS + ['testserver']
+    ALLOWED_HOSTS = Base.ALLOWED_HOSTS + ['127.0.0.1', 'testserver']
 
 # В wsgi.py и manage.py подгружаем ConfigClass
 # Это давляет чуть больше гибкости. Если мы захотим подгрузить другой класс
