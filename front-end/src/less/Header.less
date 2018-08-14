@@ -1,7 +1,44 @@
+@import "brand.less";
+
 .header {
-  background-color: #333;
+  background-color: @white;
+  padding-top: 20px;
+  height: 60px;
+  border-bottom: @border-gray;
+  &__container {
+    max-width: @width-container-pc;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
   &__title {
     font-size: 30px;
-    color: #fff;
+    color: @black;
+  }
+  &__menu {
+    padding-top: 10px;
+  }
+  &__menu-link {
+    color: @black;
+    text-align: center;
+    margin: 10px;
+    padding-bottom: 2px;
+    text-decoration: none;
+    border-bottom: @border-gray;
+    &:hover {
+      border-bottom: @border-gray-thick;
+    }
+  }
+  &__menu-sign {
+    color: @black;
+    border: @border-gray;
+    border-radius: @border-radius;
+    margin: 10px 10px 0 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+    &:hover {
+      color: @white;
+      background-color: @gray;
+    }
   }
 }
