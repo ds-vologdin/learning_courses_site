@@ -1,0 +1,21 @@
+@import "brand.less";
+
+.buttons {
+  max-width: @width-container-pc;
+  margin: 15px auto;
+  display: flex;
+  justify-content: space-between;
+  &__button {
+    width: @width-container-pc/3 - 20px;
+    border: @border-gray;
+    border-radius: @border-radius;
+    color: @black;
+    font-size: @font-big;
+    padding: 15px 0;
+    &:hover {
+      background-color: @gray;
+      color: @white;
+      cursor: pointer;
+    }
+  }
+}
