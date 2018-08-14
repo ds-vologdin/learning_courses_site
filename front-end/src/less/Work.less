@@ -1,0 +1,20 @@
+@import "brand.less";
+
+.work {
+  &__title {
+    font-size: @font-big;
+    padding: 15px;
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+  }
+  &__image {
+    height: 50px;
+    display: none;
+    &--active {
+      display: block;
+    }
+  }
+}

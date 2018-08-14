@@ -47,7 +47,7 @@ const CourseDuration = ({className, duration}) => (
 )
 
 const CourseImage = ({className}) => (
-  <img src={book_logo} className={className}/>
+  <img src={book_logo} className={className} alt='course'/>
 )
 
 
