@@ -1,0 +1,37 @@
+@import "brand.less";
+@import "ContainerMixin.less";
+
+@width-tacher-block: @width-container-pc/4 - 20px;
+
+.teachers {
+  &__title {
+    padding: 30px 0;
+    font-size: @font-big;
+  }
+  &__container {
+    .container;
+    padding-bottom: 50px;
+  }
+  &__item {
+    width: @width-tacher-block;
+  }
+}
+
+.teacher {
+  text-decoration: none;
+  color: @black;
+  &__image {
+    width: @width-tacher-block;
+    height: @width-tacher-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+  }
+  &__name {
+    font-weight: @font-bold;
+    padding-top: 15px;
+  }
+  &__course {
+    padding-top: 5px;
+  }
+}

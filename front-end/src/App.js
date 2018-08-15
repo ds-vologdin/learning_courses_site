@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.less';
-import Header from './Header'
-import NextCourses from './NextCourses'
-import ButtonsMain from './ButtonsMain'
-import Work from './Work'
+import Header from './Header';
+import NextCourses from './NextCourses';
+import ButtonsMain from './ButtonsMain';
+import Work from './Work';
+import Teachers from './Teachers'
 
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
           <NextCourses className="app__next-courses"/>
           <ButtonsMain className="app__buttons"/>
           <Work className="app__work"/>
+          <Teachers className="app__teachers"/>
         </div>
       </div>
     );

@@ -1,15 +1,15 @@
 import React from 'react';
 import './less/Work.less';
-import ic_company_0 from'./img/ic_company_0.svg';
-import ic_company_1 from'./img/ic_company_1.svg';
-import ic_company_2 from'./img/ic_company_2.svg';
-import ic_company_3 from'./img/ic_company_3.svg';
-import ic_company_4 from'./img/ic_company_4.svg';
-import ic_company_5 from'./img/ic_company_5.svg';
-import ic_company_6 from'./img/ic_company_6.svg';
-import ic_company_7 from'./img/ic_company_7.svg';
-import ic_company_8 from'./img/ic_company_8.svg';
-import ic_company_9 from'./img/ic_company_9.svg';
+import ic_company_0 from './img/ic_company_0.svg';
+import ic_company_1 from './img/ic_company_1.svg';
+import ic_company_2 from './img/ic_company_2.svg';
+import ic_company_3 from './img/ic_company_3.svg';
+import ic_company_4 from './img/ic_company_4.svg';
+import ic_company_5 from './img/ic_company_5.svg';
+import ic_company_6 from './img/ic_company_6.svg';
+import ic_company_7 from './img/ic_company_7.svg';
+import ic_company_8 from './img/ic_company_8.svg';
+import ic_company_9 from './img/ic_company_9.svg';
 
 
 
