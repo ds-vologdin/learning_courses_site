@@ -20,13 +20,13 @@ const Title = ({className}) => (
 
 const Menu = ({className}) => (
   <div className={className}>
-    <a className={className + '-link'} href='#'>Курсы</a>
-    <a className={className + '-link'} href='#'>Преподаватели</a>
-    <a className={className + '-link'} href='#'>Мероприятия</a>
+    <a className={className + '-link'} href='/courses/'>Курсы</a>
+    <a className={className + '-link'} href='/teachers/'>Преподаватели</a>
+    <a className={className + '-link'} href='/events/'>Мероприятия</a>
     <Sign className={className + '-sign'}/>
   </div>
 )
 
 const Sign = ({className}) => (
-  <a className={className} href='#'>Войти</a>
+  <a className={className} href='/sign/'>Войти</a>
 );

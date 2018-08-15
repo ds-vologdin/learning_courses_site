@@ -26,7 +26,7 @@ const TeachersTitle = ({className}) => (
 const Teacher = ({className, name, course, image}) => {
   className = 'teacher ' + className;
   return (
-    <a className={className} href='#'>
+    <a className={className} href='/teacher/id/'>
         <div className='teacher__image' style={{ backgroundImage: `url(${image})` }}/>
         <div className='teacher__name'>{name}</div>
         <div className='teacher__course'>{course}</div>
