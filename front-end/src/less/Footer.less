@@ -1,0 +1,19 @@
+@import "brand.less";
+@import "ContainerMixin.less";
+
+.footer {
+  &__container {
+    .container;
+    padding: 30px 0;
+  }
+  &__link {
+    color: @black;
+    border-bottom: @border-gray;
+    padding-bottom: 2px;
+    margin-right: 10px;
+    text-decoration: none;
+    &:hover {
+      border-bottom: @border-gray-thick;
+    }
+  }
+}

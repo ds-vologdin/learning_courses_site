@@ -5,6 +5,7 @@ import NextCourses from './NextCourses';
 import ButtonsMain from './ButtonsMain';
 import Work from './Work';
 import Teachers from './Teachers'
+import Footer from './Footer'
 
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
           <ButtonsMain className="app__buttons"/>
           <Work className="app__work"/>
           <Teachers className="app__teachers"/>
+          <Footer className="app__footer"/>
         </div>
       </div>
     );
