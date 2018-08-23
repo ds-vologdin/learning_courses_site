@@ -1,6 +1,10 @@
 @import "brand.less";
 
 
+@width-sign-form: @width-container-pc - 100px;
+@width-sign-form-content: @width-sign-form - 100px;
+
+
 .modal-sign {
   position: fixed;
   z-index: 1000;
@@ -11,9 +15,76 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
-  &__content {
+  &__container {
     background-color: @white;
-    width: @width-container-pc - 100px;
+    width: @width-sign-form;
     margin: 0 auto;
+  }
+  &__content {
+    width: @width-sign-form-content;
+    margin: 0 (@width-sign-form - @width-sign-form-content)/2;
+    padding-bottom: 20px;
+  }
+  &__close {
+    color: @gray;
+    float: right;
+    font-size: @font-big;
+    font-weight: @font-bold;
+    cursor: pointer;
+    margin-right: 5px;
+    padding: 5px;
+    &:hover {
+      color: @black;
+    }
+  }
+  &__buttons {
+    padding-top: 20px;
+    display: flex;
+  }
+  &__button {
+    font-size: @font-big;
+    color: @black;
+    background-color: @white;
+    width: @width-sign-form-content/2 - 2px;
+    border: @border-gray;
+    padding: 10px 0;
+    &:hover {
+      cursor: pointer;
+    }
+    &--active {
+      color: @white;
+      background-color: @gray;
+    }
+  }
+  &__button-send {
+    margin-top: 20px;
+    font-size: @font-big;
+    color: @white;
+    background-color: fadeout(@gray, 10%);
+    border: @border-gray;
+    border-radius: @border-radius;
+    padding: 10px 0;
+    width: @width-sign-form-content - 2px;
+    &:hover {
+      background-color: @gray;
+      cursor: pointer;
+    }
+  }
+}
+
+.input-wrapper {
+  display: block;
+  padding-top: 20px;
+  &__label {
+    display: block;
+    text-align: left;
+    font-size: @font-medium;
+  }
+  &__input {
+    width: @width-sign-form-content - 2px;
+    border: @border-gray;
+    border-radius: @border-radius;
+    font-size: @font-medium;
+    padding: 10px 0;
   }
 }
