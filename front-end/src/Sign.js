@@ -33,7 +33,7 @@ class ModalSign extends Component {
       </div>
     )
   }
-}
+};
 
 
 const ModalSignClose = ({action}) => (
@@ -62,31 +62,31 @@ const ModalSignRegisterContent = () => (
     <InputFormText label='Электронная почта'/>
     <InputFormPassword label='Пароль'/>
   </div>
-)
+);
 
 const ModalSignLoginContent = () => (
   <div className='register-form modal-sign__register-form'>
     <InputFormText label='Электронная почта'/>
     <InputFormPassword label='Пароль'/>
   </div>
-)
+);
 
 const InputFormText = ({label, className}) => (
   <label className={'input-wrapper ' + className}>
     <span className='input-wrapper__label'>{label}</span>
     <input type='text' className='input-wrapper__input'/>
   </label>
-)
+);
 
 const InputFormPassword = ({label, className}) => (
   <label className={'input-wrapper ' + className}>
     <span className='input-wrapper__label'>{label}</span>
     <input type='password' className='input-wrapper__input'/>
   </label>
-)
+);
 
 const ButtonSend = ({className}) => (
-  <div className='modal-sign__button-send'>Отправить</div>
-)
+  <div className='modal-sign__button-send' onClick={() => alert('А тут надо увязать с REST бекенда!')}>Отправить</div>
+);
 
 export default ModalSign;
