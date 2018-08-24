@@ -2,17 +2,26 @@ version: "2"
 services:
   my-rabbit:
     image: rabbitmq:3
+    restart: always
   web:
-    image: dsvologdin/learning-courses-site
+    image: dsvologdin/learning-courses-site:latest
     ports:
       - "8000:8000"
     env_file:
       - learning_courses.env
     depends_on:
       - "celery-worker"
+      - "lcs-postgres"
     command: python manage.py runserver 0.0.0.0:8000
+    restart: always
   celery-worker:
-    image: dsvologdin/learning-courses-site
+    image: dsvologdin/learning-courses-site:latest
     depends_on:
       - "my-rabbit"
     command: celery -A celery_app.celery_app worker --loglevel=info
+    restart: always
+  lcs-postgres:
+    image: postgres
+    env_file:
+      - "postgres.env"
+    restart: always

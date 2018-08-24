@@ -56,6 +56,34 @@ celery -A celery_app.celery_app worker --loglevel=info
 
 Подробности можете узнать из документации [celery](http://docs.celeryproject.org/en/latest/index.html).
 
+#Docker-compose
+
+Проект можно запустить с помощью docker-compose.
+
+Предварительно необходимо создать docker образ. Например так:
+```
+docker build -t dsvologdin/learning-courses-site:latest .
+```
+Cоздайте файл postgres.env
+```
+POSTGRES_PASSWORD=ваш_пароль
+POSTGRES_USER=пользователь
+POSTGRES_DB=имя_БД
+```
+В каталоге с проектом и запустите
+```
+docker-compose up --build --no-recreate
+```
+После чего будут запущены контейнеры
+- learningcoursessite_web_1
+- learningcoursessite_celery-worker_1
+- learningcoursessite_lcs-postgres_1
+- learningcoursessite_my-rabbit_1
+
+При первом запуске необходимо сделать миграцию БД в базе.
+```
+docker exec  -it <id_container> python manage.py migrate
+```
 
 # Фронтенд
 Фронтенд в настоящее время не связан с бекэндом. Располагается в каталоге html/.
