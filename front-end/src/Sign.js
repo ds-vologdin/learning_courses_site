@@ -86,7 +86,38 @@ const InputFormPassword = ({label, className}) => (
 );
 
 const ButtonSend = ({className}) => (
-  <div className='modal-sign__button-send' onClick={() => alert('А тут надо увязать с REST бекенда!')}>Отправить</div>
+  <div className='modal-sign__button-send' onClick={fetch_sign_data}>Отправить</div>
 );
+
+const HOST = 'http://127.0.0.1:8000/';
+var payload = {
+  username: "test__0001",
+  email: "test_0001@mail.ru",
+  first_name: "test",
+  last_name: "test",
+  password: "testpassword"
+}
+;
+
+const fetch_sign_data = () => fetch(
+  HOST + 'lk/api/students/',
+  {
+    method: 'post',
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+      "Authorization": "Token 88db8e8481e8b5c815f76461a5c63631cacb6fee"
+    },
+    body: JSON.stringify(payload)
+  }
+).then(
+  respone => {
+    if (!respone.ok) {
+      throw new Error('Network response was not ok.');
+    }
+    console.log(respone.json());
+  }
+).catch(function(error) {
+  console.log('There has been a problem with your fetch operation: ' + error.message);
+});
 
 export default ModalSign;
