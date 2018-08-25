@@ -25,6 +25,7 @@ class Base(Configuration):
 
         'django_extensions',
         'rest_framework',
+        'rest_framework.authtoken',
         'corsheaders',
         'django_nose',
 
@@ -108,16 +109,22 @@ class Base(Configuration):
         '--cover-package=students,teachers,courses',
     ]
 
-    # REST_FRAMEWORK = {
-    #     'DEFAULT_PERMISSION_CLASSES': [
-    #         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    #     ]}
+    REST_FRAMEWORK = {
+        'DEFAULT_PERMISSION_CLASSES': [
+            'rest_framework.permissions.IsAdminUser'
+        ],
+        'DEFAULT_AUTHENTICATION_CLASSES': (
+            'rest_framework.authentication.TokenAuthentication',
+        ),
+    }
 
 
 class Dev(DatabaseDevMixins, Base):
     DEBUG = True
     INSTALLED_APPS = Base.INSTALLED_APPS + ['debug_toolbar']
-    MIDDLEWARE = Base.MIDDLEWARE + ['debug_toolbar.middleware.DebugToolbarMiddleware']
+    MIDDLEWARE = Base.MIDDLEWARE + [
+        'debug_toolbar.middleware.DebugToolbarMiddleware'
+    ]
     INTERNAL_IPS = ['127.0.0.1']
     ALLOWED_HOSTS = Base.ALLOWED_HOSTS + ['127.0.0.1', 'testserver']
 

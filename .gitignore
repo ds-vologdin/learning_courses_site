@@ -115,3 +115,4 @@ node_modules/
 jspm_packages/
 
 *.env
+.idea
