@@ -35,7 +35,7 @@ class App extends Component {
     return (
       <div className="app">
         <div className='app__container'>
-          {this.state.is_active_sign_form && <ModalSign className="app__sign" action={this.hide_sign_form}/>}
+          {this.state.is_active_sign_form && <ModalSign className="app__sign" close={this.hide_sign_form}/>}
           <Header className="app__header" action={this.show_sign_form}/>
           <NextCourses className="app__next-courses"/>
           <ButtonsMain className="app__buttons"/>
