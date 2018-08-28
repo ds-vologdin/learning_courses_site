@@ -108,6 +108,7 @@ media/
 
 settings_privat.py
 *_privat.py
+*_privat.js
 
 #NODEJS
 # Dependency directories

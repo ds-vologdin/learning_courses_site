@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './less/Sign.less';
+import TOKEN from './token_privat';
 
 
 class ModalSign extends Component {
@@ -19,16 +20,16 @@ class ModalSign extends Component {
         register_content: false,
     });
   }
-  escFunction(event){
+  esc_handler = (event) => {
     if(event.keyCode === 27) {
-      console.log('escape');
+      this.props.close()
     }
   }
-  componentDidMount(){
-    document.addEventListener("keydown", this.escFunction, false);
+  componentDidMount() {
+    document.addEventListener("keydown", this.esc_handler);
   }
-  componentWillUnmount(){
-    document.removeEventListener("keydown", this.escFunction, false);
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.esc_handler);
   }
   render() {
     console.log(this.props.close);
@@ -37,8 +38,10 @@ class ModalSign extends Component {
         <div className='modal-sign__container'>
           <ModalSignClose action={ this.props.close } />
           <div className='modal-sign__content'>
-            <ModalSignButtons show_register_content={this.show_register_content} show_login_content={this.show_login_content} is_register_content={this.state.register_content}/>
-            {this.state.register_content ? <ModalSignRegisterContent/> : <ModalSignLoginContent/>}
+            <ModalSignButtons show_register_content={this.show_register_content}
+                              show_login_content={this.show_login_content}
+                              is_register_content={this.state.register_content}/>
+            {this.state.register_content ? <ModalSignRegisterContent close={this.props.close}/> : <ModalSignLoginContent close={this.props.close}/>}
           </div>
         </div>
       </div>
@@ -51,12 +54,14 @@ const ModalSignClose = ({action}) => (
   <span className='modal-sign__close' onClick={action}>&times;</span>
 );
 
+
 const ModalSignButtons = ({show_register_content, show_login_content, is_register_content}) => (
   <div className='modal-sign__buttons'>
     <ModalSignButton active={is_register_content} action={show_register_content} text='Зарегистрироваться'/>
     <ModalSignButton active={!is_register_content} action={show_login_content} text='Авторизоваться'/>
   </div>
 );
+
 
 const ModalSignButton = ({active, action, text}) => {
   let className = 'modal-sign__button';
@@ -65,6 +70,7 @@ const ModalSignButton = ({active, action, text}) => {
     <div className={className} onClick={action}>{text}</div>
   )
 };
+
 
 class ModalSignRegisterContent extends Component {
   get_first_name_input_ref = (node) => {this._first_name_input = node;}
@@ -80,8 +86,7 @@ class ModalSignRegisterContent extends Component {
       username: this._username_input._value,
       password: this._password_input._value
     }
-    console.log(registry_data);
-    post_sign_data(registry_data, 'lk/api/students/');
+    post_sign_data(registry_data, 'lk/api/students/', this.props.close);
   }
   render () {
     return (
@@ -96,6 +101,7 @@ class ModalSignRegisterContent extends Component {
     )
   }
 };
+
 
 class ModalSignLoginContent extends Component {
   get_username_ref = (node) => {this._username_input = node;}
@@ -157,14 +163,16 @@ class InputFormPassword extends Component {
   }
 }
 
+
 const ButtonSend = ({className, send_data}) => (
   <div className='modal-sign__button-send' onClick={send_data}>Отправить</div>
 );
 
-const HOST = 'http://127.0.0.1:8000/';
-const TOKEN = '88db8e8481e8b5c815f76461a5c63631cacb6fee';
 
-const post_sign_data = (data, url) => fetch(
+const HOST = 'http://127.0.0.1:8000/';
+
+
+const post_sign_data = (data, url, close) => fetch(
   HOST + url,
   {
     method: 'post',
@@ -175,14 +183,16 @@ const post_sign_data = (data, url) => fetch(
     body: JSON.stringify(data)
   }
 ).then(respone => {
-    // if (!respone.ok) {
-    //   throw new Error('Network response was not ok.');
-    // }
+    if (respone.status === 201) {
+      close();
+      return Promise.reject();
+    }
     return respone.json()
   }
-).then(data => console.log(data)
-).catch(function(error) {
-  console.log('There has been a problem with your fetch operation: ' + error.message);
+).then((data) => {
+  // пока так, надо придумать что-то красивее
+  console.log('Показать сообщение об ошибке');
+  console.log(data);
 });
 
 export default ModalSign;
