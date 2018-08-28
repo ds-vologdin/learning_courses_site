@@ -1,5 +1,5 @@
-from configurations import Configuration, values
 import os
+from configurations import Configuration, values
 
 from .settings_privat import DatabaseDevMixins
 
