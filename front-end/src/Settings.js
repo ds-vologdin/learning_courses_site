@@ -67,5 +67,12 @@ class Buttons extends Component {
   }
 }
 
+class InputFormSettings extends Component {
+  render() {
+    return (
+      
+    )
+  }
+}
 
 export default Settings;
