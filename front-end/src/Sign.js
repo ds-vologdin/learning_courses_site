@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './less/Sign.less';
+import Input from './Input';
 import TOKEN from './token_privat';
 
 
@@ -91,11 +92,11 @@ class ModalSignRegisterContent extends Component {
   render () {
     return (
       <div className='register-form modal-sign__register-form'>
-        <InputFormText label='Фамилия' ref={this.get_last_name_input_ref}/>
-        <InputFormText label='Имя' ref={this.get_first_name_input_ref}/>
-        <InputFormText label='Электронная почта' ref={this.get_mail_input_ref}/>
-        <InputFormText label='Логин' ref={this.get_username_ref}/>
-        <InputFormPassword label='Пароль' ref={this.get_password_input_ref}/>
+        <Input type_input='text' label='Фамилия' ref={this.get_last_name_input_ref}/>
+        <Input type_input='text' label='Имя' ref={this.get_first_name_input_ref}/>
+        <Input type_input='text' label='Электронная почта' ref={this.get_mail_input_ref}/>
+        <Input type_input='text' label='Логин' ref={this.get_username_ref}/>
+        <Input type_input='password' label='Пароль' ref={this.get_password_input_ref}/>
         <ButtonSend send_data={this.send_registry_data}/>
       </div>
     )
@@ -118,50 +119,13 @@ class ModalSignLoginContent extends Component {
   render () {
     return (
       <div className='register-form modal-sign__register-form'>
-        <InputFormText label='Логин'/>
-        <InputFormPassword label='Пароль'/>
-        <ButtonSend/>
+        <Input type_input='text' label='Логин' ref={this.get_username_ref}/>
+        <Input type_input='password' label='Пароль' ref={this.get_password_input_ref}/>
+        <ButtonSend send_data={this.send_registry_data}/>
       </div>
     )
   }
 };
-
-class InputFormText extends Component {
-  constructor(props) {
-      super();
-      this._value = '';
-  }
-  set_value_input_ref = (event) => {this._value = event.target.value;}
-  render () {
-    let label = this.props.label;
-    let className = this.props.className;
-    return (
-      <label className={'input-wrapper ' + className}>
-        <span className='input-wrapper__label'>{label}</span>
-        <input type='text' className='input-wrapper__input' onChange={this.set_value_input_ref}/>
-      </label>
-    );
-  }
-};
-
-
-class InputFormPassword extends Component {
-  constructor(props) {
-      super();
-      this._value = '';
-  }
-  set_value_input_ref = (event) => {this._value = event.target.value;}
-  render () {
-    let label = this.props.label;
-    let className = this.props.className;
-    return (
-     <label className={'input-wrapper ' + className}>
-       <span className='input-wrapper__label'>{label}</span>
-       <input type='password' className='input-wrapper__input' onChange={this.set_value_input_ref}/>
-     </label>
-   );
-  }
-}
 
 
 const ButtonSend = ({className, send_data}) => (

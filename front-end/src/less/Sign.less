@@ -1,10 +1,6 @@
 @import "brand.less";
 
 
-@width-sign-form: @width-container-pc - 100px;
-@width-sign-form-content: @width-sign-form - 100px;
-
-
 .modal-sign {
   position: fixed;
   z-index: 1000;
@@ -70,22 +66,5 @@
       color: @white;
       cursor: pointer;
     }
-  }
-}
-
-.input-wrapper {
-  display: block;
-  padding-top: 20px;
-  &__label {
-    display: block;
-    text-align: left;
-    font-size: @font-medium;
-  }
-  &__input {
-    width: @width-sign-form-content - 2px;
-    border: @border-gray;
-    border-radius: @border-radius;
-    font-size: @font-medium;
-    padding: 10px 0;
   }
 }
