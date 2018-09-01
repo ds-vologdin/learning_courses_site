@@ -36,11 +36,18 @@ class SettingsContainer extends Component {
       <div className='settings__container'>
         <Title/>
         <Buttons active_block={this.state.active_block} check_active_block={this.check_active_block}/>
-        {this.state.active_block === 'settings' && <RegisterContent/>}
+        {this.state.active_block === 'settings' && <SettingBlock/>}
       </div>
     );
   }
 }
+
+const SettingBlock = () => (
+  <div className='settings__block'>
+    <RegisterContent/>
+    <Notify/>
+  </div>
+);
 
 const Title = () => (
   <div className='settings__title'>
@@ -88,11 +95,36 @@ class RegisterContent extends Component {
   render () {
     return (
       <div className='settings__register-form'>
+        <div className='settings__title-register'>Личные данные</div>
         <Input type_input='text' className='settings__input' label='Фамилия' ref={this.get_last_name_input_ref}/>
         <Input type_input='text' className='settings__input' label='Имя' ref={this.get_first_name_input_ref}/>
         <Input type_input='text' className='settings__input' label='Электронная почта' ref={this.get_mail_input_ref}/>
         <Input type_input='text' className='settings__input' label='Логин' ref={this.get_username_ref}/>
         <Input type_input='password' className='settings__input' label='Пароль' ref={this.get_password_input_ref}/>
+        <ButtonSend send_data={this.send_registry_data}/>
+      </div>
+    )
+  }
+};
+
+class Notify extends Component {
+  constructor(props) {
+      super();
+      this._new_curses = true;
+  }
+  check_new_courses = (event) => {this._new_curses = event.target.checked;}
+  send_registry_data = () => {
+    const notify_data = {
+      new_curses: this._new_curses,
+    }
+    console.log(notify_data);
+    // post_sign_data(registry_data, 'lk/api/students/', this.props.close);
+  }
+  render () {
+    return (
+      <div className='notify settings__notify'>
+        <div className='notify__title'>Уведомления</div>
+        <input type='checkbox' className='notify__checkbox' defaultChecked={this._new_curses} onChange={this.check_new_courses}/>
         <ButtonSend send_data={this.send_registry_data}/>
       </div>
     )
