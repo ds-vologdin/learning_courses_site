@@ -58,8 +58,8 @@ const ModalSignClose = ({action}) => (
 
 const ModalSignButtons = ({show_register_content, show_login_content, is_register_content}) => (
   <div className='modal-sign__buttons'>
-    <ModalSignButton active={is_register_content} action={show_register_content} text='Зарегистрироваться'/>
-    <ModalSignButton active={!is_register_content} action={show_login_content} text='Авторизоваться'/>
+    <ModalSignButton active={is_register_content} action={show_register_content} text='Регистрация'/>
+    <ModalSignButton active={!is_register_content} action={show_login_content} text='Авторизация'/>
   </div>
 );
 
