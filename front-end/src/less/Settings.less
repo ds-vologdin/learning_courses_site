@@ -23,6 +23,29 @@
   &__title {
     background-color: @green;
   }
+  &__register-form {
+    max-width: @width-container-pc;
+    margin: 0 auto;
+  }
+  &__input {
+    text-align: left;
+    width: @width-setting-input-block;
+  }
+  &__button-send {
+    margin-top: 20px;
+    font-size: @font-big;
+    color: @black;
+    background-color: @gray-ligth;
+    border: @border-gray;
+    border-radius: @border-radius;
+    padding: 10px 0;
+    width: @width-setting-input-block;
+    &:hover {
+      background-color: @gray;
+      color: @white;
+      cursor: pointer;
+    }
+  }
 }
 
 .buttons-settings {
