@@ -90,6 +90,7 @@ class RegisterContent extends Component {
       username: this._username_input._value,
       password: this._password_input._value
     }
+    // посылаем на сервер, пока не реализовано на бекенде
     // post_sign_data(registry_data, 'lk/api/students/', this.props.close);
   }
   render () {
@@ -111,27 +112,56 @@ class Notify extends Component {
   constructor(props) {
       super();
       this._new_curses = true;
+      this.state = {
+          new_curses: true,
+          new_message: true,
+          change_status_task: true,
+          other: true,
+      };
   }
-  check_new_courses = (event) => {this._new_curses = event.target.checked;}
-  send_registry_data = () => {
-    const notify_data = {
-      new_curses: this._new_curses,
-    }
-    console.log(notify_data);
+  check_new_courses = (event) => {this.setState({new_curses: event.target.checked});}
+  check_new_message = (event) => {this.setState({new_message: event.target.checked});}
+  check_change_status_task = (event) => {this.setState({change_status_task: event.target.checked});}
+  check_other = (event) => {this.setState({other: event.target.checked});}
+  send_notify_settings = () => {
+    console.log(this.state);
     // post_sign_data(registry_data, 'lk/api/students/', this.props.close);
   }
+  componentDidMount() {
+    // Здесь загружаем данные с сервера и задаём state
+    // пока не реализовано на бекенде
+    this.setState({
+      new_curses: true,
+      new_message: false,
+      change_status_task: true,
+      other: false,
+    });
+  }
   render () {
+    console.log(this.state);
     return (
       <div className='notify settings__notify'>
         <div className='notify__title'>Уведомления</div>
-        <input type='checkbox' className='notify__checkbox' defaultChecked={this._new_curses} onChange={this.check_new_courses}/>
-        <ButtonSend send_data={this.send_registry_data}/>
+        <NotifyCheckbox checked={this.state.new_curses} change_handler={this.check_new_courses} text='О новых курсах'/>
+        <NotifyCheckbox checked={this.state.new_message} change_handler={this.check_new_message} text='О личных сообщениях'/>
+        <NotifyCheckbox checked={this.state.change_status_task} change_handler={this.check_change_status_task} text='О изменении статуса домашних заданий'/>
+        <NotifyCheckbox checked={this.state.other} change_handler={this.check_other} text='Обо всём хорошем'/>
+        <ButtonSend send_data={this.send_notify_settings}/>
       </div>
     )
   }
 };
 
-const ButtonSend = ({className, send_data}) => (
+const NotifyCheckbox = ({checked, change_handler, text}) => {
+  console.log(checked, text);
+  return (
+  <label className='notify__item'>
+    <input type='checkbox' className='notify__checkbox'  onChange={change_handler} checked={checked}/>
+    <span className='notify__checkbox-label'>{text}</span>
+  </label>
+)}
+
+const ButtonSend = ({send_data}) => (
   <div className='settings__button-send' onClick={send_data}>Сохранить</div>
 );
 
