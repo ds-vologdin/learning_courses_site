@@ -39,6 +39,10 @@ class UserProfile(AbstractUser):
     )
     experience = models.TextField(blank=True)
     is_teacher = models.BooleanField(default=False)
+    notify_new_curses = models.BooleanField(default=True)
+    notify_new_messages = models.BooleanField(default=True)
+    notify_change_status_task = models.BooleanField(default=True)
+    notify_events = models.BooleanField(default=True)
 
     def __str__(self):
         return '{}'.format(self.username)
