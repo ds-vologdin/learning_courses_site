@@ -9,19 +9,20 @@ class UserProfileSerializer(serializers.ModelSerializer):
         fields = ('pk', 'username', 'email', 'first_name', 'last_name',
                   'password', 'notify_new_curses', 'notify_new_messages',
                   'notify_change_status_task', 'notify_events')
-        extra_kwargs = {'password': {'write_only': True}}
+        extra_kwargs = {'password': {'write_only': True, 'required': False}}
 
     def create(self, validated_data):
-        user = UserProfile(
-            email=validated_data['email'],
-            username=validated_data['username'],
-            first_name=validated_data['first_name'],
-            last_name=validated_data['last_name'],
-            notify_new_curses=validated_data['notify_new_curses'],
-            notify_new_messages=validated_data['notify_new_messages'],
-            notify_change_status_task=validated_data['notify_change_status_task'],
-            notify_events=validated_data['notify_change_status_task'],
-        )
-        user.set_password(validated_data['password'])
+        password = validated_data.pop('password')
+        user = UserProfile(**validated_data)
+        user.set_password(password)
         user.save()
         return user
+
+    def update(self, instance, validated_data):
+        if 'password' in validated_data:
+            instance.set_password(validated_data.pop('password'))
+        for attribute, value in validated_data.items():
+            if hasattr(instance, attribute):
+                setattr(instance, attribute, value)
+        instance.save()
+        return instance
