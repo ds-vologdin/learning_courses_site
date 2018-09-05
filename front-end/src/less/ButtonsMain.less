@@ -5,7 +5,11 @@
   .container;
   margin: 15px auto;
   &__button {
-    width: @width-container-pc/3 - 20px;
+    width: 100%;
+    margin: 5px 0;
+    @media (min-width: @width-container-pc) {
+      width: @width-container-pc/3 - 20px;
+    }
     border: @border-gray;
     border-radius: @border-radius;
     background-color: @gray-ligth;

@@ -17,13 +17,16 @@
     flex-wrap: wrap;
   }
   &__item {
-    width: @width-tile;
-    height: 200px;
     margin: 15px 0;
     border: @border-gray;
     border-radius: @border-radius;
     background-color: @green;
     text-align: left;
+    width: @width-container-pc;
+    @media (min-width: @width-container-pc) {
+      width: @width-tile;
+      height: 200px;
+    }
     &:hover {
       background-color: @green-ligth;
       transform: scale(1.02);
@@ -35,7 +38,10 @@
 .course {
   display: flex;
   &__text {
-    width: @width-tile - 200px;
+    width: 70%;
+    @media (min-width: @width-container-pc) {
+      width: @width-tile - 200px;
+    }
   }
   &__title {
     font-size: @font-big;
@@ -54,7 +60,12 @@
     font-weight: @font-bold;
   }
   &__img {
-    height: 180px;
+    position: relative;
+    right: 10px;
     padding: 10px;
+    width: 30%;
+    @media (min-width: @width-container-pc) {
+      width: 180px;
+    }
   }
 }

@@ -3,7 +3,9 @@
 .input-wrapper {
   display: block;
   padding-top: 20px;
-  width: @width-sign-form-content - 2px;
+  @media (min-width: @width-container-pc) {
+    width: @width-sign-form-content - 2px;
+  }
   &__label {
     display: block;
     text-align: left;

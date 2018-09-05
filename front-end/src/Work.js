@@ -17,16 +17,16 @@ const Work = ({className}) => (
   <div className={'work ' + className}>
     <WorkTitle className='work__title'/>
     <div className='work__container'>
-      <WorkImage className='work__image' image={ic_company_0} is_active={true}/>
-      <WorkImage className='work__image' image={ic_company_1} is_active={true}/>
-      <WorkImage className='work__image' image={ic_company_2} is_active={true}/>
+      <WorkImage className='work__image' image={ic_company_0} is_active={false}/>
+      <WorkImage className='work__image' image={ic_company_1} is_active={false}/>
+      <WorkImage className='work__image' image={ic_company_2} is_active={false}/>
       <WorkImage className='work__image' image={ic_company_3} is_active={true}/>
       <WorkImage className='work__image' image={ic_company_4} is_active={true}/>
       <WorkImage className='work__image' image={ic_company_5} is_active={true}/>
       <WorkImage className='work__image' image={ic_company_6} is_active={true}/>
       <WorkImage className='work__image' image={ic_company_7} is_active={true}/>
-      <WorkImage className='work__image' image={ic_company_8} is_active={true}/>
-      <WorkImage className='work__image' image={ic_company_9} is_active={true}/>
+      <WorkImage className='work__image' image={ic_company_8} is_active={false}/>
+      <WorkImage className='work__image' image={ic_company_9} is_active={false}/>
     </div>
   </div>
 )

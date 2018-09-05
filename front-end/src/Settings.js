@@ -90,6 +90,7 @@ class RegisterContent extends Component {
       username: this._username_input._value,
       password: this._password_input._value
     }
+    console.log(registry_data);
     // посылаем на сервер, пока не реализовано на бекенде
     // post_sign_data(registry_data, 'lk/api/students/', this.props.close);
   }
