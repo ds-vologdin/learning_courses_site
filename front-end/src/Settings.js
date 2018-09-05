@@ -92,7 +92,7 @@ class RegisterContent extends Component {
     }
     console.log(registry_data);
     // посылаем на сервер, пока не реализовано на бекенде
-    post_settings_data(registry_data, 'lk/api/id/settings/');
+    put_settings_data(registry_data, 'lk/api/students/1/');
   }
   render () {
     return (
@@ -112,30 +112,29 @@ class RegisterContent extends Component {
 class Notify extends Component {
   constructor(props) {
       super();
-      this._new_curses = true;
       this.state = {
-          new_curses: true,
-          new_message: true,
-          change_status_task: true,
-          other: true,
+          notify_new_curses: true,
+          notify_new_messages: true,
+          notify_change_status_task: true,
+          notify_events: true,
       };
   }
-  check_new_courses = (event) => {this.setState({new_curses: event.target.checked});}
-  check_new_message = (event) => {this.setState({new_message: event.target.checked});}
-  check_change_status_task = (event) => {this.setState({change_status_task: event.target.checked});}
-  check_other = (event) => {this.setState({other: event.target.checked});}
+  check_new_curses = (event) => {this.setState({notify_new_curses: event.target.checked});}
+  check_new_message = (event) => {this.setState({notify_new_messages: event.target.checked});}
+  check_change_status_task = (event) => {this.setState({notify_change_status_task: event.target.checked});}
+  check_events = (event) => {this.setState({notify_events: event.target.checked});}
   send_notify_settings = () => {
     console.log(this.state);
-    post_settings_data(this.state, 'lk/api/id/settings/');
+    put_settings_data(this.state, 'lk/api/students/1/');
   }
   componentDidMount() {
     // Здесь загружаем данные с сервера и задаём state
     // пока не реализовано на бекенде
     this.setState({
-      new_curses: true,
-      new_message: false,
-      change_status_task: true,
-      other: false,
+      notify_new_curses: true,
+      notify_new_messages: false,
+      notify_change_status_task: true,
+      notify_events: false,
     });
   }
   render () {
@@ -143,10 +142,10 @@ class Notify extends Component {
     return (
       <div className='notify settings__notify'>
         <div className='notify__title'>Уведомления</div>
-        <NotifyCheckbox checked={this.state.new_curses} change_handler={this.check_new_courses} text='О новых курсах'/>
-        <NotifyCheckbox checked={this.state.new_message} change_handler={this.check_new_message} text='О личных сообщениях'/>
-        <NotifyCheckbox checked={this.state.change_status_task} change_handler={this.check_change_status_task} text='О изменении статуса домашних заданий'/>
-        <NotifyCheckbox checked={this.state.other} change_handler={this.check_other} text='Обо всём хорошем'/>
+        <NotifyCheckbox checked={this.state.notify_new_curses} change_handler={this.check_new_curses} text='О новых курсах'/>
+        <NotifyCheckbox checked={this.state.notify_new_messages} change_handler={this.check_new_message} text='О личных сообщениях'/>
+        <NotifyCheckbox checked={this.state.notify_change_status_task} change_handler={this.check_change_status_task} text='О изменении статуса домашних заданий'/>
+        <NotifyCheckbox checked={this.state.notify_events} change_handler={this.check_events} text='Обо всём хорошем'/>
         <ButtonSend send_data={this.send_notify_settings}/>
       </div>
     )
@@ -169,10 +168,10 @@ const ButtonSend = ({send_data}) => (
 const HOST = 'http://127.0.0.1:8000/';
 
 
-const post_settings_data = (data, url) => fetch(
+const put_settings_data = (data, url) => fetch(
   HOST + url,
   {
-    method: 'post',
+    method: 'put',
     headers: {
       "Content-type": "application/json; charset=UTF-8",
       "Authorization": "Token " + TOKEN
@@ -180,13 +179,16 @@ const post_settings_data = (data, url) => fetch(
     body: JSON.stringify(data)
   }
 ).then(respone => {
-    if (respone.status === 201) {
-      return Promise.reject();
-    }
-    return respone.json()
+  console.log(respone);
+  if (respone.status === 200) {
+    console.log('всё ОК, данные сохранили, завершаем Promise');
+    return Promise.resolve()
   }
-).then((data) => {
-  // пока так, надо придумать что-то красивее
-  console.log('Показать сообщение об ошибке');
-  console.log(data);
-});
+  return Promise.reject(respone.json())
+}).then(
+  (result) => {console.log('ok');},
+  (error) => {
+    console.log('Показать сообщение об ошибке');
+    console.log(error);
+  }
+);
