@@ -4,6 +4,7 @@ import './less/Settings.less';
 import Header from './Header';
 import Footer from './Footer';
 import Input from './Input';
+import TOKEN from './token_privat';
 
 export default class Settings extends Component {
   render() {
@@ -180,7 +181,6 @@ const post_settings_data = (data, url) => fetch(
   }
 ).then(respone => {
     if (respone.status === 201) {
-      close();
       return Promise.reject();
     }
     return respone.json()
