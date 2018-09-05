@@ -5,8 +5,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Input from './Input';
 
-
-class Settings extends Component {
+export default class Settings extends Component {
   render() {
     return (
       <div className='settings app__settings'>
@@ -92,7 +91,7 @@ class RegisterContent extends Component {
     }
     console.log(registry_data);
     // посылаем на сервер, пока не реализовано на бекенде
-    // post_sign_data(registry_data, 'lk/api/students/', this.props.close);
+    post_settings_data(registry_data, 'lk/api/id/settings/');
   }
   render () {
     return (
@@ -126,7 +125,7 @@ class Notify extends Component {
   check_other = (event) => {this.setState({other: event.target.checked});}
   send_notify_settings = () => {
     console.log(this.state);
-    // post_sign_data(registry_data, 'lk/api/students/', this.props.close);
+    post_settings_data(this.state, 'lk/api/id/settings/');
   }
   componentDidMount() {
     // Здесь загружаем данные с сервера и задаём state
@@ -166,4 +165,28 @@ const ButtonSend = ({send_data}) => (
   <div className='settings__button-send' onClick={send_data}>Сохранить</div>
 );
 
-export default Settings;
+const HOST = 'http://127.0.0.1:8000/';
+
+
+const post_settings_data = (data, url) => fetch(
+  HOST + url,
+  {
+    method: 'post',
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+      "Authorization": "Token " + TOKEN
+    },
+    body: JSON.stringify(data)
+  }
+).then(respone => {
+    if (respone.status === 201) {
+      close();
+      return Promise.reject();
+    }
+    return respone.json()
+  }
+).then((data) => {
+  // пока так, надо придумать что-то красивее
+  console.log('Показать сообщение об ошибке');
+  console.log(data);
+});
