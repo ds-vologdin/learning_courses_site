@@ -1,0 +1,18 @@
+class DatabaseDevMixin:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'database',
+            'USER': 'user',
+            'PASSWORD': 'password',
+            'HOST': 'lcs-postgres',
+            'PORT': '5432',
+        }
+    }
+
+
+class ConfigEmail:
+    HOST = 'host'
+    FROM_ADDRESS = 'example@email.com'
+    USERNAME = 'example@email.com'
+    PASSWORD = 'password'

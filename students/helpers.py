@@ -1,4 +1,5 @@
-from celery_app.send_email import send_email
+# from celery_tasks.send_email import send_email
+from .tasks import send_email
 
 
 def send_hello_email_after_register(name, email):

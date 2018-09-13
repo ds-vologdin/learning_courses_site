@@ -10,3 +10,4 @@ django-cors-headers==2.4.0
 django-nose==1.4.5
 coverage==4.5.1
 celery==4.2.1
+django-celery-results==1.0.1

@@ -1,4 +1,4 @@
-class DatabaseDevMixins():
+class DatabaseDevMixin:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -10,3 +10,10 @@ class DatabaseDevMixins():
             'PORT': '5432',
         }
     }
+
+
+class ConfigEmail:
+    HOST = 'smtp.mail.ru'
+    FROM_ADDRESS = 'learning.courses@mail.ru'
+    USERNAME = 'learning.courses@mail.ru'
+    PASSWORD = 'ichah3laetahsohP'

@@ -1,7 +1,7 @@
 import os
 from configurations import Configuration, values
 
-from .settings_private import DatabaseDevMixins
+from .settings_private import DatabaseDevMixin
 
 
 class Base(Configuration):
@@ -28,6 +28,7 @@ class Base(Configuration):
         'rest_framework.authtoken',
         'corsheaders',
         'django_nose',
+        'django_celery_results',
 
         'courses.apps.CoursesConfig',
         'teachers.apps.TeachersConfig',
@@ -119,9 +120,13 @@ class Base(Configuration):
             'rest_framework.authentication.SessionAuthentication',
         ),
     }
+    CELERY_BROKER_URL = 'pyamqp://my-rabbit'
+    CELERY_ACCEPT_CONTENT = ['json']
+    CELERY_RESULT_BACKEND = 'django-db'
+    CELERY_TASK_SERIALIZER = 'json'
 
 
-class Dev(DatabaseDevMixins, Base):
+class Dev(DatabaseDevMixin, Base):
     DEBUG = True
     INSTALLED_APPS = Base.INSTALLED_APPS + ['debug_toolbar']
     MIDDLEWARE = Base.MIDDLEWARE + [
