@@ -1,0 +1,5 @@
+class config_email:
+    HOST = 'host_mail_server'
+    FROM_ADDRESS = 'example@example.com'
+    USERNAME = 'example@example.com'
+    PASSWORD = 'password'
