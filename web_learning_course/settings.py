@@ -1,7 +1,7 @@
 import os
 from configurations import Configuration, values
 
-from .settings_privat import DatabaseDevMixins
+from .settings_private import DatabaseDevMixins
 
 
 class Base(Configuration):

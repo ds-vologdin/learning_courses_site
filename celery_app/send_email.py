@@ -3,7 +3,7 @@ from email.mime.text import MIMEText
 from email.header import Header
 
 from .celery_app import app
-from .setting_email_privat import config_email
+from .setting_email_private import config_email
 from .logger import logger
 
 

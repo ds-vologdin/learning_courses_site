@@ -4,7 +4,7 @@ import './less/Settings.less';
 import Header from './Header';
 import Footer from './Footer';
 import Input from './Input';
-import TOKEN from './token_privat';
+import TOKEN from './token_private';
 
 export default class Settings extends Component {
   render() {
@@ -25,6 +25,10 @@ class SettingsContainer extends Component {
       this.state = {
           active_block: 'learning',
       };
+  }
+  componentDidMount() {
+    // Здесь загружаем данные с сервера
+    // пока не реализовано на бекенде
   }
   check_active_block = (active_block) => {
     this.setState({
