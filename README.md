@@ -19,9 +19,9 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-В каталоге web_learning_course/settings_private.py, в котором создайте классы DatabaseDevMixins (в нём описываются параметры базы данных) и SecretKeyMixins (в нём задаётся SECRET_KEY)
+В каталоге web_learning_course/settings_private.py, в котором создайте классы DatabaseDevMixin (в нём описываются параметры базы данных) и ConfigEmail (в нём описываются настройки почты, которые используются в тасках celery)
 ```
-class DatabaseDevMixins():
+class DatabaseDevMixin():
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -32,8 +32,13 @@ class DatabaseDevMixins():
             'PORT': 'port',
         }
     }
-class SecretKeyMixins():
-    SECRET_KEY = 'secret_key!!!'
+
+
+class ConfigEmail:
+    HOST = 'host'
+    FROM_ADDRESS = 'example@email.com'
+    USERNAME = 'example@email.com'
+    PASSWORD = 'password'
 ```
 Не стесняйтесь править settings_private.py (создовать свои mixins) и settings.py.
 
@@ -51,7 +56,7 @@ docker run -d --hostname my-rabbit -p 5672:5672 --name some-rabbit rabbitmq:3
 
 После запуска RabbitMQ необходимо запустить воркеры celery.
 ```
-celery -A celery_app.celery_app worker --loglevel=info
+celery -A web_learning_course worker --loglevel=info
 ```
 
 Подробности можете узнать из документации [celery](http://docs.celeryproject.org/en/latest/index.html).
