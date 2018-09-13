@@ -18,7 +18,7 @@ services:
     image: dsvologdin/learning-courses-site:latest
     depends_on:
       - "my-rabbit"
-    command: celery -A celery_app.celery_app worker --loglevel=info
+    command: celery -A web_learning_course worker --loglevel=info
     restart: always
   lcs-postgres:
     image: postgres
