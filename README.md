@@ -52,6 +52,12 @@ class ConfigEmail:
 docker run -d --hostname my-rabbit -p 5672:5672 --name some-rabbit rabbitmq:3
 ```
 
+Если вы запускаете rabbitmq не в docker-compose, то вам потребуется в /etc/hosts добавить строчку
+```
+127.0.0.1   my-rabbit
+```
+Конечно, если rabbitmq запущен не локально, замените 127.0.0.1 на "правильный" IP. А вообще не стесняйтесь менять настройки брокера в конфиге 'web_learning_course/settings.py' (CELERY_BROKER_URL) 
+
 Подробнее можно почитать на [docker hub](https://hub.docker.com/_/rabbitmq/).
 
 После запуска RabbitMQ необходимо запустить воркеры celery.
@@ -60,6 +66,8 @@ celery -A web_learning_course worker --loglevel=info
 ```
 
 Подробности можете узнать из документации [celery](http://docs.celeryproject.org/en/latest/index.html).
+
+Мониторить выполнение заданий удобно с помощью flower. Подробнее читайте [официальную документацию](https://flower.readthedocs.io/en/latest/).
 
 #Docker-compose
 
@@ -91,6 +99,8 @@ docker exec  -it <id_container> python manage.py migrate
 ```
 
 # Фронтенд
+Раздел в разработке... не судите строго.
+
 Фронтенд в настоящее время не связан с бекэндом. Располагается в каталоге html/.
 
 В светлом будущем фронт с беком объединятся.
