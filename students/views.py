@@ -15,16 +15,19 @@ logger = logging.getLogger(__name__)
 
 
 class StudentListView(ListView):
+    """ CBV для формирования списка студентов. """
     model = UserProfile
     template_name = 'students/students_list.html'
 
 
 class StudentDetailView(DetailView):
+    """ CBV для отображения профиля студента. """
     model = UserProfile
     template_name = 'students/student_detail.html'
 
 
 class RegisterStudent(FormView):
+    """ CBV для отображения формы регистрации пользователя. """
     template_name = 'students/register_student.html'
     success_url = reverse_lazy('students:index')
     form_class = UserForm
@@ -38,5 +41,6 @@ class RegisterStudent(FormView):
 
 
 class UserProfileViewSet(viewsets.ModelViewSet):
+    """ REST viewset для получения списка пользователей. """
     queryset = UserProfile.objects.all()
     serializer_class = serialazers.UserProfileSerializer

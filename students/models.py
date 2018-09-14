@@ -24,6 +24,10 @@ def get_filename_avatar_student(instance, filename):
 
 # Примеры заполнения моделей смотрите в модулях factories и management.commands
 class UserProfile(AbstractUser):
+    """
+    Модель профиля пользователя.
+    Пользователь может быть студентом и/или преподавателем.
+    """
     GENDER_CHOICES = (
         ('male', 'Мужской'),
         ('female', 'Женский'),

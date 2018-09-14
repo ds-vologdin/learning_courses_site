@@ -44,6 +44,7 @@ https://developer.mozilla.org/ru/docs/Learn/Getting_started_with_the_web/JavaScr
 
 
 class CourseDescriptionFactory(factory.django.DjangoModelFactory):
+    """ Фабрика по производству описаний курсов. """
     class Meta:
         model = CourseDescription
         django_get_or_create = ('code_name',)
@@ -60,6 +61,7 @@ class CourseDescriptionFactory(factory.django.DjangoModelFactory):
 
 
 class CourseFactory(factory.django.DjangoModelFactory):
+    """ Фабрика по производству курсов. """
     class Meta:
         model = Course
         django_get_or_create = ('name',)

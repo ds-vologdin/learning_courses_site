@@ -8,6 +8,7 @@ from datetime import date, timedelta
 
 # Примеры заполнения моделей смотрите в модулях factories и management.commands
 class CourseDescription(models.Model):
+    """ Модель описания курсов. """
     code_name = SlugField(max_length=50, unique=True)
     name = CharField(max_length=200)
     description = TextField()
@@ -47,6 +48,10 @@ class CourseDescription(models.Model):
 
 
 class Course(models.Model):
+    """
+    Модель курсов.
+    Курсы имеют своё описание (много курсов - одно описание).
+    """
     course_description = ForeignKey(
         'CourseDescription', related_name='courses', on_delete=models.CASCADE
     )
@@ -64,6 +69,7 @@ class Course(models.Model):
 
 
 class Lesson(models.Model):
+    """ Модель, описывающая уроки, привязанные к курсу. """
     course = ForeignKey('Course', on_delete=models.CASCADE)
     number = IntegerField()
     name = CharField(max_length=200)
@@ -78,6 +84,7 @@ class Lesson(models.Model):
 
 
 class Task(models.Model):
+    """ Модель домашних заданий. """
     lesson = ForeignKey('Lesson', on_delete=models.CASCADE)
     number = IntegerField()
     name = CharField(max_length=200)

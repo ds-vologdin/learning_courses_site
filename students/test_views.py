@@ -7,6 +7,7 @@ from .models import UserProfile
 
 
 class ViewClientMixin:
+    """ Миксин для инициализации http клиента. """
     def __init__(self, *args, **kwargs):
         self.client = Client()
         user = UserProfileFactory.create(username='login_user', is_superuser=True, is_staff=True)

@@ -4,6 +4,7 @@ from .models import CourseDescription, Course
 
 
 class CourseDescriptionSerializer(serializers.ModelSerializer):
+    """ REST сериализатор модели CourseDescription. """
     courses = serializers.StringRelatedField(many=True, read_only=True)
     # SerializerMethodField используется исключительно для переименования
     # перемонных get_next_duration_month и get_next_duration_month
@@ -23,6 +24,7 @@ class CourseDescriptionSerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.ModelSerializer):
+    """ REST сериализатор модели Course. """
     class Meta:
         model = Course
         fields = ('pk', 'course_description_id', 'name', 'date_begin',

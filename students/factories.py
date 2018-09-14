@@ -9,6 +9,7 @@ IS_TEACHER = (True, False)
 
 
 class UserProfileFactory(factory.django.DjangoModelFactory):
+    """ Фабрика по созданию пользователей. """
     class Meta:
         model = UserProfile
         django_get_or_create = ('username',)

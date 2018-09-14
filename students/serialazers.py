@@ -4,6 +4,7 @@ from .models import UserProfile
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
+    """ REST сериализатор UserProfile. """
     class Meta:
         model = UserProfile
         fields = ('pk', 'username', 'email', 'first_name', 'last_name',

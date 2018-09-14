@@ -5,6 +5,7 @@ from .settings_private import DatabaseDevMixin
 
 
 class Base(Configuration):
+    """ Настройки django проекта. """
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     # Перед запуском задайте переменную окружения DJANGO_SECRET_KEY
@@ -127,6 +128,7 @@ class Base(Configuration):
 
 
 class Dev(DatabaseDevMixin, Base):
+    """ Настройки django проекта для разработки/отладки. """
     DEBUG = True
     INSTALLED_APPS = Base.INSTALLED_APPS + ['debug_toolbar']
     MIDDLEWARE = Base.MIDDLEWARE + [
@@ -135,9 +137,5 @@ class Dev(DatabaseDevMixin, Base):
     INTERNAL_IPS = ['127.0.0.1']
     ALLOWED_HOSTS = Base.ALLOWED_HOSTS + ['127.0.0.1', 'testserver']
 
-# В wsgi.py и manage.py подгружаем ConfigClass
-# Это давляет чуть больше гибкости. Если мы захотим подгрузить другой класс
-# конфигрурации, делать это придётся в одном месте. Так ConfigClass
-# используется ещё в urls.py, а может и ещё где-то придётся к нему обрщаться
-# напрямую
+
 ConfigClass = Dev
