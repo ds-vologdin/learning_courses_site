@@ -1,23 +1,23 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from students.test_views import ViewClientMixins
+from students.test_views import ViewClientMixin
 from .factories import create_batch_courses
-from .models import CourseDescription, Course
+from .models import CourseDescription
 
 
-class CreateCoursesMixins:
+class CreateCoursesMixin:
     def __init__(self, *args, **kwargs):
         self.courses_descriptions = create_batch_courses(5)
         super().__init__(*args, **kwargs)
 
 
 class CourseDescriptionListViewTesCase(
-    CreateCoursesMixins, ViewClientMixins, TestCase
+    CreateCoursesMixin, ViewClientMixin, TestCase
 ):
     def test_course_descriptions_list_views(self):
-        respose = self.client.get(reverse('courses:index'))
-        course_descriptions = list(respose.context[-1]['object_list'])
+        response = self.client.get(reverse('courses:index'))
+        course_descriptions = list(response.context[-1]['object_list'])
         self.assertIsInstance(course_descriptions, list)
         self.assertTrue(len(course_descriptions) >= 5)
         self.assertIsInstance(course_descriptions[0], CourseDescription)
@@ -29,26 +29,26 @@ class CourseDescriptionListViewTesCase(
 
 
 class CourseDescriptionDetailViewTestCase(
-    CreateCoursesMixins, ViewClientMixins, TestCase
+    CreateCoursesMixin, ViewClientMixin, TestCase
 ):
     def test_course_descriptions_list_views(self):
-        respose = self.client.get(
+        response = self.client.get(
             self.courses_descriptions[0].get_absolute_url()
         )
-        self.assertIsInstance(respose.context[-1]['object'], CourseDescription)
+        self.assertIsInstance(response.context[-1]['object'], CourseDescription)
         self.assertIn(
             'factory_course_description_',
-            respose.context[-1]['object'].code_name
+            response.context[-1]['object'].code_name
         )
 
 
 class CourseDescriptionViewSetTestCase(
-    CreateCoursesMixins, ViewClientMixins, TestCase
+    CreateCoursesMixin, ViewClientMixin, TestCase
 ):
     def test_save_user_profile_viewset(self):
-        respone = self.client.get('/courses/api/coursedescription/')
-        self.assertEqual(respone.status_code, 200)
-        courses_descriptions = respone.json()
+        response = self.client.get('/courses/api/coursedescription/')
+        self.assertEqual(response.status_code, 200)
+        courses_descriptions = response.json()
         self.assertIsInstance(courses_descriptions, list)
         self.assertTrue(len(courses_descriptions) >= 5)
         self.assertIn('code_name', courses_descriptions[0])
@@ -57,12 +57,12 @@ class CourseDescriptionViewSetTestCase(
 
 
 class CourseViewSetTestCase(
-    CreateCoursesMixins, ViewClientMixins, TestCase
+        CreateCoursesMixin, ViewClientMixin, TestCase
 ):
     def test_save_user_profile_viewset(self):
-        respone = self.client.get('/courses/api/courses/')
-        self.assertEqual(respone.status_code, 200)
-        courses = respone.json()
+        response = self.client.get('/courses/api/courses/')
+        self.assertEqual(response.status_code, 200)
+        courses = response.json()
         self.assertIsInstance(courses, list)
         self.assertIsInstance(courses[0], dict)
         self.assertIn('pk', courses[0])
