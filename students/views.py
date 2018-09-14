@@ -31,11 +31,9 @@ class RegisterStudent(FormView):
 
     def form_valid(self, form):
         form.save()
-        name = ' '.join((
-            form.cleaned_data['first_name'],
-            form.cleaned_data['last_name']
-        ))
-        send_hello_email_after_register(name, form.cleaned_data['email'])
+        user_data = form.cleaned_data
+        name = ' '.join((user_data['first_name'], user_data['last_name']))
+        send_hello_email_after_register(name, user_data['email'])
         return super().form_valid(form)
 
 
