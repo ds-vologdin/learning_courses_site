@@ -22,5 +22,12 @@ def send_email(to_addr, subject, body_text):
         server.sendmail(ConfigEmail.FROM_ADDRESS, [to_addr], body.as_string())
         server.quit()
     except smtplib.SMTPException as e:
-        return 'smptlib error: {0}'.format(e)
-    return 'Ok'
+        return {
+            'email': to_addr,
+            'success': False,
+            'error': str(e),
+        }
+    return {
+        'email': to_addr,
+        'success': True,
+    }
