@@ -47,11 +47,11 @@ class UserProfile(AbstractUser):
     def __str__(self):
         return '{}'.format(self.username)
 
-    def get_absolute_url(self):
-        if self.is_teacher:
-            return reverse('teachers:detail', args=[str(self.id)])
-        else:
-            return reverse('students:detail', args=[str(self.id)])
+    def get_student_detail_absolute_url(self):
+        return reverse('students:detail', args=[str(self.id)])
+
+    def get_teacher_detail_absolute_url(self):
+        return reverse('teachers:detail', args=[str(self.id)])
 
 
 @receiver(pre_save, sender=UserProfile)

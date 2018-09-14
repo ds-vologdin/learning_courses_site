@@ -36,9 +36,7 @@ class UserProfileTestCase(TestCase):
 
     def test_get_absolute_url(self):
         user = UserProfileFactory.create()
-        user.is_teacher = False
-        absolute_url = user.get_absolute_url()
+        absolute_url = user.get_student_detail_absolute_url()
         self.assertIn('/lk/detail/', absolute_url)
-        user.is_teacher = True
-        absolute_url = user.get_absolute_url()
+        absolute_url = user.get_teacher_detail_absolute_url()
         self.assertIn('/teacher/detail/', absolute_url)
