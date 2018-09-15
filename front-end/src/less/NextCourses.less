@@ -17,14 +17,15 @@
     flex-wrap: wrap;
   }
   &__item {
-    margin: 15px 0;
+    margin: 15px;
     border: @border-gray;
     border-radius: @border-radius;
     background-color: @green;
     text-align: left;
-    width: @width-container-pc;
+    max-width: @width-tile;
     transition: all 300ms ease;
     @media (min-width: @width-container-pc) {
+      margin: 15px 0;
       width: @width-tile;
       height: 200px;
     }
