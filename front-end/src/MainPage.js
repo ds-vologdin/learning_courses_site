@@ -9,6 +9,19 @@ import Teachers from './Teachers';
 import Footer from './Footer';
 import ModalSign from './Sign';
 
+import ic_teacher_0 from './img/ic_teacher_0.jpg';
+import ic_teacher_1 from './img/ic_teacher_1.jpg';
+import ic_teacher_2 from './img/ic_teacher_2.jpg';
+import ic_teacher_3 from './img/ic_teacher_3.jpg';
+
+
+const MOCK_TEACHERS = [
+  {name:'Василий Уткин', course:'Разработчик Java', image:ic_teacher_0},
+  {name:'Павел Воробьёв', course:'Machine Learning', image:ic_teacher_1},
+  {name:'Иван Орлов', course:'Разработчик Python', image:ic_teacher_2},
+  {name:'Роман Гусев', course:'Разработчик JS', image:ic_teacher_3},
+];
+
 
 class MainPage extends Component {
   constructor(props) {
@@ -40,7 +53,7 @@ class MainPage extends Component {
         <NextCourses className="main__next-courses"/>
         <ButtonsMain className="main__buttons"/>
         <Work className="main__work"/>
-        <Teachers className="main__teachers"/>
+        <Teachers className="main__teachers" teachers={MOCK_TEACHERS}/>
         <Footer className="main__footer"/>
       </div>
     );

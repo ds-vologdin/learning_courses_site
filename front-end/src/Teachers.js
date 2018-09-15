@@ -1,27 +1,26 @@
 import React from 'react';
 import './less/Teachers.less';
-import ic_teacher_0 from './img/ic_teacher_0.jpg';
-import ic_teacher_1 from './img/ic_teacher_1.jpg';
-import ic_teacher_2 from './img/ic_teacher_2.jpg';
-import ic_teacher_3 from './img/ic_teacher_3.jpg';
 
 
-
-const Teachers = ({className}) => (
-  <div className={'teachers ' + className}>
-    <TeachersTitle className='teachers__title'/>
-    <div className='teachers__container'>
-      <Teacher className='teachers__item' name='Василий Уткин' course='Разработчик Java' image={ic_teacher_0}/>
-      <Teacher className='teachers__item' name='Павел Воробьёв' course='Machine Learning' image={ic_teacher_1}/>
-      <Teacher className='teachers__item' name='Иван Орлов' course='Разработчик Python' image={ic_teacher_2}/>
-      <Teacher className='teachers__item' name='Роман Гусев' course='Разработчик JS' image={ic_teacher_3}/>
+const Teachers = ({className, teachers}) => {
+  let teachers_elements = [];
+  for (let teacher of teachers) {
+    teachers_elements.push(
+      <Teacher className='teachers__item'
+        name={teacher.name} course={teacher.course}
+        image={teacher.image} key={teacher.name}
+      />
+    )
+  }
+  return (
+    <div className={'teachers ' + className}>
+      <div className='teachers__title'>Наши преподаватели</div>
+      <div className='teachers__container'>
+        {teachers_elements}
+      </div>
     </div>
-  </div>
-)
-
-const TeachersTitle = ({className}) => (
-  <div className={className}>Наши преподаватели</div>
-)
+  )
+}
 
 const Teacher = ({className, name, course, image}) => {
   className = 'teacher ' + className;
