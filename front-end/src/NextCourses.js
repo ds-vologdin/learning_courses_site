@@ -3,52 +3,34 @@ import './less/NextCourses.less';
 import book_logo from'./img/book.svg';
 
 
-const NextCourses = ({className}) => (
-  <div className={'next-courses ' + className}>
-    <div className='next-courses__container'>
-      <NextCoursesTitle className='next-courses__title'/>
-      <div className='next-courses__items'>
-        <Course className='next-courses__item' title='Разработчик Python' date='2018.09.13' duration='6'/>
-        <Course className='next-courses__item' title='Разработчик Java' date='2018.10.13' duration='6'/>
-        <Course className='next-courses__item' title='WEB Python' date='2018.10.21' duration='6'/>
-        <Course className='next-courses__item' title='Machine Learning' date='2018.10.29' duration='7'/>
+const NextCourses = ({className, courses}) => {
+  let courses_elements = [];
+  for (let course of courses) {
+    courses_elements.push(
+      <Course className='next-courses__item' title={course.title} date={course.date} duration={course.duration}/>
+    )
+  }
+  return (
+    <div className={'next-courses ' + className}>
+      <div className='next-courses__container'>
+        <div className='next-courses__title'>Ближайшие курсы</div>
+        <div className='next-courses__items'>
+          {courses_elements}
+        </div>
       </div>
     </div>
-  </div>
-)
-
-const NextCoursesTitle = ({className}) => (
-  <div className={className}>
-    Ближайшие курсы
-  </div>
-)
+  )
+}
 
 const Course = ({className, title, date, duration}) => (
   <div className={'course ' + className}>
     <div className='course__text'>
-      <CourseTitle className='course__title' title={title}/>
-      <CourseBegin className='course__begin' date={date}/>
-      <CourseDuration className='course__duration' duration={duration}/>
+      <div className='course__title'>{title}</div>
+      <div className='course__begin'>Начало с {date}</div>
+      <div className='course__duration'>Продолжительность {duration} мес.</div>
     </div>
-    <CourseImage className='course__img'/>
+    <img src={book_logo} className='course__img' alt='course'/>
   </div>
 )
-
-const CourseTitle = ({className, title}) => (
-  <div className={className}>{title}</div>
-)
-
-const CourseBegin = ({className, date}) => (
-  <div className={className}>Начало с {date}</div>
-)
-
-const CourseDuration = ({className, duration}) => (
-  <div className={className}>Продолжительность {duration} мес.</div>
-)
-
-const CourseImage = ({className}) => (
-  <img src={book_logo} className={className} alt='course'/>
-)
-
 
 export default NextCourses;

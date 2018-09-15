@@ -15,11 +15,19 @@ import ic_teacher_2 from './img/ic_teacher_2.jpg';
 import ic_teacher_3 from './img/ic_teacher_3.jpg';
 
 
+// TODO: убрать MOCK, данные получать из бекенда
 const MOCK_TEACHERS = [
   {name:'Василий Уткин', course:'Разработчик Java', image:ic_teacher_0},
   {name:'Павел Воробьёв', course:'Machine Learning', image:ic_teacher_1},
   {name:'Иван Орлов', course:'Разработчик Python', image:ic_teacher_2},
   {name:'Роман Гусев', course:'Разработчик JS', image:ic_teacher_3},
+];
+
+const MOCK_COURSES = [
+  {title:'Разработчик Python', date:'2018.09.13', duration:'6'},
+  {title:'Разработчик Java', date:'2018.10.13', duration:'6'},
+  {title:'WEB Python', date:'2018.10.21', duration:'6'},
+  {title:'Machine Learning', date:'2018.10.29', duration:'7'},
 ];
 
 
@@ -50,7 +58,7 @@ class MainPage extends Component {
       <div className='main app__main'>
         {this.state.is_active_sign_form && <ModalSign className="app__sign" close={this.hide_sign_form}/>}
         <Header className="main__header" action={this.show_sign_form} sign_button={this.props.sign_button}/>
-        <NextCourses className="main__next-courses"/>
+        <NextCourses className="main__next-courses" courses={MOCK_COURSES}/>
         <ButtonsMain className="main__buttons"/>
         <Work className="main__work"/>
         <Teachers className="main__teachers" teachers={MOCK_TEACHERS}/>
