@@ -9,10 +9,13 @@
   }
   &__container {
     max-width: @width-container-pc;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin: 0 15px;
+    @media (min-width: @width-container-pc) {
+      margin: 0 auto;
+    }
   }
   &__title {
     font-size: @font-big;
