@@ -1,6 +1,6 @@
 import React from 'react';
 import './less/NextCourses.less';
-import book_logo from'./book.svg';
+import book_logo from'./img/book.svg';
 
 
 const NextCourses = ({className}) => (
