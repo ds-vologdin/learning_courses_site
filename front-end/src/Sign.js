@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './less/Sign.less';
 import Input from './Input';
-import TOKEN from './token_privat';
+import TOKEN from './token_private';
 
 
 class ModalSign extends Component {
