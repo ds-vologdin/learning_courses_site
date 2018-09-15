@@ -7,7 +7,7 @@ const NextCourses = ({className, courses}) => {
   let courses_elements = [];
   for (let course of courses) {
     courses_elements.push(
-      <Course className='next-courses__item' title={course.title} date={course.date} duration={course.duration}/>
+      <Course className='next-courses__item' title={course.title} date={course.date} duration={course.duration} key={course.title + course.date}/>
     )
   }
   return (
