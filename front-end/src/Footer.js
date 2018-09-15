@@ -6,7 +6,7 @@ const Footer = ({className}) => (
     <div className='footer__container'>
       <FooterLinks />
       <FooterEmail email='ds.vologdin@yandex.ru'/>
-      <FooterCopy />
+      <div className='footer__copy'>© 2018 ds.vologdin</div>
     </div>
   </div>
 )
@@ -23,12 +23,6 @@ const FooterEmail = ({email}) => (
   <div className='footer__email'>
     По всем вопросам пишите на&nbsp;
     <a href={'mailto:'+email}>{email}</a>
-  </div>
-)
-
-const FooterCopy = () => (
-  <div className='footer__copy'>
-    © 2018 ds.vologdin
   </div>
 )
 

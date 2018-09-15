@@ -18,12 +18,11 @@ export default class Settings extends Component {
   }
 }
 
-
 class SettingsContainer extends Component {
   constructor(props) {
       super();
       this.state = {
-          active_block: 'learning',
+          active_block: 'settings',
       };
   }
   componentDidMount() {
@@ -38,7 +37,9 @@ class SettingsContainer extends Component {
   render() {
     return (
       <div className='settings__container'>
-        <Title/>
+        <div className='settings__title'>
+          <div className='settings__title-container'>Личный кабинет</div>
+        </div>
         <Buttons active_block={this.state.active_block} check_active_block={this.check_active_block}/>
         {this.state.active_block === 'settings' && <SettingBlock/>}
       </div>
@@ -52,12 +53,6 @@ const SettingBlock = () => (
     <Notify/>
   </div>
 );
-
-const Title = () => (
-  <div className='settings__title'>
-    <div className='settings__title-container'>Личный кабинет</div>
-  </div>
-)
 
 class Buttons extends Component {
   render() {
@@ -107,7 +102,7 @@ class RegisterContent extends Component {
         <Input type_input='text' className='settings__input' label='Электронная почта' ref={this.get_mail_input_ref}/>
         <Input type_input='text' className='settings__input' label='Логин' ref={this.get_username_ref}/>
         <Input type_input='password' className='settings__input' label='Пароль' ref={this.get_password_input_ref}/>
-        <ButtonSend send_data={this.send_registry_data}/>
+        <div className='settings__button-send' onClick={this.send_registry_data}>Сохранить</div>
       </div>
     )
   }
@@ -150,7 +145,7 @@ class Notify extends Component {
         <NotifyCheckbox checked={this.state.notify_new_messages} change_handler={this.check_new_message} text='О личных сообщениях'/>
         <NotifyCheckbox checked={this.state.notify_change_status_task} change_handler={this.check_change_status_task} text='О изменении статуса домашних заданий'/>
         <NotifyCheckbox checked={this.state.notify_events} change_handler={this.check_events} text='Обо всём хорошем'/>
-        <ButtonSend send_data={this.send_notify_settings}/>
+        <div className='settings__button-send' onClick={this.send_notify_settings}>Сохранить</div>
       </div>
     )
   }
@@ -165,12 +160,7 @@ const NotifyCheckbox = ({checked, change_handler, text}) => {
   </label>
 )}
 
-const ButtonSend = ({send_data}) => (
-  <div className='settings__button-send' onClick={send_data}>Сохранить</div>
-);
-
 const HOST = 'http://127.0.0.1:8000/';
-
 
 const put_settings_data = (data, url) => fetch(
   HOST + url,

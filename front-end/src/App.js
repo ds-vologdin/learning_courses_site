@@ -8,8 +8,8 @@ class App extends Component {
   constructor(props) {
       super();
       this.state = {
-          // page: 'main',
-          page: 'settings',
+          page: 'main',
+          // page: 'settings',
       };
   }
   render() {

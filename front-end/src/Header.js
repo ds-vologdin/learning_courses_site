@@ -6,17 +6,13 @@ export default class Header extends Component {
     return (
       <header className={'header ' + this.props.className}>
         <div className='header__container'>
-          <Title className='header__title'/>
+          <div className='header__title'>IT-курсы</div>
           <Menu className='header__menu' action={this.props.action} sign_button={this.props.sign_button}/>
         </div>
       </header>
     );
   }
 }
-
-const Title = ({className}) => (
-  <div className={className}>IT-курсы</div>
-);
 
 const Menu = ({className, action, sign_button}) => (
   <div className={className}>

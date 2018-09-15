@@ -1,5 +1,6 @@
 import React from 'react';
 import './less/Work.less';
+
 import ic_company_0 from './img/ic_company_0.svg';
 import ic_company_1 from './img/ic_company_1.svg';
 import ic_company_2 from './img/ic_company_2.svg';
@@ -12,10 +13,9 @@ import ic_company_8 from './img/ic_company_8.svg';
 import ic_company_9 from './img/ic_company_9.svg';
 
 
-
 const Work = ({className}) => (
   <div className={'work ' + className}>
-    <WorkTitle className='work__title'/>
+    <div className='work__title'>Нашим студентам предлагают работу</div>
     <div className='work__container'>
       <WorkImage className='work__image' image={ic_company_0} is_active={false}/>
       <WorkImage className='work__image' image={ic_company_1} is_active={false}/>
@@ -29,10 +29,6 @@ const Work = ({className}) => (
       <WorkImage className='work__image' image={ic_company_9} is_active={false}/>
     </div>
   </div>
-)
-
-const WorkTitle = ({className}) => (
-  <div className={className}>Нашим студентам предлагают работу</div>
 )
 
 const WorkImage = ({className, image, is_active}) => {

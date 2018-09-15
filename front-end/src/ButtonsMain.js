@@ -4,14 +4,10 @@ import './less/ButtonsMain.less';
 
 const ButtonsMain = ({className}) => (
   <div className={'buttons ' + className}>
-    <ButtonMain className='buttons__button' text='Все курсы'/>
-    <ButtonMain className='buttons__button' text='Курсы в разработке'/>
-    <ButtonMain className='buttons__button' text='Мероприятия'/>
+    <div className='buttons__button buttons__button--all-curses'>Все курсы</div>
+    <div className='buttons__button buttons__button--dev-curses'>Курсы в разработке</div>
+    <div className='buttons__button buttons__button--events'>Мероприятия</div>
   </div>
-)
-
-const ButtonMain = ({className, text}) => (
-  <div className={className}>{text}</div>
 )
 
 export default ButtonsMain;

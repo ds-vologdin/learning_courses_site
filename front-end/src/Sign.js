@@ -37,7 +37,7 @@ class ModalSign extends Component {
     return (
       <div className={'modal-sign ' + this.props.className}>
         <div className='modal-sign__container'>
-          <ModalSignClose action={ this.props.close } />
+          <span className='modal-sign__close' onClick={this.props.close}>&times;</span>
           <div className='modal-sign__content'>
             <ModalSignButtons show_register_content={this.show_register_content}
                               show_login_content={this.show_login_content}
@@ -49,11 +49,6 @@ class ModalSign extends Component {
     )
   }
 };
-
-
-const ModalSignClose = ({action}) => (
-  <span className='modal-sign__close' onClick={action}>&times;</span>
-);
 
 
 const ModalSignButtons = ({show_register_content, show_login_content, is_register_content}) => (
@@ -97,7 +92,7 @@ class ModalSignRegisterContent extends Component {
         <Input type_input='text' label='Электронная почта' ref={this.get_mail_input_ref}/>
         <Input type_input='text' label='Логин' ref={this.get_username_ref}/>
         <Input type_input='password' label='Пароль' ref={this.get_password_input_ref}/>
-        <ButtonSend send_data={this.send_registry_data}/>
+        <div className='modal-sign__button-send' onClick={this.send_registry_data}>Отправить</div>
       </div>
     )
   }
@@ -121,20 +116,14 @@ class ModalSignLoginContent extends Component {
       <div className='register-form modal-sign__register-form'>
         <Input type_input='text' label='Логин' ref={this.get_username_ref}/>
         <Input type_input='password' label='Пароль' ref={this.get_password_input_ref}/>
-        <ButtonSend send_data={this.send_registry_data}/>
+        <div className='modal-sign__button-send' onClick={this.send_registry_data}>Отправить</div>
       </div>
     )
   }
 };
 
 
-const ButtonSend = ({className, send_data}) => (
-  <div className='modal-sign__button-send' onClick={send_data}>Отправить</div>
-);
-
-
 const HOST = 'http://127.0.0.1:8000/';
-
 
 const post_sign_data = (data, url, close) => fetch(
   HOST + url,
