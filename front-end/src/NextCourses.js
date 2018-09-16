@@ -3,24 +3,16 @@ import './less/NextCourses.less';
 import book_logo from'./img/book.svg';
 
 
-const NextCourses = ({className, courses}) => {
-  let courses_elements = [];
-  for (let course of courses) {
-    courses_elements.push(
-      <Course className='next-courses__item' title={course.title} date={course.date} duration={course.duration} key={course.title + course.date}/>
-    )
-  }
-  return (
-    <div className={'next-courses ' + className}>
-      <div className='next-courses__container'>
-        <div className='next-courses__title'>Ближайшие курсы</div>
-        <div className='next-courses__items'>
-          {courses_elements}
-        </div>
+const NextCourses = ({className, courses}) => (
+  <div className={'next-courses ' + className}>
+    <div className='next-courses__container'>
+      <div className='next-courses__title'>Ближайшие курсы</div>
+      <div className='next-courses__items'>
+        {courses.map(c => <Course className='next-courses__item' title={c.title} date={c.date} duration={c.duration} key={c.title + c.date}/>)}
       </div>
     </div>
-  )
-}
+  </div>
+)
 
 const Course = ({className, title, date, duration}) => (
   <div className={'course ' + className}>

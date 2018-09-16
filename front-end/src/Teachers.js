@@ -2,25 +2,15 @@ import React from 'react';
 import './less/Teachers.less';
 
 
-const Teachers = ({className, teachers}) => {
-  let teachers_elements = [];
-  for (let teacher of teachers) {
-    teachers_elements.push(
-      <Teacher className='teachers__item'
-        name={teacher.name} course={teacher.course}
-        image={teacher.image} key={teacher.name}
-      />
-    )
-  }
-  return (
-    <div className={'teachers ' + className}>
-      <div className='teachers__title'>Наши преподаватели</div>
-      <div className='teachers__container'>
-        {teachers_elements}
-      </div>
+const Teachers = ({className, teachers}) => (
+  <div className={'teachers ' + className}>
+    <div className='teachers__title'>Наши преподаватели</div>
+    <div className='teachers__container'>
+      {teachers.map(t =>  <Teacher className='teachers__item'name={t.name} course={t.course} image={t.image} key={t.name}/>)}
     </div>
-  )
-}
+  </div>
+)
+
 
 const Teacher = ({className, name, course, image}) => {
   className = 'teacher ' + className;
