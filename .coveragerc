@@ -1,0 +1,7 @@
+[run]
+include =
+    web_learning_course/
+    teachers/
+    students/
+    courses/
+omit = env/*

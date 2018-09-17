@@ -1,73 +1,57 @@
-from django.test import TestCase
 from django.urls import reverse
+import pytest
 
-from students.test_views import ViewClientMixin
+from students.test_views import client
 from .factories import create_batch_courses
 from .models import CourseDescription
 
 
-class CreateCoursesMixin:
-    def __init__(self, *args, **kwargs):
-        self.courses_descriptions = create_batch_courses(5)
-        super().__init__(*args, **kwargs)
+@pytest.fixture()
+def courses_descriptions():
+    return create_batch_courses(5)
 
 
-class CourseDescriptionListViewTesCase(
-    CreateCoursesMixin, ViewClientMixin, TestCase
-):
-    def test_course_descriptions_list_views(self):
-        response = self.client.get(reverse('courses:index'))
-        course_descriptions = list(response.context[-1]['object_list'])
-        self.assertIsInstance(course_descriptions, list)
-        self.assertTrue(len(course_descriptions) >= 5)
-        self.assertIsInstance(course_descriptions[0], CourseDescription)
-        for course_description in course_descriptions:
-            self.assertTrue(course_description.active)
-            self.assertIn(
-                'factory_course_description_', course_description.code_name
-            )
+@pytest.mark.django_db
+def test_course_descriptions_list_views(client, courses_descriptions):
+    response = client.get(reverse('courses:index'))
+    course_descriptions = list(response.context[-1]['object_list'])
+    assert isinstance(course_descriptions, list)
+    assert len(course_descriptions) >= 5
+    assert isinstance(course_descriptions[0], CourseDescription)
+    for course_description in course_descriptions:
+        assert course_description.active is True
+        assert 'factory_course_description_' in course_description.code_name
 
 
-class CourseDescriptionDetailViewTestCase(
-    CreateCoursesMixin, ViewClientMixin, TestCase
-):
-    def test_course_descriptions_list_views(self):
-        response = self.client.get(
-            self.courses_descriptions[0].get_absolute_url()
-        )
-        self.assertIsInstance(response.context[-1]['object'], CourseDescription)
-        self.assertIn(
-            'factory_course_description_',
-            response.context[-1]['object'].code_name
-        )
+@pytest.mark.django_db
+def test_course_descriptions_list_views(client, courses_descriptions):
+    response = client.get(courses_descriptions[0].get_absolute_url())
+    assert isinstance(response.context[-1]['object'], CourseDescription)
+    assert 'factory_course_description_' in response.context[-1]['object'].code_name
 
 
-class CourseDescriptionViewSetTestCase(
-    CreateCoursesMixin, ViewClientMixin, TestCase
-):
-    def test_save_user_profile_viewset(self):
-        response = self.client.get('/courses/api/coursedescription/')
-        self.assertEqual(response.status_code, 200)
-        courses_descriptions = response.json()
-        self.assertIsInstance(courses_descriptions, list)
-        self.assertTrue(len(courses_descriptions) >= 5)
-        self.assertIn('code_name', courses_descriptions[0])
-        self.assertIn('name', courses_descriptions[0])
-        self.assertIn('description', courses_descriptions[0])
+@pytest.mark.django_db
+def test_save_user_profile_viewset(client, courses_descriptions):
+    response = client.get('/courses/api/coursedescription/')
+    assert response.status_code == 200
+    courses_descriptions = response.json()
+    assert isinstance(courses_descriptions, list)
+    assert len(courses_descriptions) >= 5
+    assert 'code_name' in courses_descriptions[0]
+    assert 'name' in courses_descriptions[0]
+    assert 'description' in courses_descriptions[0]
 
 
-class CourseViewSetTestCase(
-        CreateCoursesMixin, ViewClientMixin, TestCase
-):
-    def test_save_user_profile_viewset(self):
-        response = self.client.get('/courses/api/courses/')
-        self.assertEqual(response.status_code, 200)
-        courses = response.json()
-        self.assertIsInstance(courses, list)
-        self.assertIsInstance(courses[0], dict)
-        self.assertIn('pk', courses[0])
-        self.assertIn('name', courses[0])
-        self.assertIn('course_description_id', courses[0])
-        self.assertIn('cost_full', courses[0])
-        self.assertIn('cost_month', courses[0])
-        self.assertIn('duration_month', courses[0])
+@pytest.mark.django_db
+def test_save_user_profile_viewset(client, courses_descriptions):
+    response = client.get('/courses/api/courses/')
+    assert response.status_code == 200
+    courses = response.json()
+    assert isinstance(courses, list)
+    assert isinstance(courses[0], dict)
+    assert 'pk' in courses[0]
+    assert 'name' in courses[0]
+    assert 'course_description_id' in courses[0]
+    assert 'cost_full' in courses[0]
+    assert 'cost_month' in courses[0]
+    assert 'duration_month' in courses[0]

@@ -11,3 +11,7 @@ django-nose==1.4.5
 coverage==4.5.1
 celery==4.2.1
 django-celery-results==1.0.1
+raven=6.9.0
+pytest-django==3.4.3
+pytest-sugar==0.9.1
+pytest-cov==2.6.0

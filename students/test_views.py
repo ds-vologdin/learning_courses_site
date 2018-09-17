@@ -1,50 +1,49 @@
-from django.test import TestCase
 from django.test import Client
 from django.urls import reverse
+import pytest
 
 from .factories import UserProfileFactory
 from .models import UserProfile
 
 
-class ViewClientMixin:
-    """ Миксин для инициализации http клиента. """
-    def __init__(self, *args, **kwargs):
-        self.client = Client()
-        user = UserProfileFactory.create(username='login_user', is_superuser=True, is_staff=True)
-        self.client.force_login(user, backend=None)
-        super().__init__(*args, **kwargs)
+@pytest.fixture()
+def client():
+    client = Client()
+    user = UserProfileFactory.create(username='login_user', is_superuser=True, is_staff=True)
+    client.force_login(user, backend=None)
+    return client
 
 
-class StudentDetailViewTestCase(ViewClientMixin, TestCase):
-    def test_student_detail_view(self):
-        user = UserProfileFactory.create(username='test_user')
-        user.is_teacher = False
-        user.save(update_fields=['is_teacher'])
-        response = self.client.get(user.get_student_detail_absolute_url())
-        self.assertEqual(response.status_code, 200)
-        self.assertIsInstance(response.context[-1]['object'], UserProfile)
-        self.assertEqual(response.context[-1]['object'].username, 'test_user')
+@pytest.mark.django_db
+def test_student_detail_view(client):
+    user = UserProfileFactory.create(username='test_user')
+    user.is_teacher = False
+    user.save(update_fields=['is_teacher'])
+    response = client.get(user.get_student_detail_absolute_url())
+    assert response.status_code == 200
+    assert isinstance(response.context[-1]['object'], UserProfile)
+    assert response.context[-1]['object'].username == 'test_user'
 
 
-class StudentListViewTestCase(ViewClientMixin, TestCase):
-    def test_student_detail_view(self):
-        UserProfileFactory.create_batch(size=3, first_name='test')
-        response = self.client.get(reverse('students:index'))
-        self.assertEqual(response.status_code, 200)
-        users = list(response.context[-1]['object_list'])
-        self.assertIsInstance(users, list)
-        self.assertTrue(len(users) >= 3)
-        self.assertIsInstance(users[0], UserProfile)
+@pytest.mark.django_db
+def test_student_detail_view(client):
+    UserProfileFactory.create_batch(size=3, first_name='test')
+    response = client.get(reverse('students:index'))
+    assert response.status_code == 200
+    users = list(response.context[-1]['object_list'])
+    assert isinstance(users, list)
+    assert len(users) >= 3
+    assert isinstance(users[0], UserProfile)
 
 
-class UserProfileViewSetTestCase(ViewClientMixin, TestCase):
-    def test_save_user_profile_viewset(self):
-        UserProfileFactory.create_batch(size=3, is_teacher=False)
-        response = self.client.get('/lk/api/students/')
-        self.assertEqual(response.status_code, 200)
-        users = response.json()
-        self.assertIsInstance(users, list)
-        self.assertTrue(len(users) >= 3)
-        self.assertIn('email', users[0])
-        self.assertIn('pk', users[0])
-        self.assertIn('username', users[0])
+@pytest.mark.django_db
+def test_save_user_profile_viewset(client):
+    UserProfileFactory.create_batch(size=3, is_teacher=False)
+    response = client.get('/lk/api/students/')
+    assert response.status_code == 200
+    users = response.json()
+    assert isinstance(users, list)
+    assert len(users) >= 3
+    assert 'email' in users[0]
+    assert 'pk' in users[0]
+    assert 'username' in users[0]
