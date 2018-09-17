@@ -1,5 +1,6 @@
 import os
 from configurations import Configuration, values
+import raven
 
 from .settings_private import DatabaseDevMixin
 
@@ -30,6 +31,7 @@ class Base(Configuration):
         'corsheaders',
         'django_nose',
         'django_celery_results',
+        'raven.contrib.django.raven_compat',
 
         'courses.apps.CoursesConfig',
         'teachers.apps.TeachersConfig',
@@ -125,6 +127,11 @@ class Base(Configuration):
     CELERY_ACCEPT_CONTENT = ['json']
     CELERY_RESULT_BACKEND = 'django-db'
     CELERY_TASK_SERIALIZER = 'json'
+
+    RAVEN_CONFIG = {
+        'dsn': 'https://23f782b16c7d4b659ef6449432047b3c:d2dd8cb5808c4074ba15542168eb1241@sentry.io/1282075',
+        'release': raven.fetch_git_sha(BASE_DIR),
+    }
 
 
 class Dev(DatabaseDevMixin, Base):
