@@ -4,6 +4,7 @@ import pytest
 from students.test_views import client
 from .factories import create_batch_courses
 from .models import CourseDescription
+from students.helpers import assert_keys_in_dict
 
 
 @pytest.fixture()
@@ -37,9 +38,10 @@ def test_save_user_profile_viewset(client, courses_descriptions):
     courses_descriptions = response.json()
     assert isinstance(courses_descriptions, list)
     assert len(courses_descriptions) >= 5
-    assert 'code_name' in courses_descriptions[0]
-    assert 'name' in courses_descriptions[0]
-    assert 'description' in courses_descriptions[0]
+    assert_keys_in_dict(
+        courses_descriptions[0],
+        ['code_name', 'name', 'description']
+    )
 
 
 @pytest.mark.django_db
@@ -49,9 +51,7 @@ def test_save_user_profile_viewset(client, courses_descriptions):
     courses = response.json()
     assert isinstance(courses, list)
     assert isinstance(courses[0], dict)
-    assert 'pk' in courses[0]
-    assert 'name' in courses[0]
-    assert 'course_description_id' in courses[0]
-    assert 'cost_full' in courses[0]
-    assert 'cost_month' in courses[0]
-    assert 'duration_month' in courses[0]
+    assert_keys_in_dict(
+        courses[0],
+        ['pk', 'name', 'course_description_id', 'cost_full', 'cost_month', 'duration_month']
+    )

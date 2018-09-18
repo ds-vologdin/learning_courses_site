@@ -1,6 +1,5 @@
 from datetime import date, timedelta
 
-from django.test import TestCase
 import pytest
 
 from .factories import create_batch_courses
@@ -14,8 +13,8 @@ def test_create_batch_courses():
     courses_descriptions = create_batch_courses(5)
     for course_description in courses_descriptions:
         assert 'factory_course_description_' in course_description.code_name
-        for course in course_description.courses.all():
-            assert 'factory-course-' in course.name
+        for course_name, in course_description.courses.values_list('name').all():
+            assert 'factory-course-' in course_name
 
 
 @pytest.fixture()
@@ -114,15 +113,14 @@ def test_get_next_duration_without_next(course_description):
     assert duration_month_next is None
 
 
-class LessonTestCase(TestCase):
-    def create_lesson(self):
-        course_description = CourseDescriptionFactory.build()
-        course = CourseFactory.build(course_description=course_description)
-        lesson = Lesson(
-            course=course,
-            number=15,
-            name='Поговорим о Миксинах',
-            description='-----',
-            date_begin=date(2018, 10, 17),
-        )
-        self.assertIn('<Lesson: 15: Поговорим о Миксинах (', str(lesson))
+def test_create_lesson():
+    course_description = CourseDescriptionFactory.build()
+    course = CourseFactory.build(course_description=course_description)
+    lesson = Lesson(
+        course=course,
+        number=15,
+        name='Поговорим о Миксинах',
+        description='-----',
+        date_begin=date(2018, 10, 17),
+    )
+    assert '<Lesson: 15: Поговорим о Миксинах (' in str(lesson)

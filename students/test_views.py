@@ -4,6 +4,7 @@ import pytest
 
 from .factories import UserProfileFactory
 from .models import UserProfile
+from .helpers import assert_keys_in_dict
 
 
 @pytest.fixture()
@@ -37,13 +38,11 @@ def test_student_detail_view(client):
 
 
 @pytest.mark.django_db
-def test_save_user_profile_viewset(client):
+def test_fetch_api_students(client):
     UserProfileFactory.create_batch(size=3, is_teacher=False)
     response = client.get('/lk/api/students/')
     assert response.status_code == 200
     users = response.json()
     assert isinstance(users, list)
     assert len(users) >= 3
-    assert 'email' in users[0]
-    assert 'pk' in users[0]
-    assert 'username' in users[0]
+    assert_keys_in_dict(users[0], ['email', 'pk', 'username'])

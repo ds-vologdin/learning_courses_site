@@ -9,7 +9,4 @@ def test_create_students():
     UserProfile.objects.filter(email__contains='@example.org').delete()
     create_students = CreateStudentsCommand()
     create_students.handle(size_batch=5)
-    students = UserProfile.objects.filter(
-        email__contains='@example.org'
-    ).all()
-    assert len(students) == 5
+    assert UserProfile.objects.filter(email__contains='@example.org').count() == 5
