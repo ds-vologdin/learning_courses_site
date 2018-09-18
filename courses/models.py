@@ -85,12 +85,20 @@ class Lesson(models.Model):
 
 class Task(models.Model):
     """ Модель домашних заданий. """
+    STATUS_CHOICES = (
+        ('not accepted', 'Не сдано'),
+        ('rework', 'На доработке'),
+        ('accepted', 'Сдано'),
+    )
     lesson = ForeignKey('Lesson', on_delete=models.CASCADE)
     number = IntegerField()
     name = CharField(max_length=200)
     description = TextField()
+    status = models.CharField(
+        max_length=12, choices=STATUS_CHOICES, default='not accepted'
+    )
 
     def __str__(self):
         return '<Task {0} {1} ({2})>'.format(
-            self.numbaer, self.name, self.lesson
+            self.number, self.name, self.lesson
         )
