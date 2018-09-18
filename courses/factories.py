@@ -2,7 +2,7 @@ from datetime import date, timedelta
 import factory
 import factory.fuzzy
 
-from .models import CourseDescription, Course
+from .models import CourseDescription, Course, Lesson, Task
 
 
 COURSE_DESCRIPTION = '''Цель курса “WEB-разработка на Python” – подготовить специалиста, который сможет не только решать рядовые задачи бекенд-разработки, но и сделать с нуля современную фронтенд часть.
@@ -77,10 +77,46 @@ class CourseFactory(factory.django.DjangoModelFactory):
     course_description = factory.SubFactory(CourseDescriptionFactory)
 
 
+class LessonFactory(factory.django.DjangoModelFactory):
+    """ Фабрика по производству лекций для курса. """
+    class Meta:
+        model = Lesson
+        django_get_or_create = ('number', 'course')
+
+    number = factory.Sequence(lambda n: n)
+    name = factory.Sequence(lambda n: 'lesson {0}'.format(n))
+    description = factory.Sequence(lambda n: 'description lesson {0}'.format(n))
+    date_begin = factory.fuzzy.FuzzyDate(
+        date.today(), date.today() + timedelta(days=90)
+    )
+    duration = timedelta(minutes=90)
+
+    course = factory.SubFactory(CourseFactory)
+
+
+class TaskFactory(factory.django.DjangoModelFactory):
+    """ Фабрика по производству заданий для курса. """
+    class Meta:
+        model = Task
+        django_get_or_create = ('name', 'lesson')
+
+    name = factory.Sequence(lambda n: 'task {0}'.format(n))
+    number = factory.Sequence(lambda n: n)
+    lesson = factory.SubFactory(LessonFactory)
+
+
+def create_batch_lessons(course, size=20):
+    lessons = LessonFactory.create_batch(size=size, course=course)
+    for lesson in lessons:
+        TaskFactory.create(lesson=lesson)
+
+
 def create_batch_courses(size=5):
     courses_description = CourseDescriptionFactory.create_batch(size=size)
     for course_description in courses_description:
-        CourseFactory.create_batch(
+        courses = CourseFactory.create_batch(
             size=3, course_description=course_description
         )
+        for course in courses:
+            create_batch_lessons(course)
     return courses_description

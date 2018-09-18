@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models import CharField, TextField, BooleanField, IntegerField
 from django.db.models import DateField, DateTimeField, DurationField, SlugField
-from django.db.models import ForeignKey
+from django.db.models import ForeignKey, OneToOneField
 from django.urls import reverse
 from datetime import date, timedelta
 
@@ -85,18 +85,10 @@ class Lesson(models.Model):
 
 class Task(models.Model):
     """ Модель домашних заданий. """
-    STATUS_CHOICES = (
-        ('not accepted', 'Не сдано'),
-        ('rework', 'На доработке'),
-        ('accepted', 'Сдано'),
-    )
-    lesson = ForeignKey('Lesson', on_delete=models.CASCADE)
+    lesson = OneToOneField('Lesson', on_delete=models.CASCADE)
     number = IntegerField()
     name = CharField(max_length=200)
     description = TextField()
-    status = models.CharField(
-        max_length=12, choices=STATUS_CHOICES, default='not accepted'
-    )
 
     def __str__(self):
         return '<Task {0} {1} ({2})>'.format(
