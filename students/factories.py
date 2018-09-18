@@ -2,10 +2,12 @@ import datetime
 import factory
 import factory.fuzzy
 
-from .models import UserProfile
+from .models import UserProfile, CourseUser, TaskCourseUser
+from courses.factories import TaskFactory, CourseFactory
 
 CITIES = ['Москва', 'Нижний Новгород', 'Ижевск', 'Магадан']
 IS_TEACHER = (True, False)
+STATUS_TASK = [status for status, _ in TaskCourseUser.STATUS_CHOICES]
 
 
 class UserProfileFactory(factory.django.DjangoModelFactory):
@@ -29,3 +31,27 @@ class UserProfileFactory(factory.django.DjangoModelFactory):
     )
     is_teacher = factory.fuzzy.FuzzyChoice(IS_TEACHER)
     gender = 'none'
+
+
+class CourseUserFactory(factory.django.DjangoModelFactory):
+    """ Фабрика по созданию курсов у пользователя. """
+    class Meta:
+        model = CourseUser
+        # django_get_or_create = ('course_id', 'user_id')
+
+    course = factory.SubFactory(CourseFactory)
+    user = factory.SubFactory(UserProfileFactory)
+    is_done = False
+    is_active = True
+    is_paid = factory.fuzzy.FuzzyChoice((True, False))
+
+
+class TaskCourseUserFactory(factory.django.DjangoModelFactory):
+    """ Фабрика по созданию заданий у пользователя по курсу. """
+    class Meta:
+        model = TaskCourseUser
+        # django_get_or_create = ('task_id', 'course_user_id')
+
+    task = factory.SubFactory(TaskFactory)
+    course_user = factory.SubFactory(CourseUserFactory)
+    status = factory.fuzzy.FuzzyChoice(STATUS_TASK)
