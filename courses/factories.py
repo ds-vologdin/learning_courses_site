@@ -81,7 +81,7 @@ class LessonFactory(factory.django.DjangoModelFactory):
     """ Фабрика по производству лекций для курса. """
     class Meta:
         model = Lesson
-        django_get_or_create = ('number', 'course')
+        django_get_or_create = ('number',)
 
     number = factory.Sequence(lambda n: n)
     name = factory.Sequence(lambda n: 'lesson {0}'.format(n))
@@ -98,7 +98,7 @@ class TaskFactory(factory.django.DjangoModelFactory):
     """ Фабрика по производству заданий для курса. """
     class Meta:
         model = Task
-        django_get_or_create = ('name', 'lesson')
+        django_get_or_create = ('name', )
 
     name = factory.Sequence(lambda n: 'task {0}'.format(n))
     number = factory.Sequence(lambda n: n)
@@ -107,8 +107,9 @@ class TaskFactory(factory.django.DjangoModelFactory):
 
 def create_batch_lessons(course, size=20):
     lessons = LessonFactory.create_batch(size=size, course=course)
-    for lesson in lessons:
-        TaskFactory.create(lesson=lesson)
+    for i, lesson in enumerate(lessons):
+        if i % 2 == 0:
+            TaskFactory.create(lesson=lesson)
 
 
 def create_batch_courses(size=5):
