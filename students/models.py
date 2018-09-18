@@ -68,10 +68,10 @@ class TaskCourseUser(models.Model):
         ('accepted', 'Сдано'),
     )
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
-    course_user = models.ForeignKey('CourseUser', on_delete=models.CASCADE)
+    course_user = models.ForeignKey(
+        'CourseUser', on_delete=models.CASCADE, related_name='tasks')
     status = models.CharField(
-        max_length=12, choices=STATUS_CHOICES, default='not accepted'
-    )
+        max_length=12, choices=STATUS_CHOICES, default='not accepted')
 
 
 class CourseUser(models.Model):
@@ -81,6 +81,20 @@ class CourseUser(models.Model):
     is_done = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
     is_paid = models.BooleanField(default=False)
+
+    def init_tasks_course_user(self, save=False):
+        tasks = self.get_tasks_course()
+        tasks_course_user = [
+            TaskCourseUser(task=task, course_user=self) for task in tasks
+        ]
+        if save:
+            for task_course_user in tasks_course_user:
+                task_course_user.save()
+        return tasks_course_user
+
+    def get_tasks_course(self):
+        lessons = self.course.lesson_set.all()
+        return [lesson.task for lesson in lessons]
 
 
 @receiver(pre_save, sender=UserProfile)
