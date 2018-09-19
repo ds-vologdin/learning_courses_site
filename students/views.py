@@ -5,7 +5,7 @@ from rest_framework import viewsets
 
 import logging
 
-from .models import UserProfile
+from .models import UserProfile, CourseUser
 from .forms import UserForm
 from . import serialazers
 from .helpers import send_hello_email_after_register
@@ -44,3 +44,21 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     """ REST viewset для получения списка пользователей. """
     queryset = UserProfile.objects.all()
     serializer_class = serialazers.UserProfileSerializer
+
+
+class CourseUserViewSet(viewsets.ModelViewSet):
+    """ REST viewset для получения списка курсов пользователя. """
+    serializer_class = serialazers.CourseUserSerializer
+
+    def get_queryset(self):
+        return self.request.user.courseuser_set.all()
+
+
+class TaskCourseUseViewSet(viewsets.ModelViewSet):
+    """ REST viewset для получения списка курсов пользователя со статусом заданий. """
+    serializer_class = serialazers.CourseUserWithTaskSerializer
+
+    def get_queryset(self):
+        return self.request.user.courseuser_set.all()
+
+
