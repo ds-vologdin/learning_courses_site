@@ -68,7 +68,7 @@ class TaskCourseUserSerializer(serializers.ModelSerializer):
 class CourseUserWithTaskSerializer(serializers.ModelSerializer):
     """ REST сериализатор CourseUser с заданиями. """
     name = serializers.SerializerMethodField()
-    tasks = TaskCourseUserSerializer(many=True)
+    tasks = serializers.SerializerMethodField()
 
     class Meta:
         model = CourseUser
@@ -76,3 +76,8 @@ class CourseUserWithTaskSerializer(serializers.ModelSerializer):
 
     def get_name(self, obj):
         return obj.course.name
+
+    def get_tasks(self, obj):
+        tasks = obj.tasks.select_related('task').all()
+        serializer = TaskCourseUserSerializer(instance=tasks, many=True)
+        return serializer.data

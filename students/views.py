@@ -51,7 +51,7 @@ class CourseUserViewSet(viewsets.ModelViewSet):
     serializer_class = serialazers.CourseUserSerializer
 
     def get_queryset(self):
-        return self.request.user.courseuser_set.all()
+        return self.request.user.courseuser_set.select_related('course').all()
 
 
 class TaskCourseUseViewSet(viewsets.ModelViewSet):
@@ -59,6 +59,4 @@ class TaskCourseUseViewSet(viewsets.ModelViewSet):
     serializer_class = serialazers.CourseUserWithTaskSerializer
 
     def get_queryset(self):
-        return self.request.user.courseuser_set.all()
-
-
+        return self.request.user.courseuser_set.select_related('course').all()
