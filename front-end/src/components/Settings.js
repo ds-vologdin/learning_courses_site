@@ -9,7 +9,6 @@ export default class Settings extends Component {
   render() {
     return (
       <div className='settings app__settings'>
-        <Header className='settings__header' sign_button={this.props.sign_button}/>
         <SettingsContainer/>
       </div>
     );

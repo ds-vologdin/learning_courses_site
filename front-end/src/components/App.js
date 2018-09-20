@@ -6,6 +6,7 @@ import store from '../store/AppStore'
 import './less/App.less';
 import MainPage from './MainPage';
 import Settings from './Settings';
+import Header from './Header';
 import Footer from './Footer';
 
 
@@ -14,6 +15,7 @@ const App = () => (
     <HashRouter>
       <div className="app">
         <div className='app__container'>
+          <Header className="main__header"/>
           <Switch>
             <Route exact path="/" component={MainPage} />
             <Route exact path="/lk" component={Settings} />

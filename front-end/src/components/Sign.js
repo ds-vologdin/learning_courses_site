@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import {show_register_content_action, show_login_content_action} from '../actions/sign_form';
+import login_action from '../actions/session'
 
 import './less/Sign.less';
 import Input from './Input';
@@ -30,7 +31,7 @@ class ModalSign extends Component {
             <ModalSignButtons show_register_content={this.props.show_register_content}
                               show_login_content={this.props.show_login_content}
                               is_register_content={this.props.is_register_content}/>
-            {this.props.is_register_content ? <ModalSignRegisterContent close={this.props.close}/> : <ModalSignLoginContent close={this.props.close}/>}
+            {this.props.is_register_content ? <ModalSignRegisterContent close={this.props.close} login={this.props.login}/> : <ModalSignLoginContent close={this.props.close} login={this.props.login}/>}
           </div>
         </div>
       </div>
@@ -67,9 +68,10 @@ class ModalSignRegisterContent extends Component {
       last_name: this._last_name_input._value,
       email: this._mail_input._value,
       username: this._username_input._value,
-      password: this._password_input._value
+      password: this._password_input._value,
     }
     post_sign_data(registry_data, 'lk/api/students/', this.props.close);
+    this.props.login();
   }
   render () {
     return (
@@ -92,9 +94,11 @@ class ModalSignLoginContent extends Component {
   send_registry_data = () => {
     const registry_data = {
       username: this._username_input._value,
-      password: this._password_input._value
+      password: this._password_input._value,
     }
     console.log(registry_data);
+    this.props.login();
+    this.props.close();
     // это пока не реализовано на бекенде
     // post_sign_data(registry_data, 'login/');
   }
@@ -142,5 +146,6 @@ export default connect(
   dispatch => ({
     show_register_content: () => dispatch(show_register_content_action()),
     show_login_content: () => dispatch(show_login_content_action()),
+    login: (login, password) => dispatch(login_action(login, password)),
   })
 )(ModalSign);

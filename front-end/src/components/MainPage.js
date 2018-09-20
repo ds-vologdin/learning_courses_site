@@ -22,7 +22,6 @@ class MainPage extends Component {
     return (
       <div className='main app__main'>
         {this.props.is_active_sign_form && <ModalSign className="app__sign" close={this.props.hide_sign_form}/>}
-        <Header className="main__header" action={this.props.show_sign_form} sign_button={true}/>
         <NextCourses className="main__next-courses" courses={this.props.courses}/>
         <ButtonsMain className="main__buttons"/>
         <Work className="main__work"/>
