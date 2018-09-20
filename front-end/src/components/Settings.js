@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import './less/Settings.less';
 import Header from './Header';
-import Footer from './Footer';
 import Input from './Input';
 import TOKEN from './token_private';
 
@@ -12,7 +11,6 @@ export default class Settings extends Component {
       <div className='settings app__settings'>
         <Header className='settings__header' sign_button={this.props.sign_button}/>
         <SettingsContainer/>
-        <Footer className='settings__footer'/>
       </div>
     );
   }

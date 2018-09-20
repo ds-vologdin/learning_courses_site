@@ -7,7 +7,6 @@ import NextCourses from './NextCourses';
 import ButtonsMain from './ButtonsMain';
 import Work from './Work';
 import Teachers from './Teachers';
-import Footer from './Footer';
 import ModalSign from './Sign';
 import fetch_top_teachers_action from '../actions/fetch_top_teachers'
 import fetch_next_courses_action from '../actions/fetch_next_courses'
@@ -23,12 +22,11 @@ class MainPage extends Component {
     return (
       <div className='main app__main'>
         {this.props.is_active_sign_form && <ModalSign className="app__sign" close={this.props.hide_sign_form}/>}
-        <Header className="main__header" action={this.props.show_sign_form} sign_button={this.props.sign_button}/>
+        <Header className="main__header" action={this.props.show_sign_form} sign_button={true}/>
         <NextCourses className="main__next-courses" courses={this.props.courses}/>
         <ButtonsMain className="main__buttons"/>
         <Work className="main__work"/>
         <Teachers className="main__teachers" teachers={this.props.teachers}/>
-        <Footer className="main__footer"/>
       </div>
     );
   }

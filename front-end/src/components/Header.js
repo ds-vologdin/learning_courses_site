@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+
 import './less/Header.less';
 
 export default class Header extends Component {
@@ -6,7 +8,7 @@ export default class Header extends Component {
     return (
       <header className={'header ' + this.props.className}>
         <div className='header__container'>
-          <div className='header__title'>IT-курсы</div>
+          <Link className='header__title' to='/'>IT-курсы</Link>
           <Menu className='header__menu' action={this.props.action} sign_button={this.props.sign_button}/>
         </div>
       </header>
@@ -16,9 +18,9 @@ export default class Header extends Component {
 
 const Menu = ({className, action, sign_button}) => (
   <div className={className}>
-    <a className={className + '-link'} href='/courses/'>Курсы</a>
-    <a className={className + '-link'} href='/teachers/'>Преподаватели</a>
-    <a className={className + '-link'} href='/events/'>Мероприятия</a>
+    <Link className={className + '-link'} to='/courses'>Курсы</Link>
+    <Link className={className + '-link'} to='/teachers'>Преподаватели</Link>
+    <Link className={className + '-link'} to='/lk'>Личный кабинет</Link>
     {sign_button && <Sign className={className + '-sign'} action={action} />}
   </div>
 )
