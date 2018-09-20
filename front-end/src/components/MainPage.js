@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 import './less/MainPage.less';
 import Header from './Header';
@@ -8,64 +9,41 @@ import Work from './Work';
 import Teachers from './Teachers';
 import Footer from './Footer';
 import ModalSign from './Sign';
-
-import ic_teacher_0 from './img/ic_teacher_0.jpg';
-import ic_teacher_1 from './img/ic_teacher_1.jpg';
-import ic_teacher_2 from './img/ic_teacher_2.jpg';
-import ic_teacher_3 from './img/ic_teacher_3.jpg';
-
-
-// TODO: убрать MOCK, данные получать из бекенда
-const MOCK_TEACHERS = [
-  {name:'Василий Уткин', course:'Разработчик Java', image:ic_teacher_0},
-  {name:'Павел Воробьёв', course:'Machine Learning', image:ic_teacher_1},
-  {name:'Иван Орлов', course:'Разработчик Python', image:ic_teacher_2},
-  {name:'Роман Гусев', course:'Разработчик JS', image:ic_teacher_3},
-];
-
-const MOCK_COURSES = [
-  {title:'Разработчик Python', date:'2018.09.13', duration:'6'},
-  {title:'Разработчик Java', date:'2018.10.13', duration:'6'},
-  {title:'WEB Python', date:'2018.10.21', duration:'6'},
-  {title:'Machine Learning', date:'2018.10.29', duration:'7'},
-];
+import fetch_top_teachers_action from '../actions/fetch_top_teachers'
+import fetch_next_courses_action from '../actions/fetch_next_courses'
+import {show_sign_form_action, hide_sign_form_action} from '../actions/sign_form'
 
 
 class MainPage extends Component {
-  constructor(props) {
-      super();
-      this.state = {
-          is_active_sign_form: false,
-      };
-  }
-  checker_sign_form = () => {
-      this.setState({
-          is_active_sign_form: !this.state.is_active_sign_form
-      });
-  }
-  show_sign_form = () => {
-    this.setState({
-        is_active_sign_form: true,
-    });
-  }
-  hide_sign_form = () => {
-    this.setState({
-        is_active_sign_form: false,
-    });
+  componentDidMount() {
+    this.props.set_top_teachers();
+    this.props.set_next_courses();
   }
   render() {
     return (
       <div className='main app__main'>
-        {this.state.is_active_sign_form && <ModalSign className="app__sign" close={this.hide_sign_form}/>}
-        <Header className="main__header" action={this.show_sign_form} sign_button={this.props.sign_button}/>
-        <NextCourses className="main__next-courses" courses={MOCK_COURSES}/>
+        {this.props.is_active_sign_form && <ModalSign className="app__sign" close={this.props.hide_sign_form}/>}
+        <Header className="main__header" action={this.props.show_sign_form} sign_button={this.props.sign_button}/>
+        <NextCourses className="main__next-courses" courses={this.props.courses}/>
         <ButtonsMain className="main__buttons"/>
         <Work className="main__work"/>
-        <Teachers className="main__teachers" teachers={MOCK_TEACHERS}/>
+        <Teachers className="main__teachers" teachers={this.props.teachers}/>
         <Footer className="main__footer"/>
       </div>
     );
   }
 }
 
-export default MainPage;
+export default connect(
+  state => ({
+    teachers: state.top_teachers,
+    courses: state.next_courses,
+    is_active_sign_form: state.sign_form.is_active_sign_form,
+  }),
+  dispatch => ({
+    set_top_teachers: () => dispatch(fetch_top_teachers_action()),
+    set_next_courses: () => dispatch(fetch_next_courses_action()),
+    show_sign_form: () => dispatch(show_sign_form_action()),
+    hide_sign_form: () => dispatch(hide_sign_form_action()),
+  })
+)(MainPage);

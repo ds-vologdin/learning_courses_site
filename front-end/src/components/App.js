@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Provider} from 'react-redux'
+import store from '../store/AppStore'
 import './less/App.less';
 import MainPage from './MainPage';
 import Settings from './Settings';
@@ -14,12 +16,14 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="app">
-        <div className='app__container'>
-        {this.state.page === 'main' && <MainPage sign_button={true}/>}
-        {this.state.page === 'settings' && <Settings sign_button={false}/>}
+      <Provider store={store}>
+        <div className="app">
+          <div className='app__container'>
+          {this.state.page === 'main' && <MainPage sign_button={true}/>}
+          {this.state.page === 'settings' && <Settings sign_button={false}/>}
+          </div>
         </div>
-      </div>
+      </Provider>
     );
   }
 }
