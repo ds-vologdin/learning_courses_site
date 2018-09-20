@@ -1,26 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import {show_register_content_action, show_login_content_action} from '../actions/sign_form';
+
 import './less/Sign.less';
 import Input from './Input';
 import TOKEN from './token_private';
 
 
 class ModalSign extends Component {
-  constructor(props) {
-      super();
-      this.state = {
-          register_content: true,
-      };
-  }
-  show_register_content = () => {
-    this.setState({
-        register_content: true,
-    });
-  }
-  show_login_content = () => {
-    this.setState({
-        register_content: false,
-    });
-  }
   esc_handler = (event) => {
     if(event.keyCode === 27) {
       this.props.close()
@@ -39,17 +27,16 @@ class ModalSign extends Component {
         <div className='modal-sign__container'>
           <span className='modal-sign__close' onClick={this.props.close}>&times;</span>
           <div className='modal-sign__content'>
-            <ModalSignButtons show_register_content={this.show_register_content}
-                              show_login_content={this.show_login_content}
-                              is_register_content={this.state.register_content}/>
-            {this.state.register_content ? <ModalSignRegisterContent close={this.props.close}/> : <ModalSignLoginContent close={this.props.close}/>}
+            <ModalSignButtons show_register_content={this.props.show_register_content}
+                              show_login_content={this.props.show_login_content}
+                              is_register_content={this.props.is_register_content}/>
+            {this.props.is_register_content ? <ModalSignRegisterContent close={this.props.close}/> : <ModalSignLoginContent close={this.props.close}/>}
           </div>
         </div>
       </div>
     )
   }
 };
-
 
 const ModalSignButtons = ({show_register_content, show_login_content, is_register_content}) => (
   <div className='modal-sign__buttons'>
@@ -148,4 +135,12 @@ const post_sign_data = (data, url, close) => fetch(
   console.log(data);
 });
 
-export default ModalSign;
+export default connect(
+  state => ({
+    is_register_content: state.sign_form.is_register_content,
+  }),
+  dispatch => ({
+    show_register_content: () => dispatch(show_register_content_action()),
+    show_login_content: () => dispatch(show_login_content_action()),
+  })
+)(ModalSign);
