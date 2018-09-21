@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import {show_register_content_action, show_login_content_action} from '../actions/sign_form';
+import {SHOW_REGISTER_CONTENT_ACTION, SHOW_LOGIN_CONTENT_ACTION} from '../actions/sign_form';
 import login_action from '../actions/session'
 
 import './less/Sign.less';
@@ -144,8 +144,8 @@ export default connect(
     is_register_content: state.sign_form.is_register_content,
   }),
   dispatch => ({
-    show_register_content: () => dispatch(show_register_content_action()),
-    show_login_content: () => dispatch(show_login_content_action()),
+    show_register_content: () => dispatch(SHOW_REGISTER_CONTENT_ACTION),
+    show_login_content: () => dispatch(SHOW_LOGIN_CONTENT_ACTION),
     login: (login, password) => dispatch(login_action(login, password)),
   })
 )(ModalSign);

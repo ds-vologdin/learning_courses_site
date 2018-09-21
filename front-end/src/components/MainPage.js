@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import './less/MainPage.less';
-import Header from './Header';
 import NextCourses from './NextCourses';
 import ButtonsMain from './ButtonsMain';
 import Work from './Work';
@@ -10,7 +9,7 @@ import Teachers from './Teachers';
 import ModalSign from './Sign';
 import fetch_top_teachers_action from '../actions/fetch_top_teachers'
 import fetch_next_courses_action from '../actions/fetch_next_courses'
-import {show_sign_form_action, hide_sign_form_action} from '../actions/sign_form'
+import {SHOW_SIGN_FORM_ACTION, HIDE_SIGN_FORM_ACTION} from '../actions/sign_form'
 
 
 class MainPage extends Component {
@@ -40,7 +39,7 @@ export default connect(
   dispatch => ({
     set_top_teachers: () => dispatch(fetch_top_teachers_action()),
     set_next_courses: () => dispatch(fetch_next_courses_action()),
-    show_sign_form: () => dispatch(show_sign_form_action()),
-    hide_sign_form: () => dispatch(hide_sign_form_action()),
+    show_sign_form: () => dispatch(SHOW_SIGN_FORM_ACTION),
+    hide_sign_form: () => dispatch(HIDE_SIGN_FORM_ACTION),
   })
 )(MainPage);

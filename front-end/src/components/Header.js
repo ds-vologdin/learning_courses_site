@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import {show_sign_form_action, hide_sign_form_action} from '../actions/sign_form';
+import {SHOW_SIGN_FORM_ACTION} from '../actions/sign_form';
 import './less/Header.less';
 
 class Header extends Component {
@@ -39,6 +39,6 @@ export default connect(
     is_authorized: state.session.is_authorized,
   }),
   dispatch => ({
-    show_sign_form: () => dispatch(show_sign_form_action()),
+    show_sign_form: () => dispatch(SHOW_SIGN_FORM_ACTION),
   })
 )(Header);

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import './less/Settings.less';
-import Header from './Header';
 import Input from './Input';
 import TOKEN from './token_private';
 
