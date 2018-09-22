@@ -5,7 +5,7 @@ import {SHOW_SETTINGS_BLOCK, SHOW_LEARNING_BLOCK} from '../actions/settings';
 
 import './less/Settings.less';
 import Input from './Input';
-import TOKEN from './token_private';
+import StudentProgress from './StudentProgress';
 
 
 class Settings extends Component {
@@ -22,16 +22,17 @@ class Settings extends Component {
         <Buttons active_block={this.props.active_block}
                  show_learning_block={this.props.show_learning_block}
                  show_settings_block={this.props.show_settings_block}/>
-        {this.props.active_block === 'settings' && <SettingBlock/>}
+        {this.props.active_block === 'settings' && <SettingBlock token={this.props.token}/>}
+        {this.props.active_block === 'learning' && <StudentProgress/>}
       </div>
     );
   }
 }
 
-const SettingBlock = () => (
+const SettingBlock = (token) => (
   <div className='settings__block'>
-    <RegisterContent/>
-    <Notify/>
+    <RegisterContent token={token}/>
+    <Notify token={token}/>
   </div>
 );
 
@@ -72,7 +73,7 @@ class RegisterContent extends Component {
     }
     console.log(registry_data);
     // посылаем на сервер, пока не реализовано на бекенде
-    put_settings_data(registry_data, 'lk/api/students/1/');
+    put_settings_data(registry_data, 'lk/api/students/1/', this.props.token);
   }
   render () {
     return (
@@ -104,8 +105,7 @@ class Notify extends Component {
   check_change_status_task = (event) => {this.setState({notify_change_status_task: event.target.checked});}
   check_events = (event) => {this.setState({notify_events: event.target.checked});}
   send_notify_settings = () => {
-    console.log(this.state);
-    put_settings_data(this.state, 'lk/api/students/1/');
+    put_settings_data(this.state, 'lk/api/students/1/', this.props.token);
   }
   componentDidMount() {
     // Здесь загружаем данные с сервера и задаём state
@@ -118,7 +118,6 @@ class Notify extends Component {
     });
   }
   render () {
-    console.log(this.state);
     return (
       <div className='notify settings__notify'>
         <div className='notify__title'>Уведомления</div>
@@ -143,13 +142,13 @@ const NotifyCheckbox = ({checked, change_handler, text}) => {
 
 const HOST = 'http://127.0.0.1:8000/';
 
-const put_settings_data = (data, url) => fetch(
+const put_settings_data = (data, url, token) => fetch(
   HOST + url,
   {
     method: 'put',
     headers: {
       "Content-type": "application/json; charset=UTF-8",
-      "Authorization": "Token " + TOKEN
+      "Authorization": "Token " + token,
     },
     body: JSON.stringify(data)
   }
@@ -171,6 +170,7 @@ const put_settings_data = (data, url) => fetch(
 export default connect(
   state => ({
     active_block: state.settings.active_block,
+    token: state.session.token,
   }),
   dispatch => ({
     show_settings_block: () => dispatch(SHOW_SETTINGS_BLOCK),

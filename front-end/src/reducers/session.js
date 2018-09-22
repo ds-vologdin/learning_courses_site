@@ -6,11 +6,7 @@ const DEFAULT_STATE_SESSION = {
 
 const session_reducer = (state=DEFAULT_STATE_SESSION, action) => {
     switch (action.type) {
-        case 'SET_SESSION': {
-          console.log(state);
-          console.log(action);
-          return action.session;
-        }
+        case 'SET_SESSION': return action.session
         default: return state;
     }
 };
