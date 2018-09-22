@@ -9,20 +9,9 @@ import TOKEN from './token_private';
 
 
 class Settings extends Component {
-  constructor(props) {
-      super();
-      this.state = {
-          active_block: 'settings',
-      };
-  }
   componentDidMount() {
     // Здесь загружаем данные с сервера
     // пока не реализовано на бекенде
-  }
-  check_active_block = (active_block) => {
-    this.setState({
-          active_block: active_block,
-    });
   }
   render() {
     return (
