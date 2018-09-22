@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import {SHOW_SETTINGS_BLOCK, SHOW_LEARNING_BLOCK} from '../actions/settings';
 
 import './less/Settings.less';
 import Input from './Input';
 import TOKEN from './token_private';
 
-export default class Settings extends Component {
-  render() {
-    return (
-      <div className='settings app__settings'>
-        <SettingsContainer/>
-      </div>
-    );
-  }
-}
 
-class SettingsContainer extends Component {
+class Settings extends Component {
   constructor(props) {
       super();
       this.state = {
@@ -36,8 +30,10 @@ class SettingsContainer extends Component {
         <div className='settings__title'>
           <div className='settings__title-container'>Личный кабинет</div>
         </div>
-        <Buttons active_block={this.state.active_block} check_active_block={this.check_active_block}/>
-        {this.state.active_block === 'settings' && <SettingBlock/>}
+        <Buttons active_block={this.props.active_block}
+                 show_learning_block={this.props.show_learning_block}
+                 show_settings_block={this.props.show_settings_block}/>
+        {this.props.active_block === 'settings' && <SettingBlock/>}
       </div>
     );
   }
@@ -63,8 +59,8 @@ class Buttons extends Component {
     return (
       <div className='buttons-settings settings__buttons'>
         <div className='buttons-settings__container'>
-          <div className={class_item_learning} onClick={ () => this.props.check_active_block('learning') }>Курсы</div>
-          <div className={class_item_settings} onClick={ () => this.props.check_active_block('settings') }>Настройки</div>
+          <div className={class_item_learning} onClick={this.props.show_learning_block}>Курсы</div>
+          <div className={class_item_settings} onClick={this.props.show_settings_block}>Настройки</div>
         </div>
       </div>
     );
@@ -182,3 +178,13 @@ const put_settings_data = (data, url) => fetch(
     console.log(error);
   }
 );
+
+export default connect(
+  state => ({
+    active_block: state.settings.active_block,
+  }),
+  dispatch => ({
+    show_settings_block: () => dispatch(SHOW_SETTINGS_BLOCK),
+    show_learning_block: () => dispatch(SHOW_LEARNING_BLOCK),
+  })
+)(Settings);
