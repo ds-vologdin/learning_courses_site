@@ -71,7 +71,6 @@ class RegisterContent extends Component {
       username: this._username_input._value,
       password: this._password_input._value
     }
-    console.log(registry_data);
     // посылаем на сервер, пока не реализовано на бекенде
     put_settings_data(registry_data, 'lk/api/students/1/', this.props.token);
   }
@@ -131,14 +130,12 @@ class Notify extends Component {
   }
 };
 
-const NotifyCheckbox = ({checked, change_handler, text}) => {
-  console.log(checked, text);
-  return (
+const NotifyCheckbox = ({checked, change_handler, text}) => (
   <label className='notify__item'>
     <input type='checkbox' className='notify__checkbox'  onChange={change_handler} checked={checked}/>
     <span className='notify__checkbox-label'>{text}</span>
   </label>
-)}
+);
 
 const HOST = 'http://127.0.0.1:8000/';
 
