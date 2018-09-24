@@ -2,6 +2,7 @@ const DEFAULT_STATE_SESSION = {
   username: '',
   token: '',
   is_authorized: false,
+  id: '',
 };
 
 const session_reducer = (state=DEFAULT_STATE_SESSION, action) => {

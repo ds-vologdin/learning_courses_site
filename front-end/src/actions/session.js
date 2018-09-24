@@ -5,6 +5,7 @@ const MOCK_STATE_SESSION = {
   username: 'Dima',
   token: TOKEN,
   is_authorized: true,
+  id: '12',
 };
 
 // TODO: переписать заглушку на получение данных с REST API

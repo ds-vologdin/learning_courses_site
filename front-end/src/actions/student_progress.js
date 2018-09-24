@@ -24,7 +24,6 @@ const MOCK_STUDENT_PROGRESS = [
       {name: 'task 6', description: 'task 6 description', status: 'OK'},
       {name: 'task 7', description: 'task 7 description', status: 'OK'},
       {name: 'task 8', description: 'task 8 description', status: 'OK'},
-
     ]
   },
 ];

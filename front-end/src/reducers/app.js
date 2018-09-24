@@ -4,6 +4,7 @@ import sign_form_reducer from './sign_form';
 import session_reducer from './session';
 import settings_reducer from './settings';
 import student_progress_reducer from './student_progress';
+import teacher_courses_reducer from './teacher_courses';
 
 
 const app_reducer = (state = {}, action) => {
@@ -14,6 +15,7 @@ const app_reducer = (state = {}, action) => {
     session: session_reducer(state.session, action),
     settings: settings_reducer(state.settings, action),
     student_progress: student_progress_reducer(state.student_progress, action),
+    teacher_courses: teacher_courses_reducer(state.teacher_courses, action),
   };
 };
 
