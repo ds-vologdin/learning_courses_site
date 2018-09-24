@@ -5,6 +5,7 @@ import session_reducer from './session';
 import settings_reducer from './settings';
 import student_progress_reducer from './student_progress';
 import teacher_courses_reducer from './teacher_courses';
+import user_course_tasks_reducer from './user_course_tasks';
 
 
 const app_reducer = (state = {}, action) => {
@@ -16,6 +17,7 @@ const app_reducer = (state = {}, action) => {
     settings: settings_reducer(state.settings, action),
     student_progress: student_progress_reducer(state.student_progress, action),
     teacher_courses: teacher_courses_reducer(state.teacher_courses, action),
+    user_course_tasks: user_course_tasks_reducer(state.user_course_tasks, action),
   };
 };
 

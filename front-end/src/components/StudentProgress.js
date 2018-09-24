@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import fetch_student_progress_action from '../actions/student_progress';
 import './less/StudentProgress.less';
+import Task from './Task';
 
 
 class StudentProgress extends Component {
@@ -37,19 +38,6 @@ CourseStudentProgress.defaultProps = {
   tasks: [],
 };
 
-const Task = ({name, description, status}) => (
-  <div className='course-tasks__task task'>
-    <div className='task__name'>{name}</div>
-    <div className='task__description'>{description}</div>
-    <div className='task__status'>{status}</div>
-  </div>
-);
-
-Task.defaultProps = {
-  name: '',
-  description: '',
-  status: '',
-}
 
 export default connect(
   state => ({

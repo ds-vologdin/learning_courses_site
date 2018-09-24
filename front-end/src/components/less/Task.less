@@ -1,0 +1,32 @@
+@import "brand.less";
+
+.task {
+  border: @border-ligth-green;
+  border-radius: @border-radius;
+  margin: 15px auto;
+  max-width: 300px;
+  padding: 10px;
+  &__name {
+    font-weight: @font-bold;
+  }
+  &__buttons {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  &__button {
+    border: @border-gray;
+    border-radius: @border-radius;
+    padding: 10px 5px;
+    margin: 10px 5px;
+    width: 120px;
+    color: @white;
+    background-color: @gray;
+    transition: all 300ms ease;
+    &:hover {
+      color: @black;
+      background-color: @white;
+      cursor: pointer;
+    }
+  }
+}
