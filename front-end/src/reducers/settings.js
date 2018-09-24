@@ -1,5 +1,6 @@
 const DEFAULT_STATE_SETTINGS = {
-  active_block: 'settings',
+  // active_block: 'settings',
+  active_block: 'learning',
 };
 
 const settings_student_reducer = (state=DEFAULT_STATE_SETTINGS, action) => {

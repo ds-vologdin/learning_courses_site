@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import fetch_student_progress_action from '../actions/student_progress';
+import './less/StudentProgress.less';
 
 
 class StudentProgress extends Component {
@@ -24,8 +25,10 @@ StudentProgress.defaultProps = {
 
 const CourseStudentProgress = ({name, tasks}) => (
   <div className='student-progress__course-tasks course-tasks'>
-    <div className='course-task__name-course'>{name}</div>
-    {tasks.map(task => <Task name={task.name} description={task.description} status={task.status} key={task.name} />)}
+    <div className='course-tasks__name-course'>{name}</div>
+    <div className='course-tasks__items'>
+      {tasks.map(task => <Task name={task.name} description={task.description} status={task.status} key={task.name} />)}
+    </div>
   </div>
 );
 

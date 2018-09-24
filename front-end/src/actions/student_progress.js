@@ -6,6 +6,10 @@ const MOCK_STUDENT_PROGRESS = [
       {name: 'task 1', description: 'task 1 description', status: 'OK'},
       {name: 'task 2', description: 'task 2 description', status: 'OK'},
       {name: 'task 3', description: 'task 3 description', status: 'OK'},
+      {name: 'task 4', description: 'task 4 description', status: 'OK'},
+      {name: 'task 5', description: 'task 5 description', status: 'OK'},
+      {name: 'task 6', description: 'task 6 description', status: 'OK'},
+      {name: 'task 7', description: 'task 7 description', status: 'OK'},
     ]
   },
   {
@@ -15,6 +19,12 @@ const MOCK_STUDENT_PROGRESS = [
       {name: 'task 1', description: 'task 1 description', status: 'OK'},
       {name: 'task 2', description: 'task 2 description', status: 'OK'},
       {name: 'task 3', description: 'task 3 description', status: 'OK'},
+      {name: 'task 4', description: 'task 4 description', status: 'OK'},
+      {name: 'task 5', description: 'task 5 description', status: 'OK'},
+      {name: 'task 6', description: 'task 6 description', status: 'OK'},
+      {name: 'task 7', description: 'task 7 description', status: 'OK'},
+      {name: 'task 8', description: 'task 8 description', status: 'OK'},
+
     ]
   },
 ];

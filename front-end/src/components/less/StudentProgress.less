@@ -1,0 +1,35 @@
+@import "brand.less";
+
+.student-progress {
+  background-color: @white;
+  &__title {
+    font-size: @font-big;
+    font-weight: @font-bold;
+  }
+}
+
+.course-tasks {
+  border: @border-gray;
+  margin: 15px 0;
+  &__name-course {
+    font-weight: @font-bold;
+    margin: 15px 0;
+  }
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+
+.task {
+  border: @border-ligth-green;
+  border-radius: @border-radius;
+  width: 100%;
+  margin: 15px 10px;
+  max-width: 300px;
+  padding: 10px;
+  &__name {
+    font-weight: @font-bold;
+  }
+}
