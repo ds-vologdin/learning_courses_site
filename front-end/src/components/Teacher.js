@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import fetch_teacher_courses from '../actions/teacher_courses';
+import './less/Teacher.less';
 
 
 class Teacher extends Component {
