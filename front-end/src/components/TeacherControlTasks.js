@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 import fetch_user_courses_task_action from '../actions/user_course_tasks';
 import Task from './Task';
+import './less/TeacherControlTasks.less';
 
 
 class TeacherControlTasks extends Component {
@@ -18,7 +19,7 @@ class TeacherControlTasks extends Component {
         <div className='teacher-control__tasks'>
           {this.props.tasks.map(task => <Task name={task.name} description={task.description} status={task.status} show_buttons={true} key={task.name} />)}
         </div>
-        <Link to='/teacher_room/'>Назад</Link>
+        <Link className='teacher-control__link-back' to='/teacher_room/'>Назад</Link>
       </div>
     );
   }

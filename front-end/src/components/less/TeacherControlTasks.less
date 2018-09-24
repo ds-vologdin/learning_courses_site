@@ -1,0 +1,34 @@
+@import "brand.less";
+
+.teacher-control {
+  margin: 15px auto;
+  &__course {
+    font-size: @font-big;
+    font-weight: @font-bold;
+  }
+  &__student {
+    font-size: @font-medium;
+    font-weight: @font-bold;
+  }
+  &__tasks {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__link-back {
+    display: block;
+    border: @border-gray;
+    border-radius: @border-radius;
+    padding: 10px 15px;
+    width: 250px;
+    margin: 0 auto;
+    text-decoration: none;
+    color: @black;
+    font-weight: @font-bold;
+    background-color: @white;
+    transition: all 300ms ease;
+    &:hover {
+      color: @white;
+      background-color: @gray;
+    }
+  }
+}
