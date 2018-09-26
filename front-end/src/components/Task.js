@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 import './less/Task.less';
 
@@ -23,6 +24,12 @@ Task.defaultProps = {
   description: '',
   status: '',
   show_buttons: false,
+};
+Task.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.string,
+  status: PropTypes.string,
+  show_buttons: PropTypes.bool,
 };
 
 export default Task;
