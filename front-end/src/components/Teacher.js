@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
+import PropTypes from "prop-types";
 
 import fetch_teacher_courses from '../actions/teacher_courses';
 import './less/Teacher.less';
@@ -36,6 +37,10 @@ Teacher.defaultProps = {
   id_teacher: '',
   teacher_courses: [],
 };
+Teacher.propTypes = {
+  id_teacher: PropTypes.string,
+  teacher_courses: PropTypes.array,
+};
 
 const Course = ({name, date, id, children}) => (
   <div className='teacher__course'>
@@ -49,7 +54,12 @@ const Course = ({name, date, id, children}) => (
 Course.defaultProps = {
   name: '',
   date: '',
-}
+};
+Course.propTypes = {
+  name: PropTypes.string,
+  date: PropTypes.string,
+};
+
 
 export default connect(
   state => ({
