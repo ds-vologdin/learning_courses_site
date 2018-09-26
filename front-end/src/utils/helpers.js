@@ -24,3 +24,25 @@ export const put_settings_data = (data, url, token) => fetch(
     console.log(error);
   }
 );
+
+export const post_sign_data = (data, url, close) => fetch(
+  HOST + url,
+  {
+    method: 'post',
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+    body: JSON.stringify(data)
+  }
+).then(respone => {
+    if (respone.status === 201) {
+      close();
+      return Promise.reject();
+    }
+    return respone.json()
+  }
+).then((data) => {
+  // пока так, надо придумать что-то красивее
+  console.log('Показать сообщение об ошибке');
+  console.log(data);
+});

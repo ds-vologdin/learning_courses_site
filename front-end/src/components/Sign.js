@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from "prop-types";
 
 import {SHOW_REGISTER_CONTENT_ACTION, SHOW_LOGIN_CONTENT_ACTION} from '../actions/sign_form';
-import login_action from '../actions/session'
+import login_action from '../actions/session';
 
 import './less/Sign.less';
 import Input from './Input';
-import TOKEN from './token_private';
+import {post_sign_data} from '../utils/helpers.js';
 
 
 class ModalSign extends Component {
@@ -22,7 +23,6 @@ class ModalSign extends Component {
     document.removeEventListener("keydown", this.esc_handler);
   }
   render() {
-    console.log(this.props.close);
     return (
       <div className={'modal-sign ' + this.props.className}>
         <div className='modal-sign__container'>
@@ -39,20 +39,45 @@ class ModalSign extends Component {
   }
 };
 
-const ModalSignButtons = ({show_register_content, show_login_content, is_register_content}) => (
-  <div className='modal-sign__buttons'>
-    <ModalSignButton active={is_register_content} action={show_register_content} text='Регистрация'/>
-    <ModalSignButton active={!is_register_content} action={show_login_content} text='Авторизация'/>
-  </div>
-);
+ModalSign.defaultProps = {
+  className: '',
+  show_register_content: () => true,
+  show_login_content: () => true,
+  close: () => true,
+};
+ModalSign.propTypes = {
+  className: PropTypes.string,
+  show_register_content: PropTypes.func,
+  show_login_content: PropTypes.func,
+  close: PropTypes.func,
+};
 
 
-const ModalSignButton = ({active, action, text}) => {
-  let className = 'modal-sign__button';
-  if (active) {className += ' ' + className + '--active'}
+const ModalSignButtons = ({show_register_content, show_login_content, is_register_content}) => {
+  let classNameRegistry = 'modal-sign__button';
+  let classNameLogin = 'modal-sign__button';
+  if (is_register_content) {
+    classNameRegistry += ' modal-sign__button--active';
+  } else {
+    classNameLogin += ' modal-sign__button--active';
+  }
   return (
-    <div className={className} onClick={action}>{text}</div>
-  )
+    <div className='modal-sign__buttons'>
+      <div className={classNameRegistry} onClick={show_register_content}>Регистрация</div>
+      <div className={classNameLogin} onClick={show_login_content}>Авторизация</div>
+    </div>
+  );
+};
+
+ModalSignButtons.defaultProps = {
+  className: '',
+  show_register_content: () => true,
+  show_login_content: () => true,
+};
+ModalSignButtons.propTypes = {
+  className: PropTypes.string,
+  show_register_content: PropTypes.func,
+  show_login_content: PropTypes.func,
 };
 
 
@@ -87,6 +112,15 @@ class ModalSignRegisterContent extends Component {
   }
 };
 
+ModalSignButtons.defaultProps = {
+  close: () => true,
+  login: () => true,
+};
+ModalSignButtons.propTypes = {
+  close: PropTypes.func,
+  login: PropTypes.func,
+};
+
 
 class ModalSignLoginContent extends Component {
   get_username_ref = (node) => {this._username_input = node;}
@@ -96,7 +130,6 @@ class ModalSignLoginContent extends Component {
       username: this._username_input._value,
       password: this._password_input._value,
     }
-    console.log(registry_data);
     this.props.login();
     this.props.close();
     // это пока не реализовано на бекенде
@@ -113,31 +146,15 @@ class ModalSignLoginContent extends Component {
   }
 };
 
+ModalSignLoginContent.defaultProps = {
+  close: () => true,
+  login: () => true,
+};
+ModalSignLoginContent.propTypes = {
+  close: PropTypes.func,
+  login: PropTypes.func,
+};
 
-const HOST = 'http://127.0.0.1:8000/';
-
-const post_sign_data = (data, url, close) => fetch(
-  HOST + url,
-  {
-    method: 'post',
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-      "Authorization": "Token " + TOKEN
-    },
-    body: JSON.stringify(data)
-  }
-).then(respone => {
-    if (respone.status === 201) {
-      close();
-      return Promise.reject();
-    }
-    return respone.json()
-  }
-).then((data) => {
-  // пока так, надо придумать что-то красивее
-  console.log('Показать сообщение об ошибке');
-  console.log(data);
-});
 
 export default connect(
   state => ({
