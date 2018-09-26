@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from "prop-types";
+
 import './less/NextCourses.less';
 import book_logo from'./img/book.svg';
 
@@ -12,7 +14,16 @@ const NextCourses = ({className, courses}) => (
       </div>
     </div>
   </div>
-)
+);
+
+NextCourses.defaultProps = {
+  className: '',
+  courses: [],
+};
+NextCourses.propTypes = {
+  className: PropTypes.string,
+  courses: PropTypes.array,
+};
 
 const Course = ({className, title, date, duration}) => (
   <div className={'course ' + className}>
@@ -23,6 +34,20 @@ const Course = ({className, title, date, duration}) => (
     </div>
     <img src={book_logo} className='course__img' alt='course'/>
   </div>
-)
+);
+
+Course.defaultProps = {
+  className: '',
+  title: '',
+  date: '',
+  duration: '',
+};
+Course.propTypes = {
+  className: PropTypes.string,
+  title: PropTypes.string,
+  date: PropTypes.string,
+  duration: PropTypes.string,
+};
+
 
 export default NextCourses;
