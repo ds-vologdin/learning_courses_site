@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from "prop-types";
 
 import './less/MainPage.less';
 import NextCourses from './NextCourses';
@@ -7,9 +8,9 @@ import ButtonsMain from './ButtonsMain';
 import Work from './Work';
 import Teachers from './Teachers';
 import ModalSign from './Sign';
-import fetch_top_teachers_action from '../actions/fetch_top_teachers'
-import fetch_next_courses_action from '../actions/fetch_next_courses'
-import {SHOW_SIGN_FORM_ACTION, HIDE_SIGN_FORM_ACTION} from '../actions/sign_form'
+import fetch_top_teachers_action from '../actions/fetch_top_teachers';
+import fetch_next_courses_action from '../actions/fetch_next_courses';
+import {SHOW_SIGN_FORM_ACTION, HIDE_SIGN_FORM_ACTION} from '../actions/sign_form';
 
 
 class MainPage extends Component {
@@ -28,7 +29,20 @@ class MainPage extends Component {
       </div>
     );
   }
-}
+};
+
+MainPage.defaultProps = {
+  is_active_sign_form: false,
+  hide_sign_form: () => true,
+  courses: [],
+  teachers: [],
+};
+MainPage.propTypes = {
+  is_active_sign_form: PropTypes.bool,
+  hide_sign_form: PropTypes.func,
+  courses: PropTypes.array,
+  teachers: PropTypes.array,
+};
 
 export default connect(
   state => ({
