@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from "prop-types";
+
 import './less/Work.less';
 
 import ic_company_0 from './img/ic_company_0.svg';
@@ -17,25 +19,26 @@ const Work = ({className}) => (
   <div className={'work ' + className}>
     <div className='work__title'>Нашим студентам предлагают работу</div>
     <div className='work__container'>
-      <WorkImage className='work__image' image={ic_company_0} is_active={false}/>
-      <WorkImage className='work__image' image={ic_company_1} is_active={false}/>
-      <WorkImage className='work__image' image={ic_company_2} is_active={false}/>
-      <WorkImage className='work__image' image={ic_company_3} is_active={true}/>
-      <WorkImage className='work__image' image={ic_company_4} is_active={true}/>
-      <WorkImage className='work__image' image={ic_company_5} is_active={true}/>
-      <WorkImage className='work__image' image={ic_company_6} is_active={true}/>
-      <WorkImage className='work__image' image={ic_company_7} is_active={true}/>
-      <WorkImage className='work__image' image={ic_company_8} is_active={false}/>
-      <WorkImage className='work__image' image={ic_company_9} is_active={false}/>
+      <img className='work__image' src={ic_company_0} alt='company'></img>
+      <img className='work__image' src={ic_company_1} alt='company'></img>
+      <img className='work__image' src={ic_company_2} alt='company'></img>
+      <img className='work__image work__image--active' src={ic_company_3} alt='company'></img>
+      <img className='work__image work__image--active' src={ic_company_4} alt='company'></img>
+      <img className='work__image work__image--active' src={ic_company_5} alt='company'></img>
+      <img className='work__image work__image--active' src={ic_company_6} alt='company'></img>
+      <img className='work__image work__image--active' src={ic_company_7} alt='company'></img>
+      <img className='work__image' src={ic_company_8} alt='company'></img>
+      <img className='work__image' src={ic_company_9} alt='company'></img>
     </div>
   </div>
-)
+);
 
-const WorkImage = ({className, image, is_active}) => {
-  if (is_active) {className += ' ' + className + '--active'}
-  return (
-    <img className={className} src={image} alt='company'></img>
-  )
-}
+Work.defaultProps = {
+  className: '',
+};
+Work.propTypes = {
+  className: PropTypes.string,
+};
+
 
 export default Work;
