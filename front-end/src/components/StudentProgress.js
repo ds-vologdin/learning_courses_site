@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from "prop-types";
 
 import fetch_student_progress_action from '../actions/student_progress';
 import './less/StudentProgress.less';
@@ -23,6 +24,10 @@ class StudentProgress extends Component {
 StudentProgress.defaultProps = {
   courses: [],
 };
+StudentProgress.propTypes = {
+  courses: PropTypes.array,
+};
+
 
 const CourseStudentProgress = ({name, tasks}) => (
   <div className='student-progress__course-tasks course-tasks'>
@@ -36,6 +41,10 @@ const CourseStudentProgress = ({name, tasks}) => (
 CourseStudentProgress.defaultProps = {
   name: '',
   tasks: [],
+};
+CourseStudentProgress.propTypes = {
+  name: PropTypes.string,
+  tasks: PropTypes.array,
 };
 
 
