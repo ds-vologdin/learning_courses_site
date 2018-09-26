@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
+import PropTypes from "prop-types";
 
 import fetch_user_courses_task_action from '../actions/user_course_tasks';
 import Task from './Task';
@@ -25,10 +26,13 @@ class TeacherControlTasks extends Component {
   }
 };
 
-
 TeacherControlTasks.defaultProps = {
   id_teacher: '',
   teacher_courses: [],
+};
+TeacherControlTasks.propTypes = {
+  id_teacher: PropTypes.string,
+  teacher_courses: PropTypes.array,
 };
 
 
