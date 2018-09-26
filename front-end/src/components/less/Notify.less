@@ -1,0 +1,28 @@
+@import "./brand.less";
+
+.notify {
+  margin: 30px 10px;
+  @media (min-width: @width-container-pc) {
+    margin: 30px 0 30px 50px;
+    max-width: @width-setting-input-block;
+    padding-right: 50px;
+    border-right: @border-ligth-green;
+  }
+  &__title {
+    font-size: @font-big;
+    font-weight: @font-bold;
+    margin-bottom: 30px;
+  }
+  &__item {
+    display: block;
+    text-align: left;
+    margin: 10px 0;
+  }
+  &__checkbox-label {
+    font-size: @font-medium;
+    padding-left: 10px;
+  }
+  &__checkbox {
+    transform: scale(2);
+  }
+}
