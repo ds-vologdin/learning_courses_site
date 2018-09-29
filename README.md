@@ -70,11 +70,11 @@ celery -A web_learning_course worker --loglevel=info
 
 Мониторить выполнение заданий удобно с помощью flower. Подробнее читайте [официальную документацию](https://flower.readthedocs.io/en/latest/).
 
-#Docker-compose
+# Docker-compose
 
 Проект можно запустить с помощью docker-compose.
 
-Предварительно необходимо создать docker образ. Например так:
+Предварительно необходимо создать docker образ (не забыв при этом про приватные конфиги). Например так:
 ```
 docker build -t dsvologdin/learning-courses-site:latest .
 ```
@@ -83,6 +83,10 @@ Cоздайте файл postgres.env
 POSTGRES_PASSWORD=ваш_пароль
 POSTGRES_USER=пользователь
 POSTGRES_DB=имя_БД
+```
+Создайте файл learning_courses.env, где задайте секретный ключ
+```
+DJANGO_SECRET_KEY='9#5qjd$7evu5zhyucw-_=80e(yjqid^hgzrf0g@3$k)7n%hke$'
 ```
 В каталоге с проектом и запустите
 ```

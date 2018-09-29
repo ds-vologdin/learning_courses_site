@@ -16,6 +16,8 @@ services:
     restart: always
   celery-worker:
     image: dsvologdin/learning-courses-site:latest
+    env_file:
+    - learning_courses.env
     depends_on:
       - "my-rabbit"
     command: celery -A web_learning_course worker --loglevel=info

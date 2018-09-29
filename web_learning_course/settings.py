@@ -123,14 +123,15 @@ class Base(Configuration):
             'rest_framework.authentication.SessionAuthentication',
         ),
     }
-    CELERY_BROKER_URL = 'pyamqp://my-rabbit'
+    CELERY_BROKER_URL = 'amqp://my-rabbit'
     CELERY_ACCEPT_CONTENT = ['json']
     CELERY_RESULT_BACKEND = 'django-db'
     CELERY_TASK_SERIALIZER = 'json'
 
     RAVEN_CONFIG = {
         'dsn': 'https://23f782b16c7d4b659ef6449432047b3c:d2dd8cb5808c4074ba15542168eb1241@sentry.io/1282075',
-        'release': raven.fetch_git_sha(BASE_DIR),
+        # в докер контейнере я не размещаю git репозиторий
+        # 'release': raven.fetch_git_sha(BASE_DIR),
     }
 
 
